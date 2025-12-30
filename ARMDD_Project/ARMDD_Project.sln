@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36511.14 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{C9674DCB-5085-4A16-B785-4C70DD1589BD}") = "ARMDD_Project", "ARMDD_Project\ARMDD_Project.dtproj", "{807B568F-5046-A23C-DC9F-B9B8ACAD97E8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Development|Default = Development|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{807B568F-5046-A23C-DC9F-B9B8ACAD97E8}.Development|Default.ActiveCfg = Development
+		{807B568F-5046-A23C-DC9F-B9B8ACAD97E8}.Development|Default.Build.0 = Development
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {47B88570-3A01-4375-8FFD-406B7B98253A}
+	EndGlobalSection
+EndGlobal
