@@ -6,7 +6,9 @@ BEGIN
         ProductID INT,
         SizeID INT,
         Quantity INT,
-        LineTotal MONEY
+        LineTotal MONEY,
+        CreateDate date,
+        LastUpdateDate date
     );
 END
 ELSE

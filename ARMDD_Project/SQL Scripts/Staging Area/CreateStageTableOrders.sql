@@ -5,8 +5,13 @@ BEGIN
         CustomerID INT,
         SiteID INT,
         OrderDate DATE,
+        CountryID int,
+        Address NVARCHAR(255),
         ShippingCost MONEY,
-        Currency NVARCHAR(3),
+        City NVARCHAR(255),
+        State NVARCHAR(255),
+        Zip float,
+        CurrencyID NVARCHAR(3),
         CreateDate DATETIME,
         LastUpdateDate DATETIME
     );

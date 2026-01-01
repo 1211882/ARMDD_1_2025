@@ -1,10 +1,11 @@
 IF NOT EXISTS (SELECT 1 FROM sys.tables WHERE name = 'stg_Currencies')
 BEGIN
     CREATE TABLE dbo.stg_Currencies (
-        CurrencyID INT,
-        CurrencyCode NVARCHAR(3),
-        CurrencyName NVARCHAR(50),
-        CurrencySymbol NVARCHAR(5)
+        CurrencyID NVARCHAR(3),
+        CurrencyName NVARCHAR(20),
+        CurrencySymbol NVARCHAR(3),
+        CreateDate date,
+        LastUpdateDate date
     );
 END
 ELSE

@@ -2,13 +2,18 @@
 <BuildLog xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <ProjectInfo>
     <Name>ARMDD_Project</Name>
-    <LastWriteTime>2026-01-01T12:12:57.1081466Z</LastWriteTime>
+    <LastWriteTime>2026-01-01T22:11:27.1058766Z</LastWriteTime>
     <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
   </ProjectInfo>
   <LastBuildInfos>
     <ProjectBuildItemInfo>
-      <Name>Data Mart ETL Package.dtsx</Name>
-      <LastWriteTime>2026-01-01T12:21:52.7360134Z</LastWriteTime>
+      <Name>Create SA Database and Tables.dtsx</Name>
+      <LastWriteTime>2026-01-01T22:11:27.0668949Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>Create DM Database and Tables.dtsx</Name>
+      <LastWriteTime>2026-01-01T22:11:27.0549882Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
   </LastBuildInfos>

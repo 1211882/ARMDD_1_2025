@@ -4,7 +4,10 @@ BEGIN
         CountryID INT,
         Name NVARCHAR(255),
         Code NVARCHAR(2),
-        EuroZone BIT
+        VAT float,
+        EuroZone BIT,
+        CreateDate date,
+        LastUpdateDate date
     );
 END
 ELSE

@@ -1,7 +1,8 @@
 IF NOT EXISTS (SELECT 1 FROM sys.tables WHERE name = 'stg_SitesInfo')
 BEGIN
     CREATE TABLE dbo.stg_SitesInfo (
-        SiteID INT,
+        SiteInfoID INT,
+        [Name] [nvarchar](255),
         StoreContact NVARCHAR(255),
         AddressLine1 NVARCHAR(255),
         AddressLine2 NVARCHAR(255),
@@ -13,7 +14,7 @@ BEGIN
         CountryID INT,
         CreateDate DATETIME,
         LastUpdateDate DATETIME
-    );
+        );
 END
 ELSE
     TRUNCATE TABLE dbo.stg_SitesInfo;

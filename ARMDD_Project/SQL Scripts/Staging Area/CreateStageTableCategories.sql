@@ -3,7 +3,9 @@ BEGIN
     CREATE TABLE dbo.stg_Categories (
         CategoryID INT,
         CategoryName NVARCHAR(255),
-        CategoryGender NCHAR(1)
+        CategoryGender NCHAR(1),
+        CreateDate date,
+        LastUpdateDate date
     );
 END
 ELSE

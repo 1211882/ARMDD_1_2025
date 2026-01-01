@@ -7,7 +7,6 @@ BEGIN
         BoxID INT,
         AvailablePortal BIT,
         Active BIT,
-        ProductVideoID INT,
         CreateDate DATETIME,
         LastUpdateDate DATETIME
     );

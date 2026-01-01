@@ -7,7 +7,9 @@ BEGIN
         BoxLength FLOAT,
         BoxWidth FLOAT,
         BoxVolWeight FLOAT,
-        BoxLocation NVARCHAR(255)
+        BoxLocation NVARCHAR(255),
+        CreateDate date,
+        LastUpdateDate date
     );
 END
 ELSE
