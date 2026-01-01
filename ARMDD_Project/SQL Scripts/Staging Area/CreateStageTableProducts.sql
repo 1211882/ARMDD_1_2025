@@ -1,6 +1,6 @@
-IF NOT EXISTS (SELECT 1 FROM sys.tables WHERE name = 'Products')
+IF NOT EXISTS (SELECT 1 FROM sys.tables WHERE name = 'stg_Products')
 BEGIN
-    CREATE TABLE dbo.Products (
+    CREATE TABLE dbo.stg_Products (
         ProductID INT,
         Description NVARCHAR(255),
         CategoryID INT,
@@ -13,4 +13,4 @@ BEGIN
     );
 END
 ELSE
-    TRUNCATE TABLE dbo.Products;
+    TRUNCATE TABLE dbo.stg_Products;

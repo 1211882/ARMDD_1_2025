@@ -1,6 +1,6 @@
-IF NOT EXISTS (SELECT 1 FROM sys.tables WHERE name = 'Boxes')
+IF NOT EXISTS (SELECT 1 FROM sys.tables WHERE name = 'stg_Boxes')
 BEGIN
-    CREATE TABLE dbo.Boxes (
+    CREATE TABLE dbo.stg_Boxes (
         BoxID INT,
         BoxName NVARCHAR(255),
         BoxHeight FLOAT,
@@ -11,4 +11,4 @@ BEGIN
     );
 END
 ELSE
-    TRUNCATE TABLE dbo.Boxes;
+    TRUNCATE TABLE dbo.stg_Boxes;

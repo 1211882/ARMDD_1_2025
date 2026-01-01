@@ -1,6 +1,6 @@
-IF NOT EXISTS (SELECT 1 FROM sys.tables WHERE name = 'Sites')
+IF NOT EXISTS (SELECT 1 FROM sys.tables WHERE name = 'stg_Sites')
 BEGIN
-    CREATE TABLE dbo.Sites (
+    CREATE TABLE dbo.stg_Sites (
         SiteID INT,
         Name NVARCHAR(255),
         SiteURL NVARCHAR(255),
@@ -13,4 +13,4 @@ BEGIN
     );
 END
 ELSE
-    TRUNCATE TABLE dbo.Sites;
+    TRUNCATE TABLE dbo.stg_Sites;

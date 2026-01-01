@@ -1,6 +1,6 @@
-IF NOT EXISTS (SELECT 1 FROM sys.tables WHERE name = 'Currencies')
+IF NOT EXISTS (SELECT 1 FROM sys.tables WHERE name = 'stg_Currencies')
 BEGIN
-    CREATE TABLE dbo.Currencies (
+    CREATE TABLE dbo.stg_Currencies (
         CurrencyID INT,
         CurrencyCode NVARCHAR(3),
         CurrencyName NVARCHAR(50),
@@ -8,4 +8,4 @@ BEGIN
     );
 END
 ELSE
-    TRUNCATE TABLE dbo.Currencies;
+    TRUNCATE TABLE dbo.stg_Currencies;

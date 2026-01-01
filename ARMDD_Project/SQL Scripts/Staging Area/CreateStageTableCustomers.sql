@@ -1,6 +1,6 @@
-IF NOT EXISTS (SELECT 1 FROM sys.tables WHERE name = 'Customers')
+IF NOT EXISTS (SELECT 1 FROM sys.tables WHERE name = 'stg_Customers')
 BEGIN
-    CREATE TABLE dbo.Customers (
+    CREATE TABLE dbo.stg_Customers (
         CustomerID INT,
         CountryID INT,
         DateOfBirth DATE,
@@ -13,4 +13,4 @@ BEGIN
     );
 END
 ELSE
-    TRUNCATE TABLE dbo.Customers;
+    TRUNCATE TABLE dbo.stg_Customers;

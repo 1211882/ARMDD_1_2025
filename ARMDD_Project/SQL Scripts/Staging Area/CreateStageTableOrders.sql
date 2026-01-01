@@ -1,6 +1,6 @@
-IF NOT EXISTS (SELECT 1 FROM sys.tables WHERE name = 'Orders')
+IF NOT EXISTS (SELECT 1 FROM sys.tables WHERE name = 'stg_Orders')
 BEGIN
-    CREATE TABLE dbo.Orders (
+    CREATE TABLE dbo.stg_Orders (
         OrderID INT,
         CustomerID INT,
         SiteID INT,
@@ -12,4 +12,4 @@ BEGIN
     );
 END
 ELSE
-    TRUNCATE TABLE dbo.Orders;
+    TRUNCATE TABLE dbo.stg_Orders;

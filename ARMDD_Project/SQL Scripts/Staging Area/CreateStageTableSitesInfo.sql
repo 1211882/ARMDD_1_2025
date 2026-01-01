@@ -1,6 +1,6 @@
-IF NOT EXISTS (SELECT 1 FROM sys.tables WHERE name = 'SitesInfo')
+IF NOT EXISTS (SELECT 1 FROM sys.tables WHERE name = 'stg_SitesInfo')
 BEGIN
-    CREATE TABLE dbo.SitesInfo (
+    CREATE TABLE dbo.stg_SitesInfo (
         SiteID INT,
         StoreContact NVARCHAR(255),
         AddressLine1 NVARCHAR(255),
@@ -16,4 +16,4 @@ BEGIN
     );
 END
 ELSE
-    TRUNCATE TABLE dbo.SitesInfo;
+    TRUNCATE TABLE dbo.stg_SitesInfo;

@@ -1,6 +1,6 @@
-IF NOT EXISTS (SELECT 1 FROM sys.tables WHERE name = 'OrdersLines')
+IF NOT EXISTS (SELECT 1 FROM sys.tables WHERE name = 'stg_OrdersLines')
 BEGIN
-    CREATE TABLE dbo.OrdersLines (
+    CREATE TABLE dbo.stg_OrdersLines (
         OrderLineID INT,
         OrderID INT,
         ProductID INT,
@@ -10,4 +10,4 @@ BEGIN
     );
 END
 ELSE
-    TRUNCATE TABLE dbo.OrdersLines;
+    TRUNCATE TABLE dbo.stg_OrdersLines;

@@ -1,6 +1,6 @@
-IF NOT EXISTS (SELECT 1 FROM sys.tables WHERE name = 'Sizes')
+IF NOT EXISTS (SELECT 1 FROM sys.tables WHERE name = 'stg_Sizes')
 BEGIN
-    CREATE TABLE dbo.Sizes (
+    CREATE TABLE dbo.stg_Sizes (
         SizeID INT,
         Name NVARCHAR(50),
         FriendlyName NVARCHAR(50),
@@ -10,4 +10,4 @@ BEGIN
     );
 END
 ELSE
-    TRUNCATE TABLE dbo.Sizes;
+    TRUNCATE TABLE dbo.stg_Sizes;

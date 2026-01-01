@@ -1,6 +1,6 @@
-IF NOT EXISTS (SELECT 1 FROM sys.tables WHERE name = 'CurrencyRates')
+IF NOT EXISTS (SELECT 1 FROM sys.tables WHERE name = 'stg_CurrencyRates')
 BEGIN
-    CREATE TABLE dbo.CurrencyRates (
+    CREATE TABLE dbo.stg_CurrencyRates (
         RateDate DATE,
         SourceCurrency NVARCHAR(3),
         TargetCurrency NVARCHAR(3),
@@ -8,4 +8,4 @@ BEGIN
     );
 END
 ELSE
-    TRUNCATE TABLE dbo.CurrencyRates;
+    TRUNCATE TABLE dbo.stg_CurrencyRates;
