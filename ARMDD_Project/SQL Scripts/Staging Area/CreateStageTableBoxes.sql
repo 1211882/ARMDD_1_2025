@@ -7,7 +7,7 @@ BEGIN
         BoxLength FLOAT,
         BoxWidth FLOAT,
         BoxVolWeight FLOAT,
-        BoxLocation FLOAT
+        BoxLocation NVARCHAR(255)
     );
 END
 ELSE

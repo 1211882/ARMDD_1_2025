@@ -7,12 +7,12 @@
   DTS:CreatorName="SECOND\diogo"
   DTS:DTSID="{6DA3C937-014A-42D6-A345-4CDCBC32FE20}"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="17.0.1010.2"
+  DTS:LastModifiedProductVersion="16.0.5685.0"
   DTS:LocaleID="1033"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="27"
-  DTS:VersionGUID="{CE0CDADD-5943-4D8B-9AD6-D9F3622A2440}">
+  DTS:VersionBuild="54"
+  DTS:VersionGUID="{B487B007-AD72-4752-8031-BFB06BB9FE1E}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -58,7 +58,7 @@
       DTS:DTSID="{30615211-C5DF-49C8-9C5C-5D0B7C8FF2D2}"
       DTS:ObjectName="Create DM Tables.sql">
       <DTS:PropertyExpression
-        DTS:Name="ConnectionString">@[User::SAScriptFilename]</DTS:PropertyExpression>
+        DTS:Name="ConnectionString">@[User::DMScriptFilename]</DTS:PropertyExpression>
       <DTS:ObjectData>
         <DTS:ConnectionManager />
       </DTS:ObjectData>
@@ -94,6 +94,16 @@
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="DatFilename">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{F3E66A59-773D-42A2-BA10-989EAAF7F6A4}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="DMScriptFilename">
       <DTS:VariableValue
         DTS:DataType="8"
         xml:space="preserve"></DTS:VariableValue>
@@ -195,10 +205,10 @@
       <DTS:ForEachVariableMappings>
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{63813B10-7808-4A21-93A0-A22E711B8A77}"
-          DTS:ObjectName="{63813B10-7808-4A21-93A0-A22E711B8A77}"
+          DTS:DTSID="{09CAA7AC-0161-4055-932B-088B32B84493}"
+          DTS:ObjectName="{09CAA7AC-0161-4055-932B-088B32B84493}"
           DTS:ValueIndex="0"
-          DTS:VariableName="User::SAScriptFilename" />
+          DTS:VariableName="User::DMScriptFilename" />
       </DTS:ForEachVariableMappings>
     </DTS:Executable>
     <DTS:Executable
@@ -250,8 +260,8 @@
       <DTS:ForEachVariableMappings>
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{C50AA48E-84A7-4FC2-92A8-0D2BC50EC6CA}"
-          DTS:ObjectName="{C50AA48E-84A7-4FC2-92A8-0D2BC50EC6CA}"
+          DTS:DTSID="{148BCB7A-49B6-409E-9047-95F3A54C7038}"
+          DTS:ObjectName="{148BCB7A-49B6-409E-9047-95F3A54C7038}"
           DTS:ValueIndex="0"
           DTS:VariableName="User::SAScriptFilename" />
       </DTS:ForEachVariableMappings>
@@ -295,7 +305,7 @@
                   dataType="System.String"
                   description="The SQL command to be executed."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=17.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -471,7 +481,7 @@
                   dataType="System.String"
                   description="The SQL command to be executed."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=17.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
                 <property
                   dataType="System.String"
                   description="The variable that contains the SQL command to be executed."
@@ -752,7 +762,7 @@
                   dataType="System.String"
                   description="The SQL command to be executed."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=17.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -889,7 +899,7 @@
                   dataType="System.String"
                   description="The SQL command to be executed."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=17.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
                 <property
                   dataType="System.String"
                   description="The variable that contains the SQL command to be executed."
@@ -1098,7 +1108,7 @@
                   dataType="System.String"
                   description="The SQL command to be executed."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=17.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -1245,7 +1255,7 @@
                   dataType="System.String"
                   description="The SQL command to be executed."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=17.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
                 <property
                   dataType="System.String"
                   description="The variable that contains the SQL command to be executed."
@@ -1490,7 +1500,7 @@
                   dataType="System.String"
                   description="The SQL command to be executed."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=17.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -1538,13 +1548,6 @@
                   name="OLE DB Destination Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Load stg_Currencies\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CurrencyID]"
-                      cachedDataType="wstr"
-                      cachedLength="3"
-                      cachedName="CurrencyID"
-                      externalMetadataColumnId="Package\Load stg_Currencies\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CurrencyID]"
-                      lineageId="Package\Load stg_Currencies\OLE DB Source.Outputs[OLE DB Source Output].Columns[CurrencyID]" />
-                    <inputColumn
                       refId="Package\Load stg_Currencies\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CurrencyName]"
                       cachedDataType="wstr"
                       cachedLength="20"
@@ -1558,6 +1561,13 @@
                       cachedName="CurrencySymbol"
                       externalMetadataColumnId="Package\Load stg_Currencies\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CurrencySymbol]"
                       lineageId="Package\Load stg_Currencies\OLE DB Source.Outputs[OLE DB Source Output].Columns[CurrencySymbol]" />
+                    <inputColumn
+                      refId="Package\Load stg_Currencies\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CurrencyID]"
+                      cachedDataType="wstr"
+                      cachedLength="3"
+                      cachedName="CurrencyID"
+                      externalMetadataColumnId="Package\Load stg_Currencies\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CurrencyCode]"
+                      lineageId="Package\Load stg_Currencies\OLE DB Source.Outputs[OLE DB Source Output].Columns[CurrencyID]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -1633,7 +1643,7 @@
                   dataType="System.String"
                   description="The SQL command to be executed."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=17.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
                 <property
                   dataType="System.String"
                   description="The variable that contains the SQL command to be executed."
@@ -1845,7 +1855,7 @@
                   dataType="System.String"
                   description="The SQL command to be executed."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=17.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -2043,7 +2053,7 @@
                   dataType="System.String"
                   description="The SQL command to be executed."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=17.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
                 <property
                   dataType="System.String"
                   description="The variable that contains the SQL command to be executed."
@@ -2384,43 +2394,35 @@
       <GraphLayout
         Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="206,42"
+          Size="206.4,41.6"
           Id="Package\Create Data Mart Database"
           TopLeft="490.714286758887,106.323529533758" />
         <NodeLayout
-          Size="220,42"
+          Size="220,41.6"
           Id="Package\Create Staging Area Database"
           TopLeft="68.5714287173987,109.352941080618" />
         <NodeLayout
-          Size="164,42"
+          Size="164,41.6"
           Id="Package\Foreach DM Create Table Script\Execute DM Script"
           TopLeft="51.0000010537252,27.6823527072437" />
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="270,127"
-          Size="270,170"
+          PanelSize="270.4,127.2"
+          Size="270.4,169.6"
           Id="Package\Foreach DM Create Table Script"
           TopLeft="466.428572421476,189.676470637168" />
         <NodeLayout
-          Size="161,42"
+          Size="160.8,41.6"
           Id="Package\Foreach SA Create Table Script\Execute SA Script"
           TopLeft="51.0000010537252,27.6823527072437" />
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="270,127"
-          Size="270,170"
+          PanelSize="270.4,127.2"
+          Size="270.4,169.6"
           Id="Package\Foreach SA Create Table Script"
           TopLeft="44.2857143799869,192.705882184027" />
-        <NodeLayout
-          Size="175,42"
-          Id="Package\Load stg_Customers"
-          TopLeft="93,495" />
-        <NodeLayout
-          Size="204,42"
-          Id="Package\TRUNCATE stg_Custumers"
-          TopLeft="72,422" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
           TopLeft="179.028571548693,150.952941080618">
@@ -2465,28 +2467,30 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 2]"
-          TopLeft="176.642857189993,362.705882184027">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,59.294117815973"
-              Start="0,0"
-              End="0,51.794117815973">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,51.794117815973" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+        <NodeLayout
+          Size="152.8,41.6"
+          Id="Package\Load stg_Boxes"
+          TopLeft="102.777777777778,572.777777777778" />
+        <NodeLayout
+          Size="174.4,41.6"
+          Id="Package\Load stg_Categories"
+          TopLeft="92.2222222222224,652.777777777778" />
+        <NodeLayout
+          Size="169.6,41.6"
+          Id="Package\Load stg_Countries"
+          TopLeft="96.1111111111111,717.777777777778" />
+        <NodeLayout
+          Size="174.4,41.6"
+          Id="Package\Load stg_Currencies"
+          TopLeft="90,782.777777777778" />
+        <NodeLayout
+          Size="175.2,41.6"
+          Id="Package\Load stg_Customers"
+          TopLeft="93,495" />
+        <NodeLayout
+          Size="204,41.6"
+          Id="Package\TRUNCATE stg_Custumers"
+          TopLeft="72,422" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 3]"
           TopLeft="177.25,464">
@@ -2509,10 +2513,6 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="152.5,42"
-          Id="Package\Load stg_Boxes"
-          TopLeft="102.777777777778,572.777777777778" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 4]"
           TopLeft="179.763888888889,537">
@@ -2535,10 +2535,6 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="174.5,42"
-          Id="Package\Load stg_Categories"
-          TopLeft="92.2222222222224,652.777777777778" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 5]"
           TopLeft="179.25,614.777777777778">
@@ -2561,10 +2557,6 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="169.5,42"
-          Id="Package\Load stg_Countries"
-          TopLeft="96.1111111111111,717.777777777778" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 6]"
           TopLeft="180.166666666667,694.777777777778">
@@ -2587,10 +2579,6 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="174.5,42"
-          Id="Package\Load stg_Currencies"
-          TopLeft="90,782.777777777778" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 7]"
           TopLeft="179.055555555556,759.777777777778">
@@ -2613,36 +2601,20 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </Package>
-  <TaskHost
-    design-time-name="Package\Load stg_Customers">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
-        <NodeLayout
-          Size="150,42"
-          Id="Package\Load stg_Customers\OLE DB Source"
-          TopLeft="144.5,58.5" />
-        <NodeLayout
-          Size="171,42"
-          Id="Package\Load stg_Customers\OLE DB Destination"
-          TopLeft="131.5,154" />
         <EdgeLayout
-          Id="Package\Load stg_Customers.Paths[OLE DB Source Output]"
-          TopLeft="218.25,100.5">
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="176.642857189993,362.705882184027">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,53.5"
+              EndConnector="0,59.294117815973"
               Start="0,0"
-              End="0,46">
+              End="0,51.794117815973">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,46" />
+                    End="0,51.794117815973" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2653,46 +2625,20 @@
         </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
-  </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\Load stg_Customers\OLE DB Source">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Load stg_Customers\OLE DB Destination">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
+  </Package>
   <TaskHost
     design-time-name="Package\Load stg_Boxes">
     <LayoutInfo>
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="150,42"
-          Id="Package\Load stg_Boxes\OLE DB Source"
-          TopLeft="73,60" />
-        <NodeLayout
-          Size="171,42"
+          Size="171.2,41.6"
           Id="Package\Load stg_Boxes\OLE DB Destination"
           TopLeft="60,155.5" />
+        <NodeLayout
+          Size="150.4,41.6"
+          Id="Package\Load stg_Boxes\OLE DB Source"
+          TopLeft="73,60" />
         <EdgeLayout
           Id="Package\Load stg_Boxes.Paths[OLE DB Source Output]"
           TopLeft="146.75,102">
@@ -2718,45 +2664,19 @@
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\Load stg_Boxes\OLE DB Source">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Load stg_Boxes\OLE DB Destination">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
   <TaskHost
     design-time-name="Package\Load stg_Categories">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
-        <NodeLayout
-          Size="150,42"
-          Id="Package\Load stg_Categories\OLE DB Source"
-          TopLeft="73,60" />
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="171,42"
           Id="Package\Load stg_Categories\OLE DB Destination"
           TopLeft="60,155.5" />
+        <NodeLayout
+          Size="150,42"
+          Id="Package\Load stg_Categories\OLE DB Source"
+          TopLeft="73,60" />
         <EdgeLayout
           Id="Package\Load stg_Categories.Paths[OLE DB Source Output]"
           TopLeft="146.75,102">
@@ -2776,51 +2696,27 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\Load stg_Categories\OLE DB Source">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Load stg_Categories\OLE DB Destination">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
   <TaskHost
     design-time-name="Package\Load stg_Countries">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
-        <NodeLayout
-          Size="150,42"
-          Id="Package\Load stg_Countries\OLE DB Source"
-          TopLeft="73,60" />
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="171,42"
           Id="Package\Load stg_Countries\OLE DB Destination"
           TopLeft="60,155.5" />
+        <NodeLayout
+          Size="150,42"
+          Id="Package\Load stg_Countries\OLE DB Source"
+          TopLeft="73,60" />
         <EdgeLayout
           Id="Package\Load stg_Countries.Paths[OLE DB Source Output]"
           TopLeft="146.75,102">
@@ -2840,51 +2736,27 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\Load stg_Countries\OLE DB Source">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Load stg_Countries\OLE DB Destination">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
   <TaskHost
     design-time-name="Package\Load stg_Currencies">
     <LayoutInfo>
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="150,42"
-          Id="Package\Load stg_Currencies\OLE DB Source"
-          TopLeft="73,60" />
-        <NodeLayout
-          Size="171,42"
+          Size="171.2,41.6"
           Id="Package\Load stg_Currencies\OLE DB Destination"
           TopLeft="60,155.5" />
+        <NodeLayout
+          Size="150.4,41.6"
+          Id="Package\Load stg_Currencies\OLE DB Source"
+          TopLeft="73,60" />
         <EdgeLayout
           Id="Package\Load stg_Currencies.Paths[OLE DB Source Output]"
           TopLeft="146.75,102">
@@ -2911,19 +2783,6 @@
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Load stg_Currencies\OLE DB Source">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
     design-time-name="Package\Load stg_Currencies\OLE DB Destination">
     <Properties>
       <Property>
@@ -2936,5 +2795,45 @@
       </Property>
     </Properties>
   </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Load stg_Customers">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="171.2,41.6"
+          Id="Package\Load stg_Customers\OLE DB Destination"
+          TopLeft="131.5,154" />
+        <NodeLayout
+          Size="150.4,41.6"
+          Id="Package\Load stg_Customers\OLE DB Source"
+          TopLeft="144.5,58.5" />
+        <EdgeLayout
+          Id="Package\Load stg_Customers.Paths[OLE DB Source Output]"
+          TopLeft="218.25,100.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,53.5"
+              Start="0,0"
+              End="0,46">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,46" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
 </Objects>]]></DTS:DesignTimeProperties>
 </DTS:Executable>
