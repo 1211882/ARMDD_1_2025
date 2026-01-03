@@ -1,0 +1,3086 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="1/2/2026 2:43:50 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="HUGO"
+  DTS:CreatorName="HUGO\hugo7"
+  DTS:DTSID="{4C13C6F6-E1F0-4123-B3B0-691CF8BDA24C}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="17.0.1010.2"
+  DTS:LocaleID="2070"
+  DTS:ObjectName="Load Business Dimensions"
+  DTS:PackageType="5"
+  DTS:VersionBuild="30"
+  DTS:VersionGUID="{30B4079B-EC55-4228-B20A-8A7B8818B1C4}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[(local).ARMDD_DataMart]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{2D8DF18E-C0FF-4646-A294-C2C9DFD07FB6}"
+      DTS:ObjectName="(local).ARMDD_DataMart">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=(local);Initial Catalog=ARMDD_DataMart;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Application Name=SSIS-Load Business Dimensions-{2D8DF18E-C0FF-4646-A294-C2C9DFD07FB6}(local).ARMDD_DataMart;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[(local).ARMDD_StagingArea]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{926E90DA-E508-4024-A3E0-0AEBC63EF7F2}"
+      DTS:ObjectName="(local).ARMDD_StagingArea">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=(local);Initial Catalog=ARMDD_StagingArea;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Application Name=SSIS-Load Business Dimensions-{926E90DA-E508-4024-A3E0-0AEBC63EF7F2}(local).ARMDD_StagingArea;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Load Dim Currency"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{0C3CAF5D-D08E-40B3-9F58-5602EFC737E7}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Load Dim Currency"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Load Dim Currency\Currency"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="Currency"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[stg_Currencies]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=17.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load Dim Currency\Currency.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[(local).ARMDD_StagingArea]"
+                  connectionManagerRefId="Package.ConnectionManagers[(local).ARMDD_StagingArea]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Load Dim Currency\Currency.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load Dim Currency\Currency.Outputs[OLE DB Source Output].Columns[CurrencyID]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Dim Currency\Currency.Outputs[OLE DB Source Output].ExternalColumns[CurrencyID]"
+                      length="3"
+                      lineageId="Package\Load Dim Currency\Currency.Outputs[OLE DB Source Output].Columns[CurrencyID]"
+                      name="CurrencyID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load Dim Currency\Currency.Outputs[OLE DB Source Output].Columns[CurrencyName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Dim Currency\Currency.Outputs[OLE DB Source Output].ExternalColumns[CurrencyName]"
+                      length="20"
+                      lineageId="Package\Load Dim Currency\Currency.Outputs[OLE DB Source Output].Columns[CurrencyName]"
+                      name="CurrencyName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load Dim Currency\Currency.Outputs[OLE DB Source Output].Columns[CurrencySymbol]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Dim Currency\Currency.Outputs[OLE DB Source Output].ExternalColumns[CurrencySymbol]"
+                      length="3"
+                      lineageId="Package\Load Dim Currency\Currency.Outputs[OLE DB Source Output].Columns[CurrencySymbol]"
+                      name="CurrencySymbol"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Load Dim Currency\Currency.Outputs[OLE DB Source Output].ExternalColumns[CurrencyID]"
+                      dataType="wstr"
+                      length="3"
+                      name="CurrencyID" />
+                    <externalMetadataColumn
+                      refId="Package\Load Dim Currency\Currency.Outputs[OLE DB Source Output].ExternalColumns[CurrencyName]"
+                      dataType="wstr"
+                      length="20"
+                      name="CurrencyName" />
+                    <externalMetadataColumn
+                      refId="Package\Load Dim Currency\Currency.Outputs[OLE DB Source Output].ExternalColumns[CurrencySymbol]"
+                      dataType="wstr"
+                      length="3"
+                      name="CurrencySymbol" />
+                    <externalMetadataColumn
+                      refId="Package\Load Dim Currency\Currency.Outputs[OLE DB Source Output].ExternalColumns[CreateDate]"
+                      dataType="dbDate"
+                      name="CreateDate" />
+                    <externalMetadataColumn
+                      refId="Package\Load Dim Currency\Currency.Outputs[OLE DB Source Output].ExternalColumns[LastUpdateDate]"
+                      dataType="dbDate"
+                      name="LastUpdateDate" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Load Dim Currency\Currency.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load Dim Currency\Currency.Outputs[OLE DB Source Error Output].Columns[CurrencyID]"
+                      dataType="wstr"
+                      length="3"
+                      lineageId="Package\Load Dim Currency\Currency.Outputs[OLE DB Source Error Output].Columns[CurrencyID]"
+                      name="CurrencyID" />
+                    <outputColumn
+                      refId="Package\Load Dim Currency\Currency.Outputs[OLE DB Source Error Output].Columns[CurrencyName]"
+                      dataType="wstr"
+                      length="20"
+                      lineageId="Package\Load Dim Currency\Currency.Outputs[OLE DB Source Error Output].Columns[CurrencyName]"
+                      name="CurrencyName" />
+                    <outputColumn
+                      refId="Package\Load Dim Currency\Currency.Outputs[OLE DB Source Error Output].Columns[CurrencySymbol]"
+                      dataType="wstr"
+                      length="3"
+                      lineageId="Package\Load Dim Currency\Currency.Outputs[OLE DB Source Error Output].Columns[CurrencySymbol]"
+                      name="CurrencySymbol" />
+                    <outputColumn
+                      refId="Package\Load Dim Currency\Currency.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load Dim Currency\Currency.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load Dim Currency\Currency.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load Dim Currency\Currency.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load Dim Currency\Insert Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Insert Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[DimCurrency]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=17.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load Dim Currency\Insert Destination.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[(local).ARMDD_DataMart]"
+                  connectionManagerRefId="Package.ConnectionManagers[(local).ARMDD_DataMart]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Load Dim Currency\Insert Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load Dim Currency\Insert Destination.Inputs[OLE DB Destination Input].Columns[CurrencyID]"
+                      cachedDataType="wstr"
+                      cachedLength="3"
+                      cachedName="CurrencyID"
+                      externalMetadataColumnId="Package\Load Dim Currency\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[CurrencyID]"
+                      lineageId="Package\Load Dim Currency\Currency.Outputs[OLE DB Source Output].Columns[CurrencyID]" />
+                    <inputColumn
+                      refId="Package\Load Dim Currency\Insert Destination.Inputs[OLE DB Destination Input].Columns[CurrencyName]"
+                      cachedDataType="wstr"
+                      cachedLength="20"
+                      cachedName="CurrencyName"
+                      externalMetadataColumnId="Package\Load Dim Currency\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[CurrencyName]"
+                      lineageId="Package\Load Dim Currency\Currency.Outputs[OLE DB Source Output].Columns[CurrencyName]" />
+                    <inputColumn
+                      refId="Package\Load Dim Currency\Insert Destination.Inputs[OLE DB Destination Input].Columns[CurrencySymbol]"
+                      cachedDataType="wstr"
+                      cachedLength="3"
+                      cachedName="CurrencySymbol"
+                      externalMetadataColumnId="Package\Load Dim Currency\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[CurrencySymbol]"
+                      lineageId="Package\Load Dim Currency\Currency.Outputs[OLE DB Source Output].Columns[CurrencySymbol]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Load Dim Currency\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[CurrencyKey]"
+                      dataType="i4"
+                      name="CurrencyKey" />
+                    <externalMetadataColumn
+                      refId="Package\Load Dim Currency\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[CurrencyID]"
+                      dataType="wstr"
+                      length="3"
+                      name="CurrencyID" />
+                    <externalMetadataColumn
+                      refId="Package\Load Dim Currency\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[CurrencyName]"
+                      dataType="wstr"
+                      length="20"
+                      name="CurrencyName" />
+                    <externalMetadataColumn
+                      refId="Package\Load Dim Currency\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[CurrencySymbol]"
+                      dataType="wstr"
+                      length="3"
+                      name="CurrencySymbol" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load Dim Currency\Insert Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Load Dim Currency\Insert Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load Dim Currency\Insert Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load Dim Currency\Insert Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load Dim Currency\Insert Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load Dim Currency\Insert Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load Dim Currency\OLE DB Command"
+              componentClassID="Microsoft.OLEDBCommand"
+              contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+              description="Runs an SQL statement for each row in a data flow. For example, call a 'new employee setup' stored procedure for each row in the 'new employees' table. Note: running an SQL statement for each row of a large data flow may take a long time."
+              name="OLE DB Command"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=17.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">UPDATE [dbo].[DimCurrency] SET [CurrencyName] = ?,[CurrencySymbol] = ? WHERE [CurrencyID] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load Dim Currency\OLE DB Command.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[(local).ARMDD_DataMart]"
+                  connectionManagerRefId="Package.ConnectionManagers[(local).ARMDD_DataMart]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Load Dim Currency\OLE DB Command.Inputs[OLE DB Command Input]"
+                  errorOrTruncationOperation="Command Execution"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Command Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load Dim Currency\OLE DB Command.Inputs[OLE DB Command Input].Columns[CurrencyID]"
+                      cachedDataType="wstr"
+                      cachedLength="3"
+                      cachedName="CurrencyID"
+                      externalMetadataColumnId="Package\Load Dim Currency\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                      lineageId="Package\Load Dim Currency\Currency.Outputs[OLE DB Source Output].Columns[CurrencyID]" />
+                    <inputColumn
+                      refId="Package\Load Dim Currency\OLE DB Command.Inputs[OLE DB Command Input].Columns[CurrencyName]"
+                      cachedDataType="wstr"
+                      cachedLength="20"
+                      cachedName="CurrencyName"
+                      externalMetadataColumnId="Package\Load Dim Currency\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      lineageId="Package\Load Dim Currency\Currency.Outputs[OLE DB Source Output].Columns[CurrencyName]" />
+                    <inputColumn
+                      refId="Package\Load Dim Currency\OLE DB Command.Inputs[OLE DB Command Input].Columns[CurrencySymbol]"
+                      cachedDataType="wstr"
+                      cachedLength="3"
+                      cachedName="CurrencySymbol"
+                      externalMetadataColumnId="Package\Load Dim Currency\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      lineageId="Package\Load Dim Currency\Currency.Outputs[OLE DB Source Output].Columns[CurrencySymbol]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Load Dim Currency\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      dataType="wstr"
+                      length="20"
+                      name="Param_0">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Load Dim Currency\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      dataType="wstr"
+                      length="3"
+                      name="Param_1">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Load Dim Currency\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                      dataType="wstr"
+                      length="3"
+                      name="Param_2">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load Dim Currency\OLE DB Command.Outputs[OLE DB Command Output]"
+                  exclusionGroup="1"
+                  name="OLE DB Command Output"
+                  synchronousInputId="Package\Load Dim Currency\OLE DB Command.Inputs[OLE DB Command Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Load Dim Currency\OLE DB Command.Outputs[OLE DB Command Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Command Error Output"
+                  synchronousInputId="Package\Load Dim Currency\OLE DB Command.Inputs[OLE DB Command Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load Dim Currency\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load Dim Currency\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load Dim Currency\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load Dim Currency\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load Dim Currency\Slowly Changing Dimension"
+              componentClassID="Microsoft.SCD"
+              contactInfo="Slowly Changing Dimension;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;3"
+              description="Updates a SQL Server Analysis Services data warehouse dimension. Update dimension records that are already present and  insert dimension records that aren't. For example, update the DimProduct table of the AdventureWorksDW OLAP database with data from the Products table in the AdventureWorks OLTP database."
+              name="Slowly Changing Dimension"
+              version="3">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SELECT statement used to create a schema rowset."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=17.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT [CurrencyID], [CurrencyName], [CurrencySymbol] FROM [dbo].[DimCurrency]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the WHERE clause in the SELECT statement that selects the current row among rows with identical business keys."
+                  name="CurrentRowWhere"></property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether historical attribute updates are directed to the transformation output for changing attribute updates."
+                  name="UpdateChangingAttributeHistory">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the transformation fails when columns with fixed attributes contain changes."
+                  name="FailOnFixedAttributeChange">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the column name for the inferred member."
+                  name="InferredMemberIndicator"></property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether inferred member updates are detected."
+                  name="EnableInferredMember">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the transformation fails when a lookup of an existing record fails."
+                  name="FailOnLookupFailure">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies that all rows in the input are new or the transformation detects the change type."
+                  name="IncomingRowChangeType"
+                  typeConverter="IncomingRowChangeType">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load Dim Currency\Slowly Changing Dimension.Connections[LookupConnection]"
+                  connectionManagerID="Package.ConnectionManagers[(local).ARMDD_DataMart]"
+                  connectionManagerRefId="Package.ConnectionManagers[(local).ARMDD_DataMart]"
+                  description="Defines the connection to use for lookups in the dimension table"
+                  name="LookupConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Load Dim Currency\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]"
+                  name="Slowly Changing Dimension Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load Dim Currency\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[CurrencyID]"
+                      cachedDataType="wstr"
+                      cachedLength="3"
+                      cachedName="CurrencyID"
+                      externalMetadataColumnId="Package\Load Dim Currency\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[CurrencyID]"
+                      lineageId="Package\Load Dim Currency\Currency.Outputs[OLE DB Source Output].Columns[CurrencyID]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load Dim Currency\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[CurrencyName]"
+                      cachedDataType="wstr"
+                      cachedLength="20"
+                      cachedName="CurrencyName"
+                      externalMetadataColumnId="Package\Load Dim Currency\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[CurrencyName]"
+                      lineageId="Package\Load Dim Currency\Currency.Outputs[OLE DB Source Output].Columns[CurrencyName]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load Dim Currency\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[CurrencySymbol]"
+                      cachedDataType="wstr"
+                      cachedLength="3"
+                      cachedName="CurrencySymbol"
+                      externalMetadataColumnId="Package\Load Dim Currency\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[CurrencySymbol]"
+                      lineageId="Package\Load Dim Currency\Currency.Outputs[OLE DB Source Output].Columns[CurrencySymbol]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Load Dim Currency\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[CurrencyID]"
+                      dataType="wstr"
+                      length="3"
+                      name="CurrencyID" />
+                    <externalMetadataColumn
+                      refId="Package\Load Dim Currency\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[CurrencyName]"
+                      dataType="wstr"
+                      length="20"
+                      name="CurrencyName" />
+                    <externalMetadataColumn
+                      refId="Package\Load Dim Currency\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[CurrencySymbol]"
+                      dataType="wstr"
+                      length="3"
+                      name="CurrencySymbol" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load Dim Currency\Slowly Changing Dimension.Outputs[Unchanged Output]"
+                  description="Unchanged rows"
+                  exclusionGroup="1"
+                  name="Unchanged Output"
+                  synchronousInputId="Package\Load Dim Currency\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Load Dim Currency\Slowly Changing Dimension.Outputs[New Output]"
+                  description="New rows"
+                  exclusionGroup="1"
+                  name="New Output"
+                  synchronousInputId="Package\Load Dim Currency\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Load Dim Currency\Slowly Changing Dimension.Outputs[Fixed Attribute Output]"
+                  description="Rows with changes in columns tagged FixedAttribute"
+                  exclusionGroup="1"
+                  name="Fixed Attribute Output"
+                  synchronousInputId="Package\Load Dim Currency\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Load Dim Currency\Slowly Changing Dimension.Outputs[Changing Attribute Updates Output]"
+                  description="These rows contain new information for ChangingAttribute (Type 1) column changes"
+                  exclusionGroup="1"
+                  name="Changing Attribute Updates Output"
+                  synchronousInputId="Package\Load Dim Currency\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Load Dim Currency\Slowly Changing Dimension.Outputs[Historical Attribute Inserts Output]"
+                  description="HistoricalAttribute (Type 2) changes result in these new rows"
+                  exclusionGroup="2"
+                  name="Historical Attribute Inserts Output"
+                  synchronousInputId="Package\Load Dim Currency\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Load Dim Currency\Slowly Changing Dimension.Outputs[Inferred Member Updates Output]"
+                  description="Information to update unpopulated initial dimension row"
+                  exclusionGroup="1"
+                  name="Inferred Member Updates Output"
+                  synchronousInputId="Package\Load Dim Currency\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]">
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load Dim Currency\Spaces Check"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Spaces Check"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Load Dim Currency\Spaces Check.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load Dim Currency\Spaces Check.Inputs[Derived Column Input].Columns[CurrencyID]"
+                      cachedDataType="wstr"
+                      cachedLength="3"
+                      cachedName="CurrencyID"
+                      lineageId="Package\Load Dim Currency\Currency.Outputs[OLE DB Source Output].Columns[CurrencyID]" />
+                    <inputColumn
+                      refId="Package\Load Dim Currency\Spaces Check.Inputs[Derived Column Input].Columns[CurrencyName]"
+                      cachedDataType="wstr"
+                      cachedLength="20"
+                      cachedName="CurrencyName"
+                      lineageId="Package\Load Dim Currency\Currency.Outputs[OLE DB Source Output].Columns[CurrencyName]" />
+                    <inputColumn
+                      refId="Package\Load Dim Currency\Spaces Check.Inputs[Derived Column Input].Columns[CurrencySymbol]"
+                      cachedDataType="wstr"
+                      cachedLength="3"
+                      cachedName="CurrencySymbol"
+                      lineageId="Package\Load Dim Currency\Currency.Outputs[OLE DB Source Output].Columns[CurrencySymbol]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load Dim Currency\Spaces Check.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\Load Dim Currency\Spaces Check.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load Dim Currency\Spaces Check.Outputs[Derived Column Output].Columns[CurrencyIDClean]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="3"
+                      lineageId="Package\Load Dim Currency\Spaces Check.Outputs[Derived Column Output].Columns[CurrencyIDClean]"
+                      name="CurrencyIDClean"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[TRIM](#{Package\Load Dim Currency\Currency.Outputs[OLE DB Source Output].Columns[CurrencyID]})</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">TRIM(CurrencyID)</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load Dim Currency\Spaces Check.Outputs[Derived Column Output].Columns[CurrencyNameClean]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="20"
+                      lineageId="Package\Load Dim Currency\Spaces Check.Outputs[Derived Column Output].Columns[CurrencyNameClean]"
+                      name="CurrencyNameClean"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[TRIM](#{Package\Load Dim Currency\Currency.Outputs[OLE DB Source Output].Columns[CurrencyName]})</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">TRIM(CurrencyName)</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load Dim Currency\Spaces Check.Outputs[Derived Column Output].Columns[CurrencySymbolClean]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="3"
+                      lineageId="Package\Load Dim Currency\Spaces Check.Outputs[Derived Column Output].Columns[CurrencySymbolClean]"
+                      name="CurrencySymbolClean"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[TRIM](#{Package\Load Dim Currency\Currency.Outputs[OLE DB Source Output].Columns[CurrencySymbol]})</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">TRIM(CurrencySymbol)</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Load Dim Currency\Spaces Check.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\Load Dim Currency\Spaces Check.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load Dim Currency\Spaces Check.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load Dim Currency\Spaces Check.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load Dim Currency\Spaces Check.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load Dim Currency\Spaces Check.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Load Dim Currency.Paths[Changing Attribute Updates Output]"
+              endId="Package\Load Dim Currency\OLE DB Command.Inputs[OLE DB Command Input]"
+              name="Changing Attribute Updates Output"
+              startId="Package\Load Dim Currency\Slowly Changing Dimension.Outputs[Changing Attribute Updates Output]" />
+            <path
+              refId="Package\Load Dim Currency.Paths[Derived Column Output]"
+              endId="Package\Load Dim Currency\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]"
+              name="Derived Column Output"
+              startId="Package\Load Dim Currency\Spaces Check.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\Load Dim Currency.Paths[New Output]"
+              endId="Package\Load Dim Currency\Insert Destination.Inputs[OLE DB Destination Input]"
+              name="New Output"
+              startId="Package\Load Dim Currency\Slowly Changing Dimension.Outputs[New Output]" />
+            <path
+              refId="Package\Load Dim Currency.Paths[OLE DB Source Output]"
+              endId="Package\Load Dim Currency\Spaces Check.Inputs[Derived Column Input]"
+              name="OLE DB Source Output"
+              startId="Package\Load Dim Currency\Currency.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Load Dim Customer"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{629B26CE-434D-48F5-B582-68D5338FD0BD}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Load Dim Customer"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Load Dim Customer\OLE DB Source"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE DB Source"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[stg_Customers]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=17.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load Dim Customer\OLE DB Source.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[(local).ARMDD_StagingArea]"
+                  connectionManagerRefId="Package.ConnectionManagers[(local).ARMDD_StagingArea]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Load Dim Customer\OLE DB Source.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load Dim Customer\OLE DB Source.Outputs[OLE DB Source Output].Columns[CustomerID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Dim Customer\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CustomerID]"
+                      lineageId="Package\Load Dim Customer\OLE DB Source.Outputs[OLE DB Source Output].Columns[CustomerID]"
+                      name="CustomerID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load Dim Customer\OLE DB Source.Outputs[OLE DB Source Output].Columns[CountryID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Dim Customer\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CountryID]"
+                      lineageId="Package\Load Dim Customer\OLE DB Source.Outputs[OLE DB Source Output].Columns[CountryID]"
+                      name="CountryID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load Dim Customer\OLE DB Source.Outputs[OLE DB Source Output].Columns[DateOfBirth]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Dim Customer\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DateOfBirth]"
+                      lineageId="Package\Load Dim Customer\OLE DB Source.Outputs[OLE DB Source Output].Columns[DateOfBirth]"
+                      name="DateOfBirth"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load Dim Customer\OLE DB Source.Outputs[OLE DB Source Output].Columns[Gender]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Dim Customer\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Gender]"
+                      length="1"
+                      lineageId="Package\Load Dim Customer\OLE DB Source.Outputs[OLE DB Source Output].Columns[Gender]"
+                      name="Gender"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load Dim Customer\OLE DB Source.Outputs[OLE DB Source Output].Columns[GeographicRegion]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Dim Customer\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[GeographicRegion]"
+                      lineageId="Package\Load Dim Customer\OLE DB Source.Outputs[OLE DB Source Output].Columns[GeographicRegion]"
+                      name="GeographicRegion"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load Dim Customer\OLE DB Source.Outputs[OLE DB Source Output].Columns[Language]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Dim Customer\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Language]"
+                      length="2"
+                      lineageId="Package\Load Dim Customer\OLE DB Source.Outputs[OLE DB Source Output].Columns[Language]"
+                      name="Language"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load Dim Customer\OLE DB Source.Outputs[OLE DB Source Output].Columns[VipCustomer]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Dim Customer\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[VipCustomer]"
+                      lineageId="Package\Load Dim Customer\OLE DB Source.Outputs[OLE DB Source Output].Columns[VipCustomer]"
+                      name="VipCustomer"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load Dim Customer\OLE DB Source.Outputs[OLE DB Source Output].Columns[CreateDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Dim Customer\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CreateDate]"
+                      lineageId="Package\Load Dim Customer\OLE DB Source.Outputs[OLE DB Source Output].Columns[CreateDate]"
+                      name="CreateDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load Dim Customer\OLE DB Source.Outputs[OLE DB Source Output].Columns[LastUpdateDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Dim Customer\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[LastUpdateDate]"
+                      lineageId="Package\Load Dim Customer\OLE DB Source.Outputs[OLE DB Source Output].Columns[LastUpdateDate]"
+                      name="LastUpdateDate"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Load Dim Customer\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CustomerID]"
+                      dataType="i4"
+                      name="CustomerID" />
+                    <externalMetadataColumn
+                      refId="Package\Load Dim Customer\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CountryID]"
+                      dataType="i4"
+                      name="CountryID" />
+                    <externalMetadataColumn
+                      refId="Package\Load Dim Customer\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DateOfBirth]"
+                      dataType="dbDate"
+                      name="DateOfBirth" />
+                    <externalMetadataColumn
+                      refId="Package\Load Dim Customer\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Gender]"
+                      dataType="wstr"
+                      length="1"
+                      name="Gender" />
+                    <externalMetadataColumn
+                      refId="Package\Load Dim Customer\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[GeographicRegion]"
+                      dataType="i4"
+                      name="GeographicRegion" />
+                    <externalMetadataColumn
+                      refId="Package\Load Dim Customer\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Language]"
+                      dataType="wstr"
+                      length="2"
+                      name="Language" />
+                    <externalMetadataColumn
+                      refId="Package\Load Dim Customer\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[VipCustomer]"
+                      dataType="bool"
+                      name="VipCustomer" />
+                    <externalMetadataColumn
+                      refId="Package\Load Dim Customer\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CreateDate]"
+                      dataType="dbTimeStamp"
+                      name="CreateDate" />
+                    <externalMetadataColumn
+                      refId="Package\Load Dim Customer\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[LastUpdateDate]"
+                      dataType="dbTimeStamp"
+                      name="LastUpdateDate" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Load Dim Customer\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load Dim Customer\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CustomerID]"
+                      dataType="i4"
+                      lineageId="Package\Load Dim Customer\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CustomerID]"
+                      name="CustomerID" />
+                    <outputColumn
+                      refId="Package\Load Dim Customer\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CountryID]"
+                      dataType="i4"
+                      lineageId="Package\Load Dim Customer\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CountryID]"
+                      name="CountryID" />
+                    <outputColumn
+                      refId="Package\Load Dim Customer\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DateOfBirth]"
+                      dataType="dbDate"
+                      lineageId="Package\Load Dim Customer\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DateOfBirth]"
+                      name="DateOfBirth" />
+                    <outputColumn
+                      refId="Package\Load Dim Customer\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Gender]"
+                      dataType="wstr"
+                      length="1"
+                      lineageId="Package\Load Dim Customer\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Gender]"
+                      name="Gender" />
+                    <outputColumn
+                      refId="Package\Load Dim Customer\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[GeographicRegion]"
+                      dataType="i4"
+                      lineageId="Package\Load Dim Customer\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[GeographicRegion]"
+                      name="GeographicRegion" />
+                    <outputColumn
+                      refId="Package\Load Dim Customer\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Language]"
+                      dataType="wstr"
+                      length="2"
+                      lineageId="Package\Load Dim Customer\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Language]"
+                      name="Language" />
+                    <outputColumn
+                      refId="Package\Load Dim Customer\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[VipCustomer]"
+                      dataType="bool"
+                      lineageId="Package\Load Dim Customer\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[VipCustomer]"
+                      name="VipCustomer" />
+                    <outputColumn
+                      refId="Package\Load Dim Customer\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CreateDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Load Dim Customer\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CreateDate]"
+                      name="CreateDate" />
+                    <outputColumn
+                      refId="Package\Load Dim Customer\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[LastUpdateDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Load Dim Customer\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[LastUpdateDate]"
+                      name="LastUpdateDate" />
+                    <outputColumn
+                      refId="Package\Load Dim Customer\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load Dim Customer\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load Dim Customer\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load Dim Customer\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Load Dim Product"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{AF38F51B-2543-4447-BD19-104AB25D6FBE}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Load Dim Product"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Load Dim Shippment"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{FFB770A2-73B4-453C-8809-FC6B4026B66D}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Load Dim Shippment"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Load Dim Site"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{0AB4B910-1B75-4139-8810-67D0B15D3AD0}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Load Dim Site"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Load Dim Site\OLE DB Source"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE DB Source"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[stg_Sites]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=17.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load Dim Site\OLE DB Source.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[(local).ARMDD_StagingArea]"
+                  connectionManagerRefId="Package.ConnectionManagers[(local).ARMDD_StagingArea]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Load Dim Site\OLE DB Source.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load Dim Site\OLE DB Source.Outputs[OLE DB Source Output].Columns[SiteID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Dim Site\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SiteID]"
+                      lineageId="Package\Load Dim Site\OLE DB Source.Outputs[OLE DB Source Output].Columns[SiteID]"
+                      name="SiteID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load Dim Site\OLE DB Source.Outputs[OLE DB Source Output].Columns[Name]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Dim Site\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Name]"
+                      length="255"
+                      lineageId="Package\Load Dim Site\OLE DB Source.Outputs[OLE DB Source Output].Columns[Name]"
+                      name="Name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load Dim Site\OLE DB Source.Outputs[OLE DB Source Output].Columns[SiteURL]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Dim Site\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SiteURL]"
+                      length="255"
+                      lineageId="Package\Load Dim Site\OLE DB Source.Outputs[OLE DB Source Output].Columns[SiteURL]"
+                      name="SiteURL"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load Dim Site\OLE DB Source.Outputs[OLE DB Source Output].Columns[SiteName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Dim Site\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SiteName]"
+                      length="255"
+                      lineageId="Package\Load Dim Site\OLE DB Source.Outputs[OLE DB Source Output].Columns[SiteName]"
+                      name="SiteName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load Dim Site\OLE DB Source.Outputs[OLE DB Source Output].Columns[Initials]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Dim Site\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Initials]"
+                      length="3"
+                      lineageId="Package\Load Dim Site\OLE DB Source.Outputs[OLE DB Source Output].Columns[Initials]"
+                      name="Initials"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load Dim Site\OLE DB Source.Outputs[OLE DB Source Output].Columns[Currency]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Dim Site\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Currency]"
+                      length="3"
+                      lineageId="Package\Load Dim Site\OLE DB Source.Outputs[OLE DB Source Output].Columns[Currency]"
+                      name="Currency"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load Dim Site\OLE DB Source.Outputs[OLE DB Source Output].Columns[IsSite]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Dim Site\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[IsSite]"
+                      lineageId="Package\Load Dim Site\OLE DB Source.Outputs[OLE DB Source Output].Columns[IsSite]"
+                      name="IsSite"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load Dim Site\OLE DB Source.Outputs[OLE DB Source Output].Columns[CreateDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Dim Site\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CreateDate]"
+                      lineageId="Package\Load Dim Site\OLE DB Source.Outputs[OLE DB Source Output].Columns[CreateDate]"
+                      name="CreateDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load Dim Site\OLE DB Source.Outputs[OLE DB Source Output].Columns[LastUpdateDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Dim Site\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[LastUpdateDate]"
+                      lineageId="Package\Load Dim Site\OLE DB Source.Outputs[OLE DB Source Output].Columns[LastUpdateDate]"
+                      name="LastUpdateDate"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Load Dim Site\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SiteID]"
+                      dataType="i4"
+                      name="SiteID" />
+                    <externalMetadataColumn
+                      refId="Package\Load Dim Site\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Name]"
+                      dataType="wstr"
+                      length="255"
+                      name="Name" />
+                    <externalMetadataColumn
+                      refId="Package\Load Dim Site\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SiteURL]"
+                      dataType="wstr"
+                      length="255"
+                      name="SiteURL" />
+                    <externalMetadataColumn
+                      refId="Package\Load Dim Site\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SiteName]"
+                      dataType="wstr"
+                      length="255"
+                      name="SiteName" />
+                    <externalMetadataColumn
+                      refId="Package\Load Dim Site\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Initials]"
+                      dataType="wstr"
+                      length="3"
+                      name="Initials" />
+                    <externalMetadataColumn
+                      refId="Package\Load Dim Site\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Currency]"
+                      dataType="wstr"
+                      length="3"
+                      name="Currency" />
+                    <externalMetadataColumn
+                      refId="Package\Load Dim Site\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[IsSite]"
+                      dataType="bool"
+                      name="IsSite" />
+                    <externalMetadataColumn
+                      refId="Package\Load Dim Site\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CreateDate]"
+                      dataType="dbTimeStamp"
+                      name="CreateDate" />
+                    <externalMetadataColumn
+                      refId="Package\Load Dim Site\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[LastUpdateDate]"
+                      dataType="dbTimeStamp"
+                      name="LastUpdateDate" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Load Dim Site\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load Dim Site\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SiteID]"
+                      dataType="i4"
+                      lineageId="Package\Load Dim Site\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SiteID]"
+                      name="SiteID" />
+                    <outputColumn
+                      refId="Package\Load Dim Site\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Name]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Load Dim Site\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Name]"
+                      name="Name" />
+                    <outputColumn
+                      refId="Package\Load Dim Site\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SiteURL]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Load Dim Site\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SiteURL]"
+                      name="SiteURL" />
+                    <outputColumn
+                      refId="Package\Load Dim Site\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SiteName]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Load Dim Site\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SiteName]"
+                      name="SiteName" />
+                    <outputColumn
+                      refId="Package\Load Dim Site\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Initials]"
+                      dataType="wstr"
+                      length="3"
+                      lineageId="Package\Load Dim Site\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Initials]"
+                      name="Initials" />
+                    <outputColumn
+                      refId="Package\Load Dim Site\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Currency]"
+                      dataType="wstr"
+                      length="3"
+                      lineageId="Package\Load Dim Site\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Currency]"
+                      name="Currency" />
+                    <outputColumn
+                      refId="Package\Load Dim Site\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[IsSite]"
+                      dataType="bool"
+                      lineageId="Package\Load Dim Site\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[IsSite]"
+                      name="IsSite" />
+                    <outputColumn
+                      refId="Package\Load Dim Site\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CreateDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Load Dim Site\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CreateDate]"
+                      name="CreateDate" />
+                    <outputColumn
+                      refId="Package\Load Dim Site\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[LastUpdateDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Load Dim Site\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[LastUpdateDate]"
+                      name="LastUpdateDate" />
+                    <outputColumn
+                      refId="Package\Load Dim Site\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load Dim Site\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load Dim Site\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load Dim Site\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Load Dim Size"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{42C48236-7B95-47F6-BB1A-F3B19AE9FD14}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Load Dim Size"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Load Dim Size\Derived Column"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Derived Column"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Load Dim Size\Derived Column.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load Dim Size\Derived Column.Inputs[Derived Column Input].Columns[Name]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Name"
+                      lineageId="Package\Load Dim Size\Size.Outputs[OLE DB Source Output].Columns[Name]" />
+                    <inputColumn
+                      refId="Package\Load Dim Size\Derived Column.Inputs[Derived Column Input].Columns[FriendlyName]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="FriendlyName"
+                      lineageId="Package\Load Dim Size\Size.Outputs[OLE DB Source Output].Columns[FriendlyName]" />
+                    <inputColumn
+                      refId="Package\Load Dim Size\Derived Column.Inputs[Derived Column Input].Columns[RetailInvisible]"
+                      cachedDataType="bool"
+                      cachedName="RetailInvisible"
+                      lineageId="Package\Load Dim Size\Size.Outputs[OLE DB Source Output].Columns[RetailInvisible]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load Dim Size\Derived Column.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\Load Dim Size\Derived Column.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load Dim Size\Derived Column.Outputs[Derived Column Output].Columns[NameClean]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="255"
+                      lineageId="Package\Load Dim Size\Derived Column.Outputs[Derived Column Output].Columns[NameClean]"
+                      name="NameClean"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[TRIM](#{Package\Load Dim Size\Size.Outputs[OLE DB Source Output].Columns[Name]})</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">TRIM(Name)</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load Dim Size\Derived Column.Outputs[Derived Column Output].Columns[FriendlyNameClean]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="255"
+                      lineageId="Package\Load Dim Size\Derived Column.Outputs[Derived Column Output].Columns[FriendlyNameClean]"
+                      name="FriendlyNameClean"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[TRIM](#{Package\Load Dim Size\Size.Outputs[OLE DB Source Output].Columns[FriendlyName]})</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">TRIM(FriendlyName)</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load Dim Size\Derived Column.Outputs[Derived Column Output].Columns[RetailInvisibleClean]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Load Dim Size\Derived Column.Outputs[Derived Column Output].Columns[RetailInvisibleClean]"
+                      name="RetailInvisibleClean"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[ISNULL](#{Package\Load Dim Size\Size.Outputs[OLE DB Source Output].Columns[RetailInvisible]}) ?  FALSE  : #{Package\Load Dim Size\Size.Outputs[OLE DB Source Output].Columns[RetailInvisible]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">ISNULL(RetailInvisible) ?  FALSE  : RetailInvisible</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Load Dim Size\Derived Column.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\Load Dim Size\Derived Column.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load Dim Size\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load Dim Size\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load Dim Size\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load Dim Size\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load Dim Size\Insert Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Insert Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[DimSize]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=17.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load Dim Size\Insert Destination.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[(local).ARMDD_DataMart]"
+                  connectionManagerRefId="Package.ConnectionManagers[(local).ARMDD_DataMart]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Load Dim Size\Insert Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load Dim Size\Insert Destination.Inputs[OLE DB Destination Input].Columns[SizeID]"
+                      cachedDataType="i4"
+                      cachedName="SizeID"
+                      externalMetadataColumnId="Package\Load Dim Size\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[SizeID]"
+                      lineageId="Package\Load Dim Size\Size.Outputs[OLE DB Source Output].Columns[SizeID]" />
+                    <inputColumn
+                      refId="Package\Load Dim Size\Insert Destination.Inputs[OLE DB Destination Input].Columns[NameClean]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="NameClean"
+                      externalMetadataColumnId="Package\Load Dim Size\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Name]"
+                      lineageId="Package\Load Dim Size\Derived Column.Outputs[Derived Column Output].Columns[NameClean]" />
+                    <inputColumn
+                      refId="Package\Load Dim Size\Insert Destination.Inputs[OLE DB Destination Input].Columns[FriendlyNameClean]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="FriendlyNameClean"
+                      externalMetadataColumnId="Package\Load Dim Size\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[FriendlyName]"
+                      lineageId="Package\Load Dim Size\Derived Column.Outputs[Derived Column Output].Columns[FriendlyNameClean]" />
+                    <inputColumn
+                      refId="Package\Load Dim Size\Insert Destination.Inputs[OLE DB Destination Input].Columns[RetailInvisibleClean]"
+                      cachedDataType="bool"
+                      cachedName="RetailInvisibleClean"
+                      externalMetadataColumnId="Package\Load Dim Size\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[RetailInvisible]"
+                      lineageId="Package\Load Dim Size\Derived Column.Outputs[Derived Column Output].Columns[RetailInvisibleClean]" />
+                    <inputColumn
+                      refId="Package\Load Dim Size\Insert Destination.Inputs[OLE DB Destination Input].Columns[MinimunSizeAvailable]"
+                      cachedDataType="i4"
+                      cachedName="MinimunSizeAvailable"
+                      externalMetadataColumnId="Package\Load Dim Size\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[MinimumSizeAvailable]"
+                      lineageId="Package\Load Dim Size\Size.Outputs[OLE DB Source Output].Columns[MinimunSizeAvailable]" />
+                    <inputColumn
+                      refId="Package\Load Dim Size\Insert Destination.Inputs[OLE DB Destination Input].Columns[MaximunSizeAvailable]"
+                      cachedDataType="i4"
+                      cachedName="MaximunSizeAvailable"
+                      externalMetadataColumnId="Package\Load Dim Size\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[MaximumSizeAvailable]"
+                      lineageId="Package\Load Dim Size\Size.Outputs[OLE DB Source Output].Columns[MaximunSizeAvailable]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Load Dim Size\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[SizeKey]"
+                      dataType="i4"
+                      name="SizeKey" />
+                    <externalMetadataColumn
+                      refId="Package\Load Dim Size\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[SizeID]"
+                      dataType="i4"
+                      name="SizeID" />
+                    <externalMetadataColumn
+                      refId="Package\Load Dim Size\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Name]"
+                      dataType="wstr"
+                      length="255"
+                      name="Name" />
+                    <externalMetadataColumn
+                      refId="Package\Load Dim Size\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[FriendlyName]"
+                      dataType="wstr"
+                      length="255"
+                      name="FriendlyName" />
+                    <externalMetadataColumn
+                      refId="Package\Load Dim Size\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[RetailInvisible]"
+                      dataType="bool"
+                      name="RetailInvisible" />
+                    <externalMetadataColumn
+                      refId="Package\Load Dim Size\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[MinimumSizeAvailable]"
+                      dataType="i4"
+                      name="MinimumSizeAvailable" />
+                    <externalMetadataColumn
+                      refId="Package\Load Dim Size\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[MaximumSizeAvailable]"
+                      dataType="i4"
+                      name="MaximumSizeAvailable" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load Dim Size\Insert Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Load Dim Size\Insert Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load Dim Size\Insert Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load Dim Size\Insert Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load Dim Size\Insert Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load Dim Size\Insert Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load Dim Size\OLE DB Command"
+              componentClassID="Microsoft.OLEDBCommand"
+              contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+              description="Runs an SQL statement for each row in a data flow. For example, call a 'new employee setup' stored procedure for each row in the 'new employees' table. Note: running an SQL statement for each row of a large data flow may take a long time."
+              name="OLE DB Command"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=17.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">UPDATE [dbo].[DimSize] SET [FriendlyName] = ?,[MaximumSizeAvailable] = ?,[MinimumSizeAvailable] = ?,[Name] = ?,[RetailInvisible] = ? WHERE [SizeID] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load Dim Size\OLE DB Command.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[(local).ARMDD_DataMart]"
+                  connectionManagerRefId="Package.ConnectionManagers[(local).ARMDD_DataMart]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Load Dim Size\OLE DB Command.Inputs[OLE DB Command Input]"
+                  errorOrTruncationOperation="Command Execution"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Command Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load Dim Size\OLE DB Command.Inputs[OLE DB Command Input].Columns[FriendlyNameClean]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="FriendlyNameClean"
+                      externalMetadataColumnId="Package\Load Dim Size\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      lineageId="Package\Load Dim Size\Derived Column.Outputs[Derived Column Output].Columns[FriendlyNameClean]" />
+                    <inputColumn
+                      refId="Package\Load Dim Size\OLE DB Command.Inputs[OLE DB Command Input].Columns[MaximunSizeAvailable]"
+                      cachedDataType="i4"
+                      cachedName="MaximunSizeAvailable"
+                      externalMetadataColumnId="Package\Load Dim Size\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      lineageId="Package\Load Dim Size\Size.Outputs[OLE DB Source Output].Columns[MaximunSizeAvailable]" />
+                    <inputColumn
+                      refId="Package\Load Dim Size\OLE DB Command.Inputs[OLE DB Command Input].Columns[MinimunSizeAvailable]"
+                      cachedDataType="i4"
+                      cachedName="MinimunSizeAvailable"
+                      externalMetadataColumnId="Package\Load Dim Size\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                      lineageId="Package\Load Dim Size\Size.Outputs[OLE DB Source Output].Columns[MinimunSizeAvailable]" />
+                    <inputColumn
+                      refId="Package\Load Dim Size\OLE DB Command.Inputs[OLE DB Command Input].Columns[NameClean]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="NameClean"
+                      externalMetadataColumnId="Package\Load Dim Size\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                      lineageId="Package\Load Dim Size\Derived Column.Outputs[Derived Column Output].Columns[NameClean]" />
+                    <inputColumn
+                      refId="Package\Load Dim Size\OLE DB Command.Inputs[OLE DB Command Input].Columns[RetailInvisibleClean]"
+                      cachedDataType="bool"
+                      cachedName="RetailInvisibleClean"
+                      externalMetadataColumnId="Package\Load Dim Size\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
+                      lineageId="Package\Load Dim Size\Derived Column.Outputs[Derived Column Output].Columns[RetailInvisibleClean]" />
+                    <inputColumn
+                      refId="Package\Load Dim Size\OLE DB Command.Inputs[OLE DB Command Input].Columns[SizeID]"
+                      cachedDataType="i4"
+                      cachedName="SizeID"
+                      externalMetadataColumnId="Package\Load Dim Size\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_5]"
+                      lineageId="Package\Load Dim Size\Size.Outputs[OLE DB Source Output].Columns[SizeID]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Load Dim Size\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      dataType="wstr"
+                      length="255"
+                      name="Param_0">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Load Dim Size\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      dataType="i4"
+                      name="Param_1">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Load Dim Size\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                      dataType="i4"
+                      name="Param_2">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Load Dim Size\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                      dataType="wstr"
+                      length="255"
+                      name="Param_3">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Load Dim Size\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
+                      dataType="bool"
+                      name="Param_4">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Load Dim Size\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_5]"
+                      dataType="i4"
+                      name="Param_5">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load Dim Size\OLE DB Command.Outputs[OLE DB Command Output]"
+                  exclusionGroup="1"
+                  name="OLE DB Command Output"
+                  synchronousInputId="Package\Load Dim Size\OLE DB Command.Inputs[OLE DB Command Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Load Dim Size\OLE DB Command.Outputs[OLE DB Command Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Command Error Output"
+                  synchronousInputId="Package\Load Dim Size\OLE DB Command.Inputs[OLE DB Command Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load Dim Size\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load Dim Size\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load Dim Size\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load Dim Size\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load Dim Size\Size"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="Size"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[stg_Sizes]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=17.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load Dim Size\Size.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[(local).ARMDD_StagingArea]"
+                  connectionManagerRefId="Package.ConnectionManagers[(local).ARMDD_StagingArea]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Load Dim Size\Size.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load Dim Size\Size.Outputs[OLE DB Source Output].Columns[SizeID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Dim Size\Size.Outputs[OLE DB Source Output].ExternalColumns[SizeID]"
+                      lineageId="Package\Load Dim Size\Size.Outputs[OLE DB Source Output].Columns[SizeID]"
+                      name="SizeID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load Dim Size\Size.Outputs[OLE DB Source Output].Columns[Name]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Dim Size\Size.Outputs[OLE DB Source Output].ExternalColumns[Name]"
+                      length="255"
+                      lineageId="Package\Load Dim Size\Size.Outputs[OLE DB Source Output].Columns[Name]"
+                      name="Name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load Dim Size\Size.Outputs[OLE DB Source Output].Columns[FriendlyName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Dim Size\Size.Outputs[OLE DB Source Output].ExternalColumns[FriendlyName]"
+                      length="255"
+                      lineageId="Package\Load Dim Size\Size.Outputs[OLE DB Source Output].Columns[FriendlyName]"
+                      name="FriendlyName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load Dim Size\Size.Outputs[OLE DB Source Output].Columns[RetailInvisible]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Dim Size\Size.Outputs[OLE DB Source Output].ExternalColumns[RetailInvisible]"
+                      lineageId="Package\Load Dim Size\Size.Outputs[OLE DB Source Output].Columns[RetailInvisible]"
+                      name="RetailInvisible"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load Dim Size\Size.Outputs[OLE DB Source Output].Columns[MinimunSizeAvailable]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Dim Size\Size.Outputs[OLE DB Source Output].ExternalColumns[MinimunSizeAvailable]"
+                      lineageId="Package\Load Dim Size\Size.Outputs[OLE DB Source Output].Columns[MinimunSizeAvailable]"
+                      name="MinimunSizeAvailable"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load Dim Size\Size.Outputs[OLE DB Source Output].Columns[MaximunSizeAvailable]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Dim Size\Size.Outputs[OLE DB Source Output].ExternalColumns[MaximunSizeAvailable]"
+                      lineageId="Package\Load Dim Size\Size.Outputs[OLE DB Source Output].Columns[MaximunSizeAvailable]"
+                      name="MaximunSizeAvailable"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Load Dim Size\Size.Outputs[OLE DB Source Output].ExternalColumns[SizeID]"
+                      dataType="i4"
+                      name="SizeID" />
+                    <externalMetadataColumn
+                      refId="Package\Load Dim Size\Size.Outputs[OLE DB Source Output].ExternalColumns[Name]"
+                      dataType="wstr"
+                      length="255"
+                      name="Name" />
+                    <externalMetadataColumn
+                      refId="Package\Load Dim Size\Size.Outputs[OLE DB Source Output].ExternalColumns[17]"
+                      dataType="r8"
+                      name="17" />
+                    <externalMetadataColumn
+                      refId="Package\Load Dim Size\Size.Outputs[OLE DB Source Output].ExternalColumns[18]"
+                      dataType="r8"
+                      name="18" />
+                    <externalMetadataColumn
+                      refId="Package\Load Dim Size\Size.Outputs[OLE DB Source Output].ExternalColumns[19]"
+                      dataType="r8"
+                      name="19" />
+                    <externalMetadataColumn
+                      refId="Package\Load Dim Size\Size.Outputs[OLE DB Source Output].ExternalColumns[20]"
+                      dataType="r8"
+                      name="20" />
+                    <externalMetadataColumn
+                      refId="Package\Load Dim Size\Size.Outputs[OLE DB Source Output].ExternalColumns[21]"
+                      dataType="r8"
+                      name="21" />
+                    <externalMetadataColumn
+                      refId="Package\Load Dim Size\Size.Outputs[OLE DB Source Output].ExternalColumns[22]"
+                      dataType="wstr"
+                      length="255"
+                      name="22" />
+                    <externalMetadataColumn
+                      refId="Package\Load Dim Size\Size.Outputs[OLE DB Source Output].ExternalColumns[23]"
+                      dataType="wstr"
+                      length="255"
+                      name="23" />
+                    <externalMetadataColumn
+                      refId="Package\Load Dim Size\Size.Outputs[OLE DB Source Output].ExternalColumns[24]"
+                      dataType="wstr"
+                      length="255"
+                      name="24" />
+                    <externalMetadataColumn
+                      refId="Package\Load Dim Size\Size.Outputs[OLE DB Source Output].ExternalColumns[25]"
+                      dataType="wstr"
+                      length="255"
+                      name="25" />
+                    <externalMetadataColumn
+                      refId="Package\Load Dim Size\Size.Outputs[OLE DB Source Output].ExternalColumns[26]"
+                      dataType="wstr"
+                      length="255"
+                      name="26" />
+                    <externalMetadataColumn
+                      refId="Package\Load Dim Size\Size.Outputs[OLE DB Source Output].ExternalColumns[27]"
+                      dataType="wstr"
+                      length="255"
+                      name="27" />
+                    <externalMetadataColumn
+                      refId="Package\Load Dim Size\Size.Outputs[OLE DB Source Output].ExternalColumns[28]"
+                      dataType="wstr"
+                      length="255"
+                      name="28" />
+                    <externalMetadataColumn
+                      refId="Package\Load Dim Size\Size.Outputs[OLE DB Source Output].ExternalColumns[29]"
+                      dataType="wstr"
+                      length="255"
+                      name="29" />
+                    <externalMetadataColumn
+                      refId="Package\Load Dim Size\Size.Outputs[OLE DB Source Output].ExternalColumns[30]"
+                      dataType="wstr"
+                      length="255"
+                      name="30" />
+                    <externalMetadataColumn
+                      refId="Package\Load Dim Size\Size.Outputs[OLE DB Source Output].ExternalColumns[31]"
+                      dataType="wstr"
+                      length="255"
+                      name="31" />
+                    <externalMetadataColumn
+                      refId="Package\Load Dim Size\Size.Outputs[OLE DB Source Output].ExternalColumns[32]"
+                      dataType="wstr"
+                      length="255"
+                      name="32" />
+                    <externalMetadataColumn
+                      refId="Package\Load Dim Size\Size.Outputs[OLE DB Source Output].ExternalColumns[33]"
+                      dataType="wstr"
+                      length="255"
+                      name="33" />
+                    <externalMetadataColumn
+                      refId="Package\Load Dim Size\Size.Outputs[OLE DB Source Output].ExternalColumns[34]"
+                      dataType="wstr"
+                      length="255"
+                      name="34" />
+                    <externalMetadataColumn
+                      refId="Package\Load Dim Size\Size.Outputs[OLE DB Source Output].ExternalColumns[35]"
+                      dataType="wstr"
+                      length="255"
+                      name="35" />
+                    <externalMetadataColumn
+                      refId="Package\Load Dim Size\Size.Outputs[OLE DB Source Output].ExternalColumns[36]"
+                      dataType="wstr"
+                      length="255"
+                      name="36" />
+                    <externalMetadataColumn
+                      refId="Package\Load Dim Size\Size.Outputs[OLE DB Source Output].ExternalColumns[37]"
+                      dataType="wstr"
+                      length="255"
+                      name="37" />
+                    <externalMetadataColumn
+                      refId="Package\Load Dim Size\Size.Outputs[OLE DB Source Output].ExternalColumns[38]"
+                      dataType="wstr"
+                      length="255"
+                      name="38" />
+                    <externalMetadataColumn
+                      refId="Package\Load Dim Size\Size.Outputs[OLE DB Source Output].ExternalColumns[39]"
+                      dataType="wstr"
+                      length="255"
+                      name="39" />
+                    <externalMetadataColumn
+                      refId="Package\Load Dim Size\Size.Outputs[OLE DB Source Output].ExternalColumns[40]"
+                      dataType="wstr"
+                      length="255"
+                      name="40" />
+                    <externalMetadataColumn
+                      refId="Package\Load Dim Size\Size.Outputs[OLE DB Source Output].ExternalColumns[41]"
+                      dataType="wstr"
+                      length="255"
+                      name="41" />
+                    <externalMetadataColumn
+                      refId="Package\Load Dim Size\Size.Outputs[OLE DB Source Output].ExternalColumns[42]"
+                      dataType="wstr"
+                      length="255"
+                      name="42" />
+                    <externalMetadataColumn
+                      refId="Package\Load Dim Size\Size.Outputs[OLE DB Source Output].ExternalColumns[43]"
+                      dataType="wstr"
+                      length="255"
+                      name="43" />
+                    <externalMetadataColumn
+                      refId="Package\Load Dim Size\Size.Outputs[OLE DB Source Output].ExternalColumns[44]"
+                      dataType="wstr"
+                      length="255"
+                      name="44" />
+                    <externalMetadataColumn
+                      refId="Package\Load Dim Size\Size.Outputs[OLE DB Source Output].ExternalColumns[45]"
+                      dataType="wstr"
+                      length="255"
+                      name="45" />
+                    <externalMetadataColumn
+                      refId="Package\Load Dim Size\Size.Outputs[OLE DB Source Output].ExternalColumns[46]"
+                      dataType="wstr"
+                      length="255"
+                      name="46" />
+                    <externalMetadataColumn
+                      refId="Package\Load Dim Size\Size.Outputs[OLE DB Source Output].ExternalColumns[47]"
+                      dataType="wstr"
+                      length="255"
+                      name="47" />
+                    <externalMetadataColumn
+                      refId="Package\Load Dim Size\Size.Outputs[OLE DB Source Output].ExternalColumns[48]"
+                      dataType="wstr"
+                      length="255"
+                      name="48" />
+                    <externalMetadataColumn
+                      refId="Package\Load Dim Size\Size.Outputs[OLE DB Source Output].ExternalColumns[49]"
+                      dataType="wstr"
+                      length="255"
+                      name="49" />
+                    <externalMetadataColumn
+                      refId="Package\Load Dim Size\Size.Outputs[OLE DB Source Output].ExternalColumns[50]"
+                      dataType="wstr"
+                      length="255"
+                      name="50" />
+                    <externalMetadataColumn
+                      refId="Package\Load Dim Size\Size.Outputs[OLE DB Source Output].ExternalColumns[51]"
+                      dataType="wstr"
+                      length="255"
+                      name="51" />
+                    <externalMetadataColumn
+                      refId="Package\Load Dim Size\Size.Outputs[OLE DB Source Output].ExternalColumns[52]"
+                      dataType="wstr"
+                      length="255"
+                      name="52" />
+                    <externalMetadataColumn
+                      refId="Package\Load Dim Size\Size.Outputs[OLE DB Source Output].ExternalColumns[FriendlyName]"
+                      dataType="wstr"
+                      length="255"
+                      name="FriendlyName" />
+                    <externalMetadataColumn
+                      refId="Package\Load Dim Size\Size.Outputs[OLE DB Source Output].ExternalColumns[RetailInvisible]"
+                      dataType="bool"
+                      name="RetailInvisible" />
+                    <externalMetadataColumn
+                      refId="Package\Load Dim Size\Size.Outputs[OLE DB Source Output].ExternalColumns[MinimunSizeAvailable]"
+                      dataType="i4"
+                      name="MinimunSizeAvailable" />
+                    <externalMetadataColumn
+                      refId="Package\Load Dim Size\Size.Outputs[OLE DB Source Output].ExternalColumns[MaximunSizeAvailable]"
+                      dataType="i4"
+                      name="MaximunSizeAvailable" />
+                    <externalMetadataColumn
+                      refId="Package\Load Dim Size\Size.Outputs[OLE DB Source Output].ExternalColumns[CreateDate]"
+                      dataType="dbDate"
+                      name="CreateDate" />
+                    <externalMetadataColumn
+                      refId="Package\Load Dim Size\Size.Outputs[OLE DB Source Output].ExternalColumns[LastUpdateDate]"
+                      dataType="dbDate"
+                      name="LastUpdateDate" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Load Dim Size\Size.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load Dim Size\Size.Outputs[OLE DB Source Error Output].Columns[SizeID]"
+                      dataType="i4"
+                      lineageId="Package\Load Dim Size\Size.Outputs[OLE DB Source Error Output].Columns[SizeID]"
+                      name="SizeID" />
+                    <outputColumn
+                      refId="Package\Load Dim Size\Size.Outputs[OLE DB Source Error Output].Columns[Name]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Load Dim Size\Size.Outputs[OLE DB Source Error Output].Columns[Name]"
+                      name="Name" />
+                    <outputColumn
+                      refId="Package\Load Dim Size\Size.Outputs[OLE DB Source Error Output].Columns[FriendlyName]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Load Dim Size\Size.Outputs[OLE DB Source Error Output].Columns[FriendlyName]"
+                      name="FriendlyName" />
+                    <outputColumn
+                      refId="Package\Load Dim Size\Size.Outputs[OLE DB Source Error Output].Columns[RetailInvisible]"
+                      dataType="bool"
+                      lineageId="Package\Load Dim Size\Size.Outputs[OLE DB Source Error Output].Columns[RetailInvisible]"
+                      name="RetailInvisible" />
+                    <outputColumn
+                      refId="Package\Load Dim Size\Size.Outputs[OLE DB Source Error Output].Columns[MinimunSizeAvailable]"
+                      dataType="i4"
+                      lineageId="Package\Load Dim Size\Size.Outputs[OLE DB Source Error Output].Columns[MinimunSizeAvailable]"
+                      name="MinimunSizeAvailable" />
+                    <outputColumn
+                      refId="Package\Load Dim Size\Size.Outputs[OLE DB Source Error Output].Columns[MaximunSizeAvailable]"
+                      dataType="i4"
+                      lineageId="Package\Load Dim Size\Size.Outputs[OLE DB Source Error Output].Columns[MaximunSizeAvailable]"
+                      name="MaximunSizeAvailable" />
+                    <outputColumn
+                      refId="Package\Load Dim Size\Size.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load Dim Size\Size.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load Dim Size\Size.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load Dim Size\Size.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load Dim Size\Slowly Changing Dimension"
+              componentClassID="Microsoft.SCD"
+              contactInfo="Slowly Changing Dimension;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;3"
+              description="Updates a SQL Server Analysis Services data warehouse dimension. Update dimension records that are already present and  insert dimension records that aren't. For example, update the DimProduct table of the AdventureWorksDW OLAP database with data from the Products table in the AdventureWorks OLTP database."
+              name="Slowly Changing Dimension"
+              version="3">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SELECT statement used to create a schema rowset."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=17.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT [FriendlyName], [MaximumSizeAvailable], [MinimumSizeAvailable], [Name], [RetailInvisible], [SizeID] FROM [dbo].[DimSize]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the WHERE clause in the SELECT statement that selects the current row among rows with identical business keys."
+                  name="CurrentRowWhere"></property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether historical attribute updates are directed to the transformation output for changing attribute updates."
+                  name="UpdateChangingAttributeHistory">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the transformation fails when columns with fixed attributes contain changes."
+                  name="FailOnFixedAttributeChange">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the column name for the inferred member."
+                  name="InferredMemberIndicator"></property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether inferred member updates are detected."
+                  name="EnableInferredMember">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the transformation fails when a lookup of an existing record fails."
+                  name="FailOnLookupFailure">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies that all rows in the input are new or the transformation detects the change type."
+                  name="IncomingRowChangeType"
+                  typeConverter="IncomingRowChangeType">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load Dim Size\Slowly Changing Dimension.Connections[LookupConnection]"
+                  connectionManagerID="Package.ConnectionManagers[(local).ARMDD_DataMart]"
+                  connectionManagerRefId="Package.ConnectionManagers[(local).ARMDD_DataMart]"
+                  description="Defines the connection to use for lookups in the dimension table"
+                  name="LookupConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Load Dim Size\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]"
+                  name="Slowly Changing Dimension Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load Dim Size\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[FriendlyNameClean]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="FriendlyNameClean"
+                      externalMetadataColumnId="Package\Load Dim Size\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[FriendlyName]"
+                      lineageId="Package\Load Dim Size\Derived Column.Outputs[Derived Column Output].Columns[FriendlyNameClean]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load Dim Size\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[MaximunSizeAvailable]"
+                      cachedDataType="i4"
+                      cachedName="MaximunSizeAvailable"
+                      externalMetadataColumnId="Package\Load Dim Size\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[MaximumSizeAvailable]"
+                      lineageId="Package\Load Dim Size\Size.Outputs[OLE DB Source Output].Columns[MaximunSizeAvailable]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load Dim Size\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[MinimunSizeAvailable]"
+                      cachedDataType="i4"
+                      cachedName="MinimunSizeAvailable"
+                      externalMetadataColumnId="Package\Load Dim Size\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[MinimumSizeAvailable]"
+                      lineageId="Package\Load Dim Size\Size.Outputs[OLE DB Source Output].Columns[MinimunSizeAvailable]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load Dim Size\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[NameClean]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="NameClean"
+                      externalMetadataColumnId="Package\Load Dim Size\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[Name]"
+                      lineageId="Package\Load Dim Size\Derived Column.Outputs[Derived Column Output].Columns[NameClean]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load Dim Size\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[RetailInvisibleClean]"
+                      cachedDataType="bool"
+                      cachedName="RetailInvisibleClean"
+                      externalMetadataColumnId="Package\Load Dim Size\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[RetailInvisible]"
+                      lineageId="Package\Load Dim Size\Derived Column.Outputs[Derived Column Output].Columns[RetailInvisibleClean]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load Dim Size\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[SizeID]"
+                      cachedDataType="i4"
+                      cachedName="SizeID"
+                      externalMetadataColumnId="Package\Load Dim Size\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[SizeID]"
+                      lineageId="Package\Load Dim Size\Size.Outputs[OLE DB Source Output].Columns[SizeID]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">1</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Load Dim Size\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[FriendlyName]"
+                      dataType="wstr"
+                      length="255"
+                      name="FriendlyName" />
+                    <externalMetadataColumn
+                      refId="Package\Load Dim Size\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[MaximumSizeAvailable]"
+                      dataType="i4"
+                      name="MaximumSizeAvailable" />
+                    <externalMetadataColumn
+                      refId="Package\Load Dim Size\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[MinimumSizeAvailable]"
+                      dataType="i4"
+                      name="MinimumSizeAvailable" />
+                    <externalMetadataColumn
+                      refId="Package\Load Dim Size\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[Name]"
+                      dataType="wstr"
+                      length="255"
+                      name="Name" />
+                    <externalMetadataColumn
+                      refId="Package\Load Dim Size\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[RetailInvisible]"
+                      dataType="bool"
+                      name="RetailInvisible" />
+                    <externalMetadataColumn
+                      refId="Package\Load Dim Size\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[SizeID]"
+                      dataType="i4"
+                      name="SizeID" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load Dim Size\Slowly Changing Dimension.Outputs[Unchanged Output]"
+                  description="Unchanged rows"
+                  exclusionGroup="1"
+                  name="Unchanged Output"
+                  synchronousInputId="Package\Load Dim Size\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Load Dim Size\Slowly Changing Dimension.Outputs[New Output]"
+                  description="New rows"
+                  exclusionGroup="1"
+                  name="New Output"
+                  synchronousInputId="Package\Load Dim Size\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Load Dim Size\Slowly Changing Dimension.Outputs[Fixed Attribute Output]"
+                  description="Rows with changes in columns tagged FixedAttribute"
+                  exclusionGroup="1"
+                  name="Fixed Attribute Output"
+                  synchronousInputId="Package\Load Dim Size\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Load Dim Size\Slowly Changing Dimension.Outputs[Changing Attribute Updates Output]"
+                  description="These rows contain new information for ChangingAttribute (Type 1) column changes"
+                  exclusionGroup="1"
+                  name="Changing Attribute Updates Output"
+                  synchronousInputId="Package\Load Dim Size\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Load Dim Size\Slowly Changing Dimension.Outputs[Historical Attribute Inserts Output]"
+                  description="HistoricalAttribute (Type 2) changes result in these new rows"
+                  exclusionGroup="2"
+                  name="Historical Attribute Inserts Output"
+                  synchronousInputId="Package\Load Dim Size\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Load Dim Size\Slowly Changing Dimension.Outputs[Inferred Member Updates Output]"
+                  description="Information to update unpopulated initial dimension row"
+                  exclusionGroup="1"
+                  name="Inferred Member Updates Output"
+                  synchronousInputId="Package\Load Dim Size\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]">
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Load Dim Size.Paths[Changing Attribute Updates Output]"
+              endId="Package\Load Dim Size\OLE DB Command.Inputs[OLE DB Command Input]"
+              name="Changing Attribute Updates Output"
+              startId="Package\Load Dim Size\Slowly Changing Dimension.Outputs[Changing Attribute Updates Output]" />
+            <path
+              refId="Package\Load Dim Size.Paths[Derived Column Output]"
+              endId="Package\Load Dim Size\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]"
+              name="Derived Column Output"
+              startId="Package\Load Dim Size\Derived Column.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\Load Dim Size.Paths[New Output]"
+              endId="Package\Load Dim Size\Insert Destination.Inputs[OLE DB Destination Input]"
+              name="New Output"
+              startId="Package\Load Dim Size\Slowly Changing Dimension.Outputs[New Output]" />
+            <path
+              refId="Package\Load Dim Size.Paths[OLE DB Source Output]"
+              endId="Package\Load Dim Size\Derived Column.Inputs[Derived Column Input]"
+              name="OLE DB Source Output"
+              startId="Package\Load Dim Size\Size.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="168,42"
+          Id="Package\Load Dim Currency"
+          TopLeft="445.5,194" />
+        <NodeLayout
+          Size="172,42"
+          Id="Package\Load Dim Customer"
+          TopLeft="117,45" />
+        <NodeLayout
+          Size="162,42"
+          Id="Package\Load Dim Product"
+          TopLeft="122.5,120.5" />
+        <NodeLayout
+          Size="177,42"
+          Id="Package\Load Dim Shippment"
+          TopLeft="114.5,190.5" />
+        <NodeLayout
+          Size="144,42"
+          Id="Package\Load Dim Site"
+          TopLeft="449.5,122.5" />
+        <NodeLayout
+          Size="146,42"
+          Id="Package\Load Dim Size"
+          TopLeft="448.5,46" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Load Dim Currency">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="121,42"
+          Id="Package\Load Dim Currency\Currency"
+          TopLeft="251.5,5.5" />
+        <NodeLayout
+          Size="143,42"
+          Id="Package\Load Dim Currency\Spaces Check"
+          TopLeft="240.5,107.5" />
+        <EdgeLayout
+          Id="Package\Load Dim Currency.Paths[OLE DB Source Output]"
+          TopLeft="312,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="209,42"
+          Id="Package\Load Dim Currency\Slowly Changing Dimension"
+          TopLeft="207.5,209.5" />
+        <EdgeLayout
+          Id="Package\Load Dim Currency.Paths[Derived Column Output]"
+          TopLeft="312,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="163,42"
+          Id="Package\Load Dim Currency\Insert Destination"
+          TopLeft="53.5000000000001,354.5" />
+        <EdgeLayout
+          Id="Package\Load Dim Currency.Paths[New Output]"
+          TopLeft="278.5,251.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-143.5,103"
+              Start="0,0"
+              End="-143.5,95.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,37.6695156695157" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,37.6695156695157"
+                    Point2="0,41.6695156695157"
+                    Point3="-4,41.6695156695157" />
+                  <mssgle:LineSegment
+                    End="-139.5,41.6695156695157" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-139.5,41.6695156695157"
+                    Point2="-143.5,41.6695156695157"
+                    Point3="-143.5,45.6695156695157" />
+                  <mssgle:LineSegment
+                    End="-143.5,95.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-98.84138671875,46.6695156695157,54.1827734375,11.43359375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="166,42"
+          Id="Package\Load Dim Currency\OLE DB Command"
+          TopLeft="342,317.5" />
+        <EdgeLayout
+          Id="Package\Load Dim Currency.Paths[Changing Attribute Updates Output]"
+          TopLeft="345.5,251.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="79.5,66"
+              Start="0,0"
+              End="79.5,58.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,22.7008547008547" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,22.7008547008547"
+                    Point2="0,26.7008547008547"
+                    Point3="4,26.7008547008547" />
+                  <mssgle:LineSegment
+                    End="75.5,26.7008547008547" />
+                  <mssgle:CubicBezierSegment
+                    Point1="75.5,26.7008547008547"
+                    Point2="79.5,26.7008547008547"
+                    Point3="79.5,30.7008547008547" />
+                  <mssgle:LineSegment
+                    End="79.5,58.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-38.78390625,31.7008547008547,157.0678125,11.6630859375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load Dim Currency\Currency">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Load Dim Customer">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="150,42"
+          Id="Package\Load Dim Customer\OLE DB Source"
+          TopLeft="134,21" />
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load Dim Customer\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Load Dim Site">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="150,42"
+          Id="Package\Load Dim Site\OLE DB Source"
+          TopLeft="193,69" />
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load Dim Site\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Load Dim Size">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="98,42"
+          Id="Package\Load Dim Size\Size"
+          TopLeft="263,5.5" />
+        <NodeLayout
+          Size="154,42"
+          Id="Package\Load Dim Size\Derived Column"
+          TopLeft="235,107.5" />
+        <EdgeLayout
+          Id="Package\Load Dim Size.Paths[OLE DB Source Output]"
+          TopLeft="312,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="209,42"
+          Id="Package\Load Dim Size\Slowly Changing Dimension"
+          TopLeft="207.5,209.5" />
+        <EdgeLayout
+          Id="Package\Load Dim Size.Paths[Derived Column Output]"
+          TopLeft="312,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="163,42"
+          Id="Package\Load Dim Size\Insert Destination"
+          TopLeft="90.5000000000001,310.5" />
+        <EdgeLayout
+          Id="Package\Load Dim Size.Paths[New Output]"
+          TopLeft="278.5,251.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-106.5,59"
+              Start="0,0"
+              End="-106.5,51.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,19.8689458689459" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,19.8689458689459"
+                    Point2="0,23.8689458689459"
+                    Point3="-4,23.8689458689459" />
+                  <mssgle:LineSegment
+                    End="-102.5,23.8689458689459" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-102.5,23.8689458689459"
+                    Point2="-106.5,23.8689458689459"
+                    Point3="-106.5,27.8689458689459" />
+                  <mssgle:LineSegment
+                    End="-106.5,51.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-80.34138671875,28.8689458689459,54.1827734375,11.43359375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="166,42"
+          Id="Package\Load Dim Size\OLE DB Command"
+          TopLeft="345,318.5" />
+        <EdgeLayout
+          Id="Package\Load Dim Size.Paths[Changing Attribute Updates Output]"
+          TopLeft="345.5,251.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="82.5,67"
+              Start="0,0"
+              End="82.5,59.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,23.1054131054131" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,23.1054131054131"
+                    Point2="0,27.1054131054131"
+                    Point3="4,27.1054131054131" />
+                  <mssgle:LineSegment
+                    End="78.5,27.1054131054131" />
+                  <mssgle:CubicBezierSegment
+                    Point1="78.5,27.1054131054131"
+                    Point2="82.5,27.1054131054131"
+                    Point3="82.5,31.1054131054131" />
+                  <mssgle:LineSegment
+                    End="82.5,59.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-37.28390625,32.1054131054131,157.0678125,11.6630859375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load Dim Size\Size">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load Dim Currency\Slowly Changing Dimension">
+    <Properties>
+      <Property>
+        <Name>SCDMetadata</Name>
+        <Value
+          type="q2:string">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SCDWizardMetadata xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&gt;
+  &lt;ConnectionID&gt;{2D8DF18E-C0FF-4646-A294-C2C9DFD07FB6}&lt;/ConnectionID&gt;
+  &lt;TableName&gt;[dbo].[DimCurrency]&lt;/TableName&gt;
+  &lt;InputToColumnsCollection&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Currency.Outputs[OLE DB Source Output].Columns[CurrencyID]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;CurrencyID&lt;/ColumnName&gt;
+      &lt;KeyType&gt;BusinessKey&lt;/KeyType&gt;
+      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Currency.Outputs[OLE DB Source Output].Columns[CurrencyName]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;CurrencyName&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Currency.Outputs[OLE DB Source Output].Columns[CurrencySymbol]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;CurrencySymbol&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+  &lt;/InputToColumnsCollection&gt;
+  &lt;GeneratedComponentsIdentificationStrings&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;Insert Destination&lt;/anyType&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;OLE DB Command&lt;/anyType&gt;
+  &lt;/GeneratedComponentsIdentificationStrings&gt;
+  &lt;FailFixedAttribute&gt;false&lt;/FailFixedAttribute&gt;
+  &lt;FailChangeAttribute&gt;false&lt;/FailChangeAttribute&gt;
+  &lt;UseStartEndDate&gt;false&lt;/UseStartEndDate&gt;
+  &lt;CurrentIndicatorColumn /&gt;
+  &lt;InferredIndicatorColumn /&gt;
+  &lt;ValueCurrent /&gt;
+  &lt;ValueExpired /&gt;
+  &lt;StartDateColumn /&gt;
+  &lt;EndDateColumn /&gt;
+  &lt;DateVariable /&gt;
+  &lt;EnableInferredSupport&gt;false&lt;/EnableInferredSupport&gt;
+&lt;/SCDWizardMetadata&gt;</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load Dim Size\Slowly Changing Dimension">
+    <Properties>
+      <Property>
+        <Name>SCDMetadata</Name>
+        <Value
+          type="q2:string">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SCDWizardMetadata xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&gt;
+  &lt;ConnectionID&gt;{2D8DF18E-C0FF-4646-A294-C2C9DFD07FB6}&lt;/ConnectionID&gt;
+  &lt;TableName&gt;[dbo].[DimSize]&lt;/TableName&gt;
+  &lt;InputToColumnsCollection&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Derived Column.Outputs[Derived Column Output].Columns[FriendlyNameClean]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;FriendlyName&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Size.Outputs[OLE DB Source Output].Columns[MaximunSizeAvailable]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;MaximumSizeAvailable&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Size.Outputs[OLE DB Source Output].Columns[MinimunSizeAvailable]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;MinimumSizeAvailable&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Derived Column.Outputs[Derived Column Output].Columns[NameClean]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;Name&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Derived Column.Outputs[Derived Column Output].Columns[RetailInvisibleClean]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;RetailInvisible&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Size.Outputs[OLE DB Source Output].Columns[SizeID]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;SizeID&lt;/ColumnName&gt;
+      &lt;KeyType&gt;BusinessKey&lt;/KeyType&gt;
+      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+  &lt;/InputToColumnsCollection&gt;
+  &lt;GeneratedComponentsIdentificationStrings&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;Insert Destination&lt;/anyType&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;OLE DB Command&lt;/anyType&gt;
+  &lt;/GeneratedComponentsIdentificationStrings&gt;
+  &lt;FailFixedAttribute&gt;false&lt;/FailFixedAttribute&gt;
+  &lt;FailChangeAttribute&gt;false&lt;/FailChangeAttribute&gt;
+  &lt;UseStartEndDate&gt;false&lt;/UseStartEndDate&gt;
+  &lt;CurrentIndicatorColumn /&gt;
+  &lt;InferredIndicatorColumn /&gt;
+  &lt;ValueCurrent /&gt;
+  &lt;ValueExpired /&gt;
+  &lt;StartDateColumn /&gt;
+  &lt;EndDateColumn /&gt;
+  &lt;DateVariable /&gt;
+  &lt;EnableInferredSupport&gt;false&lt;/EnableInferredSupport&gt;
+&lt;/SCDWizardMetadata&gt;</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

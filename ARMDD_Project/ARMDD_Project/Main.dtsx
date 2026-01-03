@@ -7,12 +7,12 @@
   DTS:CreatorName="SECOND\diogo"
   DTS:DTSID="{E8183DEC-AE5F-4378-BA98-459C27402F9D}"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="16.0.5685.0"
+  DTS:LastModifiedProductVersion="17.0.1010.2"
   DTS:LocaleID="1033"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="3"
-  DTS:VersionGUID="{42BEC755-6014-415A-9884-C6080EA5E71F}">
+  DTS:VersionBuild="4"
+  DTS:VersionGUID="{0FF4992F-765D-4F90-B340-DAB12D85CBB8}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -64,6 +64,7 @@
       <DTS:ObjectData>
         <ExecutePackageTask>
           <UseProjectReference>True</UseProjectReference>
+          <PackageName>Load Temporal Dimension.dtsx</PackageName>
         </ExecutePackageTask>
       </DTS:ObjectData>
     </DTS:Executable>
@@ -91,15 +92,15 @@
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="182.4,41.6"
-          Id="Package\Create SA Database, Tables and Load Data"
-          TopLeft="150.714286035117,71.1176469964861" />
-        <NodeLayout
-          Size="229.6,41.6"
+          Size="230,42"
           Id="Package\Create DM Database and Tables"
           TopLeft="453.571429536963,74.1764705232167" />
         <NodeLayout
-          Size="200.8,41.6"
+          Size="182,42"
+          Id="Package\Create SA Database, Tables and Load Data"
+          TopLeft="150.714286035117,71.1176469964861" />
+        <NodeLayout
+          Size="201,42"
           Id="Package\Load Temporal Dimension"
           TopLeft="470.714286716313,164.411764561769" />
         <EdgeLayout
