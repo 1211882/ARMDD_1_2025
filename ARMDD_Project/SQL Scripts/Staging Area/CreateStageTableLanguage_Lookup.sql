@@ -10,4 +10,5 @@ BEGIN
     INSERT dbo.Language_Lookup VALUES (N'US', N'English');
     INSERT dbo.Language_Lookup VALUES (N'BR', N'Brazilian');
     INSERT dbo.Language_Lookup VALUES (N'FR', N'French');
+    INSERT dbo.Language_Lookup VALUES ('UN', 'Unknown');
 END

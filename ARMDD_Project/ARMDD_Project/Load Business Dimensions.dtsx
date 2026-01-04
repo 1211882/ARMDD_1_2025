@@ -11,8 +11,8 @@
   DTS:LocaleID="2070"
   DTS:ObjectName="Load Business Dimensions"
   DTS:PackageType="5"
-  DTS:VersionBuild="62"
-  DTS:VersionGUID="{B54AD2D8-11D8-428E-AD61-C9F4BE857BF3}">
+  DTS:VersionBuild="76"
+  DTS:VersionGUID="{6F874969-C88E-471C-B27C-9309867148F9}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -1483,6 +1483,104 @@
                       refId="Package\Load Dim Customer\EffectiveDate.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
                       dataType="i4"
                       lineageId="Package\Load Dim Customer\EffectiveDate.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load Dim Customer\Fix Nulls"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Fix Nulls"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Load Dim Customer\Fix Nulls.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load Dim Customer\Fix Nulls.Inputs[Derived Column Input].Columns[DateOfBirth]"
+                      cachedDataType="dbDate"
+                      cachedName="DateOfBirth"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Load Dim Customer\OLE DB Source.Outputs[OLE DB Source Output].Columns[DateOfBirth]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[ISNULL](#{Package\Load Dim Customer\OLE DB Source.Outputs[OLE DB Source Output].Columns[DateOfBirth]}) ? (DT_DBDATE)"9999-12-31" : #{Package\Load Dim Customer\OLE DB Source.Outputs[OLE DB Source Output].Columns[DateOfBirth]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">ISNULL(DateOfBirth) ? (DT_DBDATE)"9999-12-31" : DateOfBirth</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load Dim Customer\Fix Nulls.Inputs[Derived Column Input].Columns[Language]"
+                      cachedDataType="wstr"
+                      cachedLength="2"
+                      cachedName="Language"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Load Dim Customer\OLE DB Source.Outputs[OLE DB Source Output].Columns[Language]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[ISNULL](#{Package\Load Dim Customer\OLE DB Source.Outputs[OLE DB Source Output].Columns[Language]}) || [LEN]([TRIM](#{Package\Load Dim Customer\OLE DB Source.Outputs[OLE DB Source Output].Columns[Language]})) == 0 ? "UN" : [TRIM](#{Package\Load Dim Customer\OLE DB Source.Outputs[OLE DB Source Output].Columns[Language]})</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">ISNULL(Language) || LEN(TRIM(Language)) == 0 ? "UN" : TRIM(Language)</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load Dim Customer\Fix Nulls.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\Load Dim Customer\Fix Nulls.Inputs[Derived Column Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Load Dim Customer\Fix Nulls.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\Load Dim Customer\Fix Nulls.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load Dim Customer\Fix Nulls.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load Dim Customer\Fix Nulls.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load Dim Customer\Fix Nulls.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load Dim Customer\Fix Nulls.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -3944,60 +4042,65 @@ WHERE CustomerID = ?
               name="Changing Attribute Updates Output"
               startId="Package\Load Dim Customer\Slowly Changing Dimension.Outputs[Changing Attribute Updates Output]" />
             <path
-              refId="Package\Load Dim Customer.Paths[Derived Column Output]"
-              endId="Package\Load Dim Customer\OLE DB Command.Inputs[OLE DB Command Input]"
+              refId="Package\Load Dim Customer.Paths[Derived Column Output4]"
+              endId="Package\Load Dim Customer\Fix Nulls.Inputs[Derived Column Input]"
               name="Derived Column Output"
-              startId="Package\Load Dim Customer\Derived Column.Outputs[Derived Column Output]" />
+              startId="Package\Load Dim Customer\Gender Transform.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\Load Dim Customer.Paths[Derived Column Output5]"
+              endId="Package\Load Dim Customer\EffectiveDate.Inputs[Derived Column Input]"
+              name="Derived Column Output"
+              startId="Package\Load Dim Customer\Fix Nulls.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\Load Dim Customer.Paths[Derived Column Output3]"
+              endId="Package\Load Dim Customer\Union All.Inputs[Union All Input 2]"
+              name="Derived Column Output"
+              startId="Package\Load Dim Customer\Add_Country_DQP.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\Load Dim Customer.Paths[Derived Column Output6]"
+              endId="Package\Load Dim Customer\Lookup Language.Inputs[Lookup Input]"
+              name="Derived Column Output"
+              startId="Package\Load Dim Customer\EffectiveDate.Outputs[Derived Column Output]" />
             <path
               refId="Package\Load Dim Customer.Paths[Derived Column Output1]"
               endId="Package\Load Dim Customer\Insert Destination.Inputs[OLE DB Destination Input]"
               name="Derived Column Output"
               startId="Package\Load Dim Customer\Derived Column 1.Outputs[Derived Column Output]" />
             <path
-              refId="Package\Load Dim Customer.Paths[Derived Column Output2]"
-              endId="Package\Load Dim Customer\EffectiveDate.Inputs[Derived Column Input]"
+              refId="Package\Load Dim Customer.Paths[Derived Column Output]"
+              endId="Package\Load Dim Customer\OLE DB Command.Inputs[OLE DB Command Input]"
               name="Derived Column Output"
-              startId="Package\Load Dim Customer\Gender Transform.Outputs[Derived Column Output]" />
+              startId="Package\Load Dim Customer\Derived Column.Outputs[Derived Column Output]" />
             <path
-              refId="Package\Load Dim Customer.Paths[Derived Column Output3]"
+              refId="Package\Load Dim Customer.Paths[Derived Column Output2]"
               endId="Package\Load Dim Customer\Union All.Inputs[Union All Input 1]"
               name="Derived Column Output"
               startId="Package\Load Dim Customer\Add_Language_DQP.Outputs[Derived Column Output]" />
-            <path
-              refId="Package\Load Dim Customer.Paths[Derived Column Output4]"
-              endId="Package\Load Dim Customer\Lookup Language.Inputs[Lookup Input]"
-              name="Derived Column Output"
-              startId="Package\Load Dim Customer\EffectiveDate.Outputs[Derived Column Output]" />
-            <path
-              refId="Package\Load Dim Customer.Paths[Derived Column Output5]"
-              endId="Package\Load Dim Customer\Union All.Inputs[Union All Input 2]"
-              name="Derived Column Output"
-              startId="Package\Load Dim Customer\Add_Country_DQP.Outputs[Derived Column Output]" />
             <path
               refId="Package\Load Dim Customer.Paths[Historical Attribute Inserts Output]"
               endId="Package\Load Dim Customer\Derived Column.Inputs[Derived Column Input]"
               name="Historical Attribute Inserts Output"
               startId="Package\Load Dim Customer\Slowly Changing Dimension.Outputs[Historical Attribute Inserts Output]" />
             <path
-              refId="Package\Load Dim Customer.Paths[Lookup Error Output1]"
+              refId="Package\Load Dim Customer.Paths[Lookup Error Output]"
               endId="Package\Load Dim Customer\Add_Language_DQP.Inputs[Derived Column Input]"
               name="Lookup Error Output"
               startId="Package\Load Dim Customer\Lookup Language.Outputs[Lookup Error Output]" />
             <path
-              refId="Package\Load Dim Customer.Paths[Lookup Error Output]"
+              refId="Package\Load Dim Customer.Paths[Lookup Error Output1]"
               endId="Package\Load Dim Customer\Add_Country_DQP.Inputs[Derived Column Input]"
               name="Lookup Error Output"
               startId="Package\Load Dim Customer\Lookup CountryID.Outputs[Lookup Error Output]" />
-            <path
-              refId="Package\Load Dim Customer.Paths[Lookup Match Output]"
-              endId="Package\Load Dim Customer\Lookup CountryID.Inputs[Lookup Input]"
-              name="Lookup Match Output"
-              startId="Package\Load Dim Customer\Lookup Language.Outputs[Lookup Match Output]" />
             <path
               refId="Package\Load Dim Customer.Paths[Lookup Match Output1]"
               endId="Package\Load Dim Customer\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]"
               name="Lookup Match Output"
               startId="Package\Load Dim Customer\Lookup CountryID.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\Load Dim Customer.Paths[Lookup Match Output]"
+              endId="Package\Load Dim Customer\Lookup CountryID.Inputs[Lookup Input]"
+              name="Lookup Match Output"
+              startId="Package\Load Dim Customer\Lookup Language.Outputs[Lookup Match Output]" />
             <path
               refId="Package\Load Dim Customer.Paths[New Output]"
               endId="Package\Load Dim Customer\Union All 1.Inputs[Union All Input 1]"
@@ -4664,6 +4767,111 @@ WHERE CustomerID = ?
               </outputs>
             </component>
             <component
+              refId="Package\Load Dim Size\MinSizeAvailableFix"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="MinSizeAvailableFix"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Load Dim Size\MinSizeAvailableFix.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load Dim Size\MinSizeAvailableFix.Inputs[Derived Column Input].Columns[MinimunSizeAvailable]"
+                      cachedDataType="i4"
+                      cachedName="MinimunSizeAvailable"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Load Dim Size\Size.Outputs[OLE DB Source Output].Columns[MinimunSizeAvailable]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">![ISNULL](#{Package\Load Dim Size\Size.Outputs[OLE DB Source Output].Columns[17]}) ? 17 : ![ISNULL](#{Package\Load Dim Size\Size.Outputs[OLE DB Source Output].Columns[18]}) ? 18 : ![ISNULL](#{Package\Load Dim Size\Size.Outputs[OLE DB Source Output].Columns[19]}) ? 19 : ![ISNULL](#{Package\Load Dim Size\Size.Outputs[OLE DB Source Output].Columns[20]}) ? 20 : ![ISNULL](#{Package\Load Dim Size\Size.Outputs[OLE DB Source Output].Columns[21]}) ? 21 : (![ISNULL](#{Package\Load Dim Size\Size.Outputs[OLE DB Source Output].Columns[22]}) &amp;&amp; [LEN]([TRIM](#{Package\Load Dim Size\Size.Outputs[OLE DB Source Output].Columns[22]})) &gt; 0 ? 22 : 23)</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">!ISNULL([17]) ? 17 : !ISNULL([18]) ? 18 : !ISNULL([19]) ? 19 : !ISNULL([20]) ? 20 : !ISNULL([21]) ? 21 : (!ISNULL([22]) &amp;&amp; LEN(TRIM([22])) &gt; 0 ? 22 : 23)</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load Dim Size\MinSizeAvailableFix.Inputs[Derived Column Input].Columns[17]"
+                      cachedDataType="r8"
+                      cachedName="17"
+                      lineageId="Package\Load Dim Size\Size.Outputs[OLE DB Source Output].Columns[17]" />
+                    <inputColumn
+                      refId="Package\Load Dim Size\MinSizeAvailableFix.Inputs[Derived Column Input].Columns[18]"
+                      cachedDataType="r8"
+                      cachedName="18"
+                      lineageId="Package\Load Dim Size\Size.Outputs[OLE DB Source Output].Columns[18]" />
+                    <inputColumn
+                      refId="Package\Load Dim Size\MinSizeAvailableFix.Inputs[Derived Column Input].Columns[19]"
+                      cachedDataType="r8"
+                      cachedName="19"
+                      lineageId="Package\Load Dim Size\Size.Outputs[OLE DB Source Output].Columns[19]" />
+                    <inputColumn
+                      refId="Package\Load Dim Size\MinSizeAvailableFix.Inputs[Derived Column Input].Columns[20]"
+                      cachedDataType="r8"
+                      cachedName="20"
+                      lineageId="Package\Load Dim Size\Size.Outputs[OLE DB Source Output].Columns[20]" />
+                    <inputColumn
+                      refId="Package\Load Dim Size\MinSizeAvailableFix.Inputs[Derived Column Input].Columns[21]"
+                      cachedDataType="r8"
+                      cachedName="21"
+                      lineageId="Package\Load Dim Size\Size.Outputs[OLE DB Source Output].Columns[21]" />
+                    <inputColumn
+                      refId="Package\Load Dim Size\MinSizeAvailableFix.Inputs[Derived Column Input].Columns[22]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="22"
+                      lineageId="Package\Load Dim Size\Size.Outputs[OLE DB Source Output].Columns[22]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load Dim Size\MinSizeAvailableFix.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\Load Dim Size\MinSizeAvailableFix.Inputs[Derived Column Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Load Dim Size\MinSizeAvailableFix.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\Load Dim Size\MinSizeAvailableFix.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load Dim Size\MinSizeAvailableFix.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load Dim Size\MinSizeAvailableFix.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load Dim Size\MinSizeAvailableFix.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load Dim Size\MinSizeAvailableFix.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
               refId="Package\Load Dim Size\OLE DB Command"
               componentClassID="Microsoft.OLEDBCommand"
               contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
@@ -4964,6 +5172,361 @@ WHERE CustomerID = ?
                       lineageId="Package\Load Dim Size\Size.Outputs[OLE DB Source Output].Columns[MaximunSizeAvailable]"
                       name="MaximunSizeAvailable"
                       truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load Dim Size\Size.Outputs[OLE DB Source Output].Columns[17]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Dim Size\Size.Outputs[OLE DB Source Output].ExternalColumns[17]"
+                      lineageId="Package\Load Dim Size\Size.Outputs[OLE DB Source Output].Columns[17]"
+                      name="17"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load Dim Size\Size.Outputs[OLE DB Source Output].Columns[18]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Dim Size\Size.Outputs[OLE DB Source Output].ExternalColumns[18]"
+                      lineageId="Package\Load Dim Size\Size.Outputs[OLE DB Source Output].Columns[18]"
+                      name="18"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load Dim Size\Size.Outputs[OLE DB Source Output].Columns[19]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Dim Size\Size.Outputs[OLE DB Source Output].ExternalColumns[19]"
+                      lineageId="Package\Load Dim Size\Size.Outputs[OLE DB Source Output].Columns[19]"
+                      name="19"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load Dim Size\Size.Outputs[OLE DB Source Output].Columns[20]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Dim Size\Size.Outputs[OLE DB Source Output].ExternalColumns[20]"
+                      lineageId="Package\Load Dim Size\Size.Outputs[OLE DB Source Output].Columns[20]"
+                      name="20"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load Dim Size\Size.Outputs[OLE DB Source Output].Columns[21]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Dim Size\Size.Outputs[OLE DB Source Output].ExternalColumns[21]"
+                      lineageId="Package\Load Dim Size\Size.Outputs[OLE DB Source Output].Columns[21]"
+                      name="21"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load Dim Size\Size.Outputs[OLE DB Source Output].Columns[22]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Dim Size\Size.Outputs[OLE DB Source Output].ExternalColumns[22]"
+                      length="255"
+                      lineageId="Package\Load Dim Size\Size.Outputs[OLE DB Source Output].Columns[22]"
+                      name="22"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load Dim Size\Size.Outputs[OLE DB Source Output].Columns[23]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Dim Size\Size.Outputs[OLE DB Source Output].ExternalColumns[23]"
+                      length="255"
+                      lineageId="Package\Load Dim Size\Size.Outputs[OLE DB Source Output].Columns[23]"
+                      name="23"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load Dim Size\Size.Outputs[OLE DB Source Output].Columns[24]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Dim Size\Size.Outputs[OLE DB Source Output].ExternalColumns[24]"
+                      length="255"
+                      lineageId="Package\Load Dim Size\Size.Outputs[OLE DB Source Output].Columns[24]"
+                      name="24"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load Dim Size\Size.Outputs[OLE DB Source Output].Columns[25]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Dim Size\Size.Outputs[OLE DB Source Output].ExternalColumns[25]"
+                      length="255"
+                      lineageId="Package\Load Dim Size\Size.Outputs[OLE DB Source Output].Columns[25]"
+                      name="25"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load Dim Size\Size.Outputs[OLE DB Source Output].Columns[26]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Dim Size\Size.Outputs[OLE DB Source Output].ExternalColumns[26]"
+                      length="255"
+                      lineageId="Package\Load Dim Size\Size.Outputs[OLE DB Source Output].Columns[26]"
+                      name="26"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load Dim Size\Size.Outputs[OLE DB Source Output].Columns[27]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Dim Size\Size.Outputs[OLE DB Source Output].ExternalColumns[27]"
+                      length="255"
+                      lineageId="Package\Load Dim Size\Size.Outputs[OLE DB Source Output].Columns[27]"
+                      name="27"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load Dim Size\Size.Outputs[OLE DB Source Output].Columns[28]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Dim Size\Size.Outputs[OLE DB Source Output].ExternalColumns[28]"
+                      length="255"
+                      lineageId="Package\Load Dim Size\Size.Outputs[OLE DB Source Output].Columns[28]"
+                      name="28"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load Dim Size\Size.Outputs[OLE DB Source Output].Columns[29]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Dim Size\Size.Outputs[OLE DB Source Output].ExternalColumns[29]"
+                      length="255"
+                      lineageId="Package\Load Dim Size\Size.Outputs[OLE DB Source Output].Columns[29]"
+                      name="29"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load Dim Size\Size.Outputs[OLE DB Source Output].Columns[30]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Dim Size\Size.Outputs[OLE DB Source Output].ExternalColumns[30]"
+                      length="255"
+                      lineageId="Package\Load Dim Size\Size.Outputs[OLE DB Source Output].Columns[30]"
+                      name="30"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load Dim Size\Size.Outputs[OLE DB Source Output].Columns[31]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Dim Size\Size.Outputs[OLE DB Source Output].ExternalColumns[31]"
+                      length="255"
+                      lineageId="Package\Load Dim Size\Size.Outputs[OLE DB Source Output].Columns[31]"
+                      name="31"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load Dim Size\Size.Outputs[OLE DB Source Output].Columns[32]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Dim Size\Size.Outputs[OLE DB Source Output].ExternalColumns[32]"
+                      length="255"
+                      lineageId="Package\Load Dim Size\Size.Outputs[OLE DB Source Output].Columns[32]"
+                      name="32"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load Dim Size\Size.Outputs[OLE DB Source Output].Columns[33]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Dim Size\Size.Outputs[OLE DB Source Output].ExternalColumns[33]"
+                      length="255"
+                      lineageId="Package\Load Dim Size\Size.Outputs[OLE DB Source Output].Columns[33]"
+                      name="33"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load Dim Size\Size.Outputs[OLE DB Source Output].Columns[34]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Dim Size\Size.Outputs[OLE DB Source Output].ExternalColumns[34]"
+                      length="255"
+                      lineageId="Package\Load Dim Size\Size.Outputs[OLE DB Source Output].Columns[34]"
+                      name="34"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load Dim Size\Size.Outputs[OLE DB Source Output].Columns[35]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Dim Size\Size.Outputs[OLE DB Source Output].ExternalColumns[35]"
+                      length="255"
+                      lineageId="Package\Load Dim Size\Size.Outputs[OLE DB Source Output].Columns[35]"
+                      name="35"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load Dim Size\Size.Outputs[OLE DB Source Output].Columns[36]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Dim Size\Size.Outputs[OLE DB Source Output].ExternalColumns[36]"
+                      length="255"
+                      lineageId="Package\Load Dim Size\Size.Outputs[OLE DB Source Output].Columns[36]"
+                      name="36"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load Dim Size\Size.Outputs[OLE DB Source Output].Columns[37]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Dim Size\Size.Outputs[OLE DB Source Output].ExternalColumns[37]"
+                      length="255"
+                      lineageId="Package\Load Dim Size\Size.Outputs[OLE DB Source Output].Columns[37]"
+                      name="37"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load Dim Size\Size.Outputs[OLE DB Source Output].Columns[38]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Dim Size\Size.Outputs[OLE DB Source Output].ExternalColumns[38]"
+                      length="255"
+                      lineageId="Package\Load Dim Size\Size.Outputs[OLE DB Source Output].Columns[38]"
+                      name="38"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load Dim Size\Size.Outputs[OLE DB Source Output].Columns[39]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Dim Size\Size.Outputs[OLE DB Source Output].ExternalColumns[39]"
+                      length="255"
+                      lineageId="Package\Load Dim Size\Size.Outputs[OLE DB Source Output].Columns[39]"
+                      name="39"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load Dim Size\Size.Outputs[OLE DB Source Output].Columns[40]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Dim Size\Size.Outputs[OLE DB Source Output].ExternalColumns[40]"
+                      length="255"
+                      lineageId="Package\Load Dim Size\Size.Outputs[OLE DB Source Output].Columns[40]"
+                      name="40"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load Dim Size\Size.Outputs[OLE DB Source Output].Columns[41]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Dim Size\Size.Outputs[OLE DB Source Output].ExternalColumns[41]"
+                      length="255"
+                      lineageId="Package\Load Dim Size\Size.Outputs[OLE DB Source Output].Columns[41]"
+                      name="41"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load Dim Size\Size.Outputs[OLE DB Source Output].Columns[42]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Dim Size\Size.Outputs[OLE DB Source Output].ExternalColumns[42]"
+                      length="255"
+                      lineageId="Package\Load Dim Size\Size.Outputs[OLE DB Source Output].Columns[42]"
+                      name="42"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load Dim Size\Size.Outputs[OLE DB Source Output].Columns[43]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Dim Size\Size.Outputs[OLE DB Source Output].ExternalColumns[43]"
+                      length="255"
+                      lineageId="Package\Load Dim Size\Size.Outputs[OLE DB Source Output].Columns[43]"
+                      name="43"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load Dim Size\Size.Outputs[OLE DB Source Output].Columns[44]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Dim Size\Size.Outputs[OLE DB Source Output].ExternalColumns[44]"
+                      length="255"
+                      lineageId="Package\Load Dim Size\Size.Outputs[OLE DB Source Output].Columns[44]"
+                      name="44"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load Dim Size\Size.Outputs[OLE DB Source Output].Columns[45]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Dim Size\Size.Outputs[OLE DB Source Output].ExternalColumns[45]"
+                      length="255"
+                      lineageId="Package\Load Dim Size\Size.Outputs[OLE DB Source Output].Columns[45]"
+                      name="45"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load Dim Size\Size.Outputs[OLE DB Source Output].Columns[46]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Dim Size\Size.Outputs[OLE DB Source Output].ExternalColumns[46]"
+                      length="255"
+                      lineageId="Package\Load Dim Size\Size.Outputs[OLE DB Source Output].Columns[46]"
+                      name="46"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load Dim Size\Size.Outputs[OLE DB Source Output].Columns[47]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Dim Size\Size.Outputs[OLE DB Source Output].ExternalColumns[47]"
+                      length="255"
+                      lineageId="Package\Load Dim Size\Size.Outputs[OLE DB Source Output].Columns[47]"
+                      name="47"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load Dim Size\Size.Outputs[OLE DB Source Output].Columns[48]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Dim Size\Size.Outputs[OLE DB Source Output].ExternalColumns[48]"
+                      length="255"
+                      lineageId="Package\Load Dim Size\Size.Outputs[OLE DB Source Output].Columns[48]"
+                      name="48"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load Dim Size\Size.Outputs[OLE DB Source Output].Columns[49]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Dim Size\Size.Outputs[OLE DB Source Output].ExternalColumns[49]"
+                      length="255"
+                      lineageId="Package\Load Dim Size\Size.Outputs[OLE DB Source Output].Columns[49]"
+                      name="49"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load Dim Size\Size.Outputs[OLE DB Source Output].Columns[50]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Dim Size\Size.Outputs[OLE DB Source Output].ExternalColumns[50]"
+                      length="255"
+                      lineageId="Package\Load Dim Size\Size.Outputs[OLE DB Source Output].Columns[50]"
+                      name="50"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load Dim Size\Size.Outputs[OLE DB Source Output].Columns[51]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Dim Size\Size.Outputs[OLE DB Source Output].ExternalColumns[51]"
+                      length="255"
+                      lineageId="Package\Load Dim Size\Size.Outputs[OLE DB Source Output].Columns[51]"
+                      name="51"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load Dim Size\Size.Outputs[OLE DB Source Output].Columns[52]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Dim Size\Size.Outputs[OLE DB Source Output].ExternalColumns[52]"
+                      length="255"
+                      lineageId="Package\Load Dim Size\Size.Outputs[OLE DB Source Output].Columns[52]"
+                      name="52"
+                      truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -5227,6 +5790,217 @@ WHERE CustomerID = ?
                       lineageId="Package\Load Dim Size\Size.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
+                    <outputColumn
+                      refId="Package\Load Dim Size\Size.Outputs[OLE DB Source Error Output].Columns[17]"
+                      dataType="r8"
+                      lineageId="Package\Load Dim Size\Size.Outputs[OLE DB Source Error Output].Columns[17]"
+                      name="17" />
+                    <outputColumn
+                      refId="Package\Load Dim Size\Size.Outputs[OLE DB Source Error Output].Columns[18]"
+                      dataType="r8"
+                      lineageId="Package\Load Dim Size\Size.Outputs[OLE DB Source Error Output].Columns[18]"
+                      name="18" />
+                    <outputColumn
+                      refId="Package\Load Dim Size\Size.Outputs[OLE DB Source Error Output].Columns[19]"
+                      dataType="r8"
+                      lineageId="Package\Load Dim Size\Size.Outputs[OLE DB Source Error Output].Columns[19]"
+                      name="19" />
+                    <outputColumn
+                      refId="Package\Load Dim Size\Size.Outputs[OLE DB Source Error Output].Columns[20]"
+                      dataType="r8"
+                      lineageId="Package\Load Dim Size\Size.Outputs[OLE DB Source Error Output].Columns[20]"
+                      name="20" />
+                    <outputColumn
+                      refId="Package\Load Dim Size\Size.Outputs[OLE DB Source Error Output].Columns[21]"
+                      dataType="r8"
+                      lineageId="Package\Load Dim Size\Size.Outputs[OLE DB Source Error Output].Columns[21]"
+                      name="21" />
+                    <outputColumn
+                      refId="Package\Load Dim Size\Size.Outputs[OLE DB Source Error Output].Columns[22]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Load Dim Size\Size.Outputs[OLE DB Source Error Output].Columns[22]"
+                      name="22" />
+                    <outputColumn
+                      refId="Package\Load Dim Size\Size.Outputs[OLE DB Source Error Output].Columns[23]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Load Dim Size\Size.Outputs[OLE DB Source Error Output].Columns[23]"
+                      name="23" />
+                    <outputColumn
+                      refId="Package\Load Dim Size\Size.Outputs[OLE DB Source Error Output].Columns[24]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Load Dim Size\Size.Outputs[OLE DB Source Error Output].Columns[24]"
+                      name="24" />
+                    <outputColumn
+                      refId="Package\Load Dim Size\Size.Outputs[OLE DB Source Error Output].Columns[25]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Load Dim Size\Size.Outputs[OLE DB Source Error Output].Columns[25]"
+                      name="25" />
+                    <outputColumn
+                      refId="Package\Load Dim Size\Size.Outputs[OLE DB Source Error Output].Columns[26]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Load Dim Size\Size.Outputs[OLE DB Source Error Output].Columns[26]"
+                      name="26" />
+                    <outputColumn
+                      refId="Package\Load Dim Size\Size.Outputs[OLE DB Source Error Output].Columns[27]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Load Dim Size\Size.Outputs[OLE DB Source Error Output].Columns[27]"
+                      name="27" />
+                    <outputColumn
+                      refId="Package\Load Dim Size\Size.Outputs[OLE DB Source Error Output].Columns[28]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Load Dim Size\Size.Outputs[OLE DB Source Error Output].Columns[28]"
+                      name="28" />
+                    <outputColumn
+                      refId="Package\Load Dim Size\Size.Outputs[OLE DB Source Error Output].Columns[29]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Load Dim Size\Size.Outputs[OLE DB Source Error Output].Columns[29]"
+                      name="29" />
+                    <outputColumn
+                      refId="Package\Load Dim Size\Size.Outputs[OLE DB Source Error Output].Columns[30]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Load Dim Size\Size.Outputs[OLE DB Source Error Output].Columns[30]"
+                      name="30" />
+                    <outputColumn
+                      refId="Package\Load Dim Size\Size.Outputs[OLE DB Source Error Output].Columns[31]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Load Dim Size\Size.Outputs[OLE DB Source Error Output].Columns[31]"
+                      name="31" />
+                    <outputColumn
+                      refId="Package\Load Dim Size\Size.Outputs[OLE DB Source Error Output].Columns[32]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Load Dim Size\Size.Outputs[OLE DB Source Error Output].Columns[32]"
+                      name="32" />
+                    <outputColumn
+                      refId="Package\Load Dim Size\Size.Outputs[OLE DB Source Error Output].Columns[33]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Load Dim Size\Size.Outputs[OLE DB Source Error Output].Columns[33]"
+                      name="33" />
+                    <outputColumn
+                      refId="Package\Load Dim Size\Size.Outputs[OLE DB Source Error Output].Columns[34]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Load Dim Size\Size.Outputs[OLE DB Source Error Output].Columns[34]"
+                      name="34" />
+                    <outputColumn
+                      refId="Package\Load Dim Size\Size.Outputs[OLE DB Source Error Output].Columns[35]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Load Dim Size\Size.Outputs[OLE DB Source Error Output].Columns[35]"
+                      name="35" />
+                    <outputColumn
+                      refId="Package\Load Dim Size\Size.Outputs[OLE DB Source Error Output].Columns[36]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Load Dim Size\Size.Outputs[OLE DB Source Error Output].Columns[36]"
+                      name="36" />
+                    <outputColumn
+                      refId="Package\Load Dim Size\Size.Outputs[OLE DB Source Error Output].Columns[37]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Load Dim Size\Size.Outputs[OLE DB Source Error Output].Columns[37]"
+                      name="37" />
+                    <outputColumn
+                      refId="Package\Load Dim Size\Size.Outputs[OLE DB Source Error Output].Columns[38]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Load Dim Size\Size.Outputs[OLE DB Source Error Output].Columns[38]"
+                      name="38" />
+                    <outputColumn
+                      refId="Package\Load Dim Size\Size.Outputs[OLE DB Source Error Output].Columns[39]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Load Dim Size\Size.Outputs[OLE DB Source Error Output].Columns[39]"
+                      name="39" />
+                    <outputColumn
+                      refId="Package\Load Dim Size\Size.Outputs[OLE DB Source Error Output].Columns[40]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Load Dim Size\Size.Outputs[OLE DB Source Error Output].Columns[40]"
+                      name="40" />
+                    <outputColumn
+                      refId="Package\Load Dim Size\Size.Outputs[OLE DB Source Error Output].Columns[41]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Load Dim Size\Size.Outputs[OLE DB Source Error Output].Columns[41]"
+                      name="41" />
+                    <outputColumn
+                      refId="Package\Load Dim Size\Size.Outputs[OLE DB Source Error Output].Columns[42]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Load Dim Size\Size.Outputs[OLE DB Source Error Output].Columns[42]"
+                      name="42" />
+                    <outputColumn
+                      refId="Package\Load Dim Size\Size.Outputs[OLE DB Source Error Output].Columns[43]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Load Dim Size\Size.Outputs[OLE DB Source Error Output].Columns[43]"
+                      name="43" />
+                    <outputColumn
+                      refId="Package\Load Dim Size\Size.Outputs[OLE DB Source Error Output].Columns[44]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Load Dim Size\Size.Outputs[OLE DB Source Error Output].Columns[44]"
+                      name="44" />
+                    <outputColumn
+                      refId="Package\Load Dim Size\Size.Outputs[OLE DB Source Error Output].Columns[45]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Load Dim Size\Size.Outputs[OLE DB Source Error Output].Columns[45]"
+                      name="45" />
+                    <outputColumn
+                      refId="Package\Load Dim Size\Size.Outputs[OLE DB Source Error Output].Columns[46]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Load Dim Size\Size.Outputs[OLE DB Source Error Output].Columns[46]"
+                      name="46" />
+                    <outputColumn
+                      refId="Package\Load Dim Size\Size.Outputs[OLE DB Source Error Output].Columns[47]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Load Dim Size\Size.Outputs[OLE DB Source Error Output].Columns[47]"
+                      name="47" />
+                    <outputColumn
+                      refId="Package\Load Dim Size\Size.Outputs[OLE DB Source Error Output].Columns[48]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Load Dim Size\Size.Outputs[OLE DB Source Error Output].Columns[48]"
+                      name="48" />
+                    <outputColumn
+                      refId="Package\Load Dim Size\Size.Outputs[OLE DB Source Error Output].Columns[49]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Load Dim Size\Size.Outputs[OLE DB Source Error Output].Columns[49]"
+                      name="49" />
+                    <outputColumn
+                      refId="Package\Load Dim Size\Size.Outputs[OLE DB Source Error Output].Columns[50]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Load Dim Size\Size.Outputs[OLE DB Source Error Output].Columns[50]"
+                      name="50" />
+                    <outputColumn
+                      refId="Package\Load Dim Size\Size.Outputs[OLE DB Source Error Output].Columns[51]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Load Dim Size\Size.Outputs[OLE DB Source Error Output].Columns[51]"
+                      name="51" />
+                    <outputColumn
+                      refId="Package\Load Dim Size\Size.Outputs[OLE DB Source Error Output].Columns[52]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Load Dim Size\Size.Outputs[OLE DB Source Error Output].Columns[52]"
+                      name="52" />
                   </outputColumns>
                   <externalMetadataColumns />
                 </output>
@@ -5465,6 +6239,11 @@ WHERE CustomerID = ?
             <path
               refId="Package\Load Dim Size.Paths[Derived Column Output]"
               endId="Package\Load Dim Size\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]"
+              name="Derived Column Output"
+              startId="Package\Load Dim Size\MinSizeAvailableFix.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\Load Dim Size.Paths[Derived Column Output1]"
+              endId="Package\Load Dim Size\MinSizeAvailableFix.Inputs[Derived Column Input]"
               name="Derived Column Output"
               startId="Package\Load Dim Size\Derived Column.Outputs[Derived Column Output]" />
             <path
@@ -5737,83 +6516,119 @@ WHERE CustomerID = ?
       <GraphLayout
         Capacity="64" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="130,42"
-          Id="Package\Load Dim Customer\Union All 1"
-          TopLeft="890,805.5" />
-        <NodeLayout
-          Size="163,42"
-          Id="Package\Load Dim Customer\Derived Column 1"
-          TopLeft="873.5,907.5" />
-        <NodeLayout
-          Size="164,42"
-          Id="Package\Load Dim Customer\Lookup CountryID"
-          TopLeft="840,450.5" />
-        <NodeLayout
-          Size="163,42"
-          Id="Package\Load Dim Customer\Insert Destination"
-          TopLeft="873.5,1009.5" />
-        <NodeLayout
-          Size="155,42"
-          Id="Package\Load Dim Customer\Customers_DQP"
-          TopLeft="1429.5,380.5" />
-        <NodeLayout
           Size="175,42"
           Id="Package\Load Dim Customer\OLE DB Command 1"
-          TopLeft="1165.5,683.5" />
+          TopLeft="1074,728.75" />
         <NodeLayout
           Size="121,42"
           Id="Package\Load Dim Customer\Union All"
-          TopLeft="1261.5,381.5" />
+          TopLeft="1357.5,401.75" />
+        <NodeLayout
+          Size="163,42"
+          Id="Package\Load Dim Customer\Derived Column 1"
+          TopLeft="827,994" />
         <NodeLayout
           Size="162,42"
           Id="Package\Load Dim Customer\Lookup Language"
-          TopLeft="854,311.5" />
+          TopLeft="858,353.5" />
         <NodeLayout
-          Size="154,42"
-          Id="Package\Load Dim Customer\Derived Column"
-          TopLeft="740,601.5" />
+          Size="209,42"
+          Id="Package\Load Dim Customer\Slowly Changing Dimension"
+          TopLeft="831.75,558.75" />
         <NodeLayout
           Size="165,42"
           Id="Package\Load Dim Customer\Gender Transform"
           TopLeft="852.5,107.5" />
         <NodeLayout
-          Size="175,42"
-          Id="Package\Load Dim Customer\Add_Language_DQP"
-          TopLeft="1043.5,314.5" />
-        <NodeLayout
-          Size="209,42"
-          Id="Package\Load Dim Customer\Slowly Changing Dimension"
-          TopLeft="814.5,533.5" />
+          Size="155,42"
+          Id="Package\Load Dim Customer\Customers_DQP"
+          TopLeft="1541.75,405.75" />
         <NodeLayout
           Size="150,42"
           Id="Package\Load Dim Customer\OLE DB Source"
-          TopLeft="860,5.49999999999977" />
+          TopLeft="861.25,27.9999999999998" />
+        <NodeLayout
+          Size="154,42"
+          Id="Package\Load Dim Customer\Derived Column"
+          TopLeft="726,685.5" />
         <NodeLayout
           Size="166,42"
           Id="Package\Load Dim Customer\OLE DB Command"
-          TopLeft="728,703.5" />
-        <NodeLayout
-          Size="166,42"
-          Id="Package\Load Dim Customer\Add_Country_DQP"
-          TopLeft="1056,451.5" />
+          TopLeft="714,787.5" />
         <NodeLayout
           Size="141,42"
           Id="Package\Load Dim Customer\EffectiveDate"
-          TopLeft="864.5,209.5" />
+          TopLeft="873.25,274.5" />
+        <NodeLayout
+          Size="175,42"
+          Id="Package\Load Dim Customer\Add_Language_DQP"
+          TopLeft="1157.75,358.25" />
+        <NodeLayout
+          Size="130,42"
+          Id="Package\Load Dim Customer\Union All 1"
+          TopLeft="849.75,890.75" />
+        <NodeLayout
+          Size="163,42"
+          Id="Package\Load Dim Customer\Insert Destination"
+          TopLeft="834.5,1088.5" />
+        <NodeLayout
+          Size="166,42"
+          Id="Package\Load Dim Customer\Add_Country_DQP"
+          TopLeft="1160.75,444.25" />
+        <NodeLayout
+          Size="164,42"
+          Id="Package\Load Dim Customer\Lookup CountryID"
+          TopLeft="857.25,448.5" />
         <EdgeLayout
-          Id="Package\Load Dim Customer.Paths[Union All Output 11]"
-          TopLeft="1382.5,402">
+          Id="Package\Load Dim Customer.Paths[Changing Attribute Updates Output]"
+          TopLeft="986.5,600.75">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="47,0"
+              EndConnector="175,128"
               Start="0,0"
-              End="39.5,0">
+              End="175,120.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="39.5,0" />
+                    End="0,39.7417322834646" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,39.7417322834646"
+                    Point2="0,43.7417322834646"
+                    Point3="4,43.7417322834646" />
+                  <mssgle:LineSegment
+                    End="171,43.7417322834646" />
+                  <mssgle:CubicBezierSegment
+                    Point1="171,43.7417322834646"
+                    Point2="175,43.7417322834646"
+                    Point3="175,47.7417322834646" />
+                  <mssgle:LineSegment
+                    End="175,120.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="8.96609374999997,48.7417322834646,157.0678125,11.6630859375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load Dim Customer.Paths[Union All Output 11]"
+          TopLeft="1478.5,424.75">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="63.25,0"
+              Start="0,0"
+              End="55.75,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="55.75,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -5824,18 +6639,18 @@ WHERE CustomerID = ?
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Load Dim Customer.Paths[Union All Output 1]"
-          TopLeft="955,847.5">
+          TopLeft="911.625,932.75">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,60.0000000000001"
+              EndConnector="0,61.25"
               Start="0,0"
-              End="0,52.5000000000001">
+              End="0,53.75">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,52.5000000000001" />
+                    End="0,53.75" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -5846,18 +6661,18 @@ WHERE CustomerID = ?
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Load Dim Customer.Paths[OLE DB Source Output]"
-          TopLeft="935,47.4999999999998">
+          TopLeft="935.625,69.9999999999998">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,60"
+              EndConnector="0,37.5000000000002"
               Start="0,0"
-              End="0,52.5">
+              End="0,30.0000000000002">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,52.5" />
+                    End="0,30.0000000000002" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -5868,30 +6683,30 @@ WHERE CustomerID = ?
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Load Dim Customer.Paths[OLE DB Command Output]"
-          TopLeft="811,745.5">
+          TopLeft="797,829.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="123.666666666667,60"
+              EndConnector="97.4166666666666,61.25"
               Start="0,0"
-              End="123.666666666667,52.5">
+              End="97.4166666666666,53.75">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,31.5623100303951" />
+                    End="0,32.3031914893617" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,31.5623100303951"
-                    Point2="0,35.5623100303951"
-                    Point3="4,35.5623100303951" />
+                    Point1="0,32.3031914893617"
+                    Point2="0,36.3031914893617"
+                    Point3="4,36.3031914893617" />
                   <mssgle:LineSegment
-                    End="119.666666666667,35.5623100303951" />
+                    End="93.4166666666666,36.3031914893617" />
                   <mssgle:CubicBezierSegment
-                    Point1="119.666666666667,35.5623100303951"
-                    Point2="123.666666666667,35.5623100303951"
-                    Point3="123.666666666667,39.5623100303951" />
+                    Point1="93.4166666666666,36.3031914893617"
+                    Point2="97.4166666666666,36.3031914893617"
+                    Point3="97.4166666666666,40.3031914893617" />
                   <mssgle:LineSegment
-                    End="123.666666666667,52.5" />
+                    End="97.4166666666666,53.75" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -5902,266 +6717,186 @@ WHERE CustomerID = ?
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Load Dim Customer.Paths[New Output]"
-          TopLeft="919,575.5">
+          TopLeft="935.666666666667,600.75">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="56.3333333333334,230"
+              EndConnector="0,290"
               Start="0,0"
-              End="56.3333333333334,222.5">
+              End="0,282.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,132.322188449848" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,132.322188449848"
-                    Point2="0,136.322188449848"
-                    Point3="4,136.322188449848" />
-                  <mssgle:LineSegment
-                    End="52.3333333333334,136.322188449848" />
-                  <mssgle:CubicBezierSegment
-                    Point1="52.3333333333334,136.322188449848"
-                    Point2="56.3333333333334,136.322188449848"
-                    Point3="56.3333333333334,140.322188449848" />
-                  <mssgle:LineSegment
-                    End="56.3333333333334,222.5" />
+                    End="0,282.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="1.07527994791668,141.322188449848,54.1827734375,11.43359375"
+              BoundingBox="-27.09138671875,135.533203125,54.1827734375,11.43359375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Load Dim Customer.Paths[Lookup Match Output1]"
-          TopLeft="920.5,492.5">
+          TopLeft="937.75,490.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,41"
+              EndConnector="0,68.25"
               Start="0,0"
-              End="0,33.5">
+              End="0,60.75">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,33.5" />
+                    End="0,60.75" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-48.19138671875,10.9453125,96.3827734375,11.609375"
+              BoundingBox="-48.19138671875,24.5703125,96.3827734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Load Dim Customer.Paths[Lookup Match Output]"
-          TopLeft="935,353.5">
+          TopLeft="939.125,395.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-13,97"
+              EndConnector="0,53"
               Start="0,0"
-              End="-13,89.5">
+              End="0,45.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,44.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,44.5"
-                    Point2="0,48.5"
-                    Point3="-4,48.5" />
-                  <mssgle:LineSegment
-                    End="-9,48.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-9,48.5"
-                    Point2="-13,48.5"
-                    Point3="-13,52.5" />
-                  <mssgle:LineSegment
-                    End="-13,89.5" />
+                    End="0,45.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-54.69138671875,53.5,96.3827734375,11.609375"
+              BoundingBox="-48.19138671875,16.9453125,96.3827734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Load Dim Customer.Paths[Lookup Error Output1]"
-          TopLeft="1016,334">
+          TopLeft="1021.25,467.375">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="27.4999999999999,0"
+              EndConnector="139.5,0"
               Start="0,0"
-              End="19.9999999999999,0">
+              End="132,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="19.9999999999999,0" />
+                    End="132,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-35.8663867187501,5,91.7327734375,11.609375"
+              BoundingBox="20.13361328125,5,91.7327734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Load Dim Customer.Paths[Lookup Error Output]"
-          TopLeft="1004,472">
+          TopLeft="1020,376.875">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="51.9999999999999,0"
+              EndConnector="137.75,0"
               Start="0,0"
-              End="44.4999999999999,0">
+              End="130.25,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="44.4999999999999,0" />
+                    End="130.25,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-23.6163867187501,5,91.7327734375,11.609375"
+              BoundingBox="19.25861328125,5,91.7327734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Load Dim Customer.Paths[Historical Attribute Inserts Output]"
-          TopLeft="868.75,575.5">
+          TopLeft="886,600.75">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-51.75,26.0000000000001"
+              EndConnector="-83,84.75"
               Start="0,0"
-              End="-51.75,18.5000000000001">
+              End="-83,77.25">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,4.88503937007874" />
+                    End="0,24.961811023622" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,4.88503937007874"
-                    Point2="0,8.88503937007874"
-                    Point3="-4,8.88503937007874" />
+                    Point1="0,24.961811023622"
+                    Point2="0,28.961811023622"
+                    Point3="-4,28.961811023622" />
                   <mssgle:LineSegment
-                    End="-47.75,8.88503937007874" />
+                    End="-79,28.961811023622" />
                   <mssgle:CubicBezierSegment
-                    Point1="-47.75,8.88503937007874"
-                    Point2="-51.75,8.88503937007874"
-                    Point3="-51.75,12.8850393700787" />
+                    Point1="-79,28.961811023622"
+                    Point2="-83,28.961811023622"
+                    Point3="-83,32.961811023622" />
                   <mssgle:LineSegment
-                    End="-51.75,18.5000000000001" />
+                    End="-83,77.25" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-100.93138671875,13.8850393700787,150.1127734375,11.609375"
+              BoundingBox="-116.55638671875,33.961811023622,150.1127734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Load Dim Customer.Paths[Derived Column Output5]"
-          TopLeft="1139,451.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="183,-28"
-              Start="0,0"
-              End="183,-20.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,-10" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,-10"
-                    Point2="0,-14"
-                    Point3="4,-14" />
-                  <mssgle:LineSegment
-                    End="179,-14" />
-                  <mssgle:CubicBezierSegment
-                    Point1="179,-14"
-                    Point2="183,-14"
-                    Point3="183,-18" />
-                  <mssgle:LineSegment
-                    End="183,-20.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Load Dim Customer.Paths[Derived Column Output4]"
-          TopLeft="935,251.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,60"
-              Start="0,0"
-              End="0,52.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,52.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
           Id="Package\Load Dim Customer.Paths[Derived Column Output3]"
-          TopLeft="1131,356.5">
+          TopLeft="1326.75,465.25">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="191,25"
+              EndConnector="30.75,-36.8333333333333"
               Start="0,0"
-              End="191,17.5">
+              End="23.25,-36.8333333333333">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,8.5" />
+                    End="13.7729357798165,0" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,8.5"
-                    Point2="0,12.5"
-                    Point3="4,12.5" />
+                    Point1="13.7729357798165,0"
+                    Point2="17.7729357798165,0"
+                    Point3="17.7729357798165,-4" />
                   <mssgle:LineSegment
-                    End="187,12.5" />
+                    End="17.7729357798165,-32.8333333333333" />
                   <mssgle:CubicBezierSegment
-                    Point1="187,12.5"
-                    Point2="191,12.5"
-                    Point3="191,16.5" />
+                    Point1="17.7729357798165,-32.8333333333333"
+                    Point2="17.7729357798165,-36.8333333333333"
+                    Point3="21.7729357798165,-36.8333333333333" />
                   <mssgle:LineSegment
-                    End="191,17.5" />
+                    End="23.25,-36.8333333333333" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -6172,18 +6907,30 @@ WHERE CustomerID = ?
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Load Dim Customer.Paths[Derived Column Output2]"
-          TopLeft="935,149.5">
+          TopLeft="1332.75,379.25">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,60"
+              EndConnector="24.75,37.8333333333334"
               Start="0,0"
-              End="0,52.5">
+              End="17.25,37.8333333333334">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,52.5" />
+                    End="10.3050458715596,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="10.3050458715596,0"
+                    Point2="14.3050458715596,0"
+                    Point3="14.3050458715596,4" />
+                  <mssgle:LineSegment
+                    End="14.3050458715596,33.8333333333334" />
+                  <mssgle:CubicBezierSegment
+                    Point1="14.3050458715596,33.8333333333334"
+                    Point2="14.3050458715596,37.8333333333334"
+                    Point3="18.3050458715596,37.8333333333334" />
+                  <mssgle:LineSegment
+                    End="17.25,37.8333333333334" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -6194,18 +6941,18 @@ WHERE CustomerID = ?
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Load Dim Customer.Paths[Derived Column Output1]"
-          TopLeft="955,949.5">
+          TopLeft="912.25,1036">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,60"
+              EndConnector="0,52.5"
               Start="0,0"
-              End="0,52.5">
+              End="0,45">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,52.5" />
+                    End="0,45" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -6216,7 +6963,7 @@ WHERE CustomerID = ?
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Load Dim Customer.Paths[Derived Column Output]"
-          TopLeft="814,643.5">
+          TopLeft="800,727.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -6236,94 +6983,79 @@ WHERE CustomerID = ?
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <NodeLayout
+          Size="118,42"
+          Id="Package\Load Dim Customer\Fix Nulls"
+          TopLeft="879.25,181" />
         <EdgeLayout
-          Id="Package\Load Dim Customer.Paths[Changing Attribute Updates Output]"
-          TopLeft="969.25,575.5">
+          Id="Package\Load Dim Customer.Paths[Derived Column Output4]"
+          TopLeft="936.625,149.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="283.75,108"
+              EndConnector="0,31.5"
               Start="0,0"
-              End="283.75,100.5">
+              End="0,24">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,32.9070866141733" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,32.9070866141733"
-                    Point2="0,36.9070866141733"
-                    Point3="4,36.9070866141733" />
-                  <mssgle:LineSegment
-                    End="279.75,36.9070866141733" />
-                  <mssgle:CubicBezierSegment
-                    Point1="279.75,36.9070866141733"
-                    Point2="283.75,36.9070866141733"
-                    Point3="283.75,40.9070866141733" />
-                  <mssgle:LineSegment
-                    End="283.75,100.5" />
+                    End="0,24" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="63.34109375,41.9070866141733,157.0678125,11.6630859375"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load Dim Customer.Paths[Derived Column Output5]"
+          TopLeft="941,223">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,51.5"
+              Start="0,0"
+              End="0,44">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,44" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load Dim Customer.Paths[Derived Column Output6]"
+          TopLeft="941.375,316.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,37"
+              Start="0,0"
+              End="0,29.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,29.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\Load Dim Customer\Lookup CountryID">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:string">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string">[dbo].[stg_Countries]</Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:string">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Load Dim Customer\Insert Destination">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Load Dim Customer\Customers_DQP">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\Load Dim Customer\Lookup Language">
     <Properties>
@@ -6437,6 +7169,19 @@ WHERE CustomerID = ?
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
+    design-time-name="Package\Load Dim Customer\Customers_DQP">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
     design-time-name="Package\Load Dim Customer\OLE DB Source">
     <Properties>
       <Property>
@@ -6446,6 +7191,42 @@ WHERE CustomerID = ?
         <Name>TableInfoObjectType</Name>
         <Value
           type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load Dim Customer\Insert Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load Dim Customer\Lookup CountryID">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[stg_Countries]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
@@ -6482,11 +7263,11 @@ WHERE CustomerID = ?
         <NodeLayout
           Size="166,42"
           Id="Package\Load Dim Size\OLE DB Command"
-          TopLeft="378,314.5" />
+          TopLeft="381,354.5" />
         <NodeLayout
           Size="209,42"
           Id="Package\Load Dim Size\Slowly Changing Dimension"
-          TopLeft="207.5,209.5" />
+          TopLeft="210.5,249.5" />
         <NodeLayout
           Size="98,42"
           Id="Package\Load Dim Size\Size"
@@ -6494,7 +7275,7 @@ WHERE CustomerID = ?
         <NodeLayout
           Size="163,42"
           Id="Package\Load Dim Size\Insert Destination"
-          TopLeft="78.5000000000001,315.5" />
+          TopLeft="81.5000000000001,355.5" />
         <NodeLayout
           Size="154,42"
           Id="Package\Load Dim Size\Derived Column"
@@ -6518,14 +7299,12 @@ WHERE CustomerID = ?
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Load Dim Size.Paths[New Output]"
-          TopLeft="278.5,251.5">
+          TopLeft="281.5,291.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -6560,32 +7339,8 @@ WHERE CustomerID = ?
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Load Dim Size.Paths[Derived Column Output]"
-          TopLeft="312,149.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,60"
-              Start="0,0"
-              End="0,52.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,52.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
           Id="Package\Load Dim Size.Paths[Changing Attribute Updates Output]"
-          TopLeft="345.5,251.5">
+          TopLeft="348.5,291.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -6617,6 +7372,54 @@ WHERE CustomerID = ?
             <mssgm:EdgeLabel
               BoundingBox="-20.78390625,30.4871794871795,157.0678125,11.6630859375"
               RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="169,42"
+          Id="Package\Load Dim Size\MinSizeAvailableFix"
+          TopLeft="225,178" />
+        <EdgeLayout
+          Id="Package\Load Dim Size.Paths[Derived Column Output]"
+          TopLeft="312.25,220">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,29.5"
+              Start="0,0"
+              End="0,22">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,22" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load Dim Size.Paths[Derived Column Output1]"
+          TopLeft="310.75,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,28.5"
+              Start="0,0"
+              End="0,21">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
