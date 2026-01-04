@@ -2,18 +2,18 @@
 <BuildLog xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <ProjectInfo>
     <Name>ARMDD_Project</Name>
-    <LastWriteTime>2026-01-02T20:53:08.2254573Z</LastWriteTime>
+    <LastWriteTime>2026-01-03T18:10:47.935728Z</LastWriteTime>
     <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
   </ProjectInfo>
   <LastBuildInfos>
     <ProjectBuildItemInfo>
       <Name>Create SA Database and Tables.dtsx</Name>
-      <LastWriteTime>2026-01-02T10:45:11.9625547Z</LastWriteTime>
+      <LastWriteTime>2026-01-03T21:28:52.3111007Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>Create DM Database and Tables.dtsx</Name>
-      <LastWriteTime>2026-01-02T14:23:43.2793795Z</LastWriteTime>
+      <LastWriteTime>2026-01-03T18:10:47.9231737Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
@@ -23,12 +23,12 @@
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>Load Temporal Dimension.dtsx</Name>
-      <LastWriteTime>2026-01-02T15:02:54.2006241Z</LastWriteTime>
+      <LastWriteTime>2026-01-03T17:59:00.9785475Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>Load Business Dimensions.dtsx</Name>
-      <LastWriteTime>2026-01-03T02:36:29.6318993Z</LastWriteTime>
+      <LastWriteTime>2026-01-04T01:41:37.2594261Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
   </LastBuildInfos>

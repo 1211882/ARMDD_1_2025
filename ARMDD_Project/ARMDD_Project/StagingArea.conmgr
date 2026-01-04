@@ -1,0 +1,12 @@
+﻿<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="StagingArea"
+  DTS:DTSID="{536C301B-46DC-4D7D-95FB-320DF63F0796}"
+  DTS:CreationName="OLEDB">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectRetryCount="1"
+      DTS:ConnectRetryInterval="5"
+      DTS:ConnectionString="Data Source=(local);Initial Catalog=ARMDD_StagingArea;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Application Name=SSIS-ARMDD_Project-{536C301B-46DC-4D7D-95FB-320DF63F0796}(local).ARMDD_StagingArea;Auto Translate=False;" />
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

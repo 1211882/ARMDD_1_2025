@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="17"
-  DTS:VersionGUID="{F200754D-A7D6-4C0A-9C4F-F092824D34D1}">
+  DTS:VersionBuild="18"
+  DTS:VersionGUID="{B8E0AAC6-7EA8-4680-BF3B-DEF3C4A5BDB3}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -801,8 +801,8 @@
               <connections>
                 <connection
                   refId="Package\Is DimDate Empty?\DimDate.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[(local).ARMDD_DataMart]"
-                  connectionManagerRefId="Package.ConnectionManagers[(local).ARMDD_DataMart]"
+                  connectionManagerID="{D8C44E2A-105E-406E-A480-6FB169961C05}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DataMart]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -1974,8 +1974,8 @@
               <connections>
                 <connection
                   refId="Package\Load Dim Date\Dim Date.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[(local).ARMDD_DataMart]"
-                  connectionManagerRefId="Package.ConnectionManagers[(local).ARMDD_DataMart]"
+                  connectionManagerID="{D8C44E2A-105E-406E-A480-6FB169961C05}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DataMart]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -2225,13 +2225,13 @@
     design-time-name="Package\Is DimDate Empty?">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="119.2,41.6"
+          Size="119,42"
           Id="Package\Is DimDate Empty?\DimDate"
           TopLeft="403.999993979931,85.9999987185002" />
         <NodeLayout
-          Size="129.6,41.6"
+          Size="130,42"
           Id="Package\Is DimDate Empty?\Row Count"
           TopLeft="399.999994039536,185.999997228384" />
         <EdgeLayout
@@ -2253,9 +2253,7 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>

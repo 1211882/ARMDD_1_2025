@@ -9,7 +9,7 @@ BEGIN
         DateOfBirth DATE,
         [Gender] [nvarchar](6) NOT NULL,
         GeographicRegion INT,
-        Language NVARCHAR(2),
+        Language NVARCHAR(2) NULL,
         VipCustomer BIT,
         StartDate DATE NOT NULL,
         EndDate DATE NULL,

@@ -1,0 +1,12 @@
+﻿<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="DataMart"
+  DTS:DTSID="{D8C44E2A-105E-406E-A480-6FB169961C05}"
+  DTS:CreationName="OLEDB">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectRetryCount="1"
+      DTS:ConnectRetryInterval="5"
+      DTS:ConnectionString="Data Source=(local);Initial Catalog=ARMDD_DataMart;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Application Name=SSIS-ARMDD_Project-{D8C44E2A-105E-406E-A480-6FB169961C05}(local).ARMDD_DataMart;Auto Translate=False;" />
+  </DTS:ObjectData>
+</DTS:ConnectionManager>
