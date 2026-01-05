@@ -10,7 +10,7 @@ BEGIN
         ShippingCost MONEY,
         City NVARCHAR(255),
         State NVARCHAR(255),
-        Zip float,
+        Zip NVARCHAR(255),
         CurrencyID NVARCHAR(3),
         CreateDate DATETIME,
         LastUpdateDate DATETIME
