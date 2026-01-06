@@ -21,6 +21,11 @@ BEGIN
         TotalLineValue_EUR MONEY,
 
         CONSTRAINT PK_FactOrderLine PRIMARY KEY (
+            DateKey,
+            CustomerKey,
+            ProductKey,
+            SiteKey,
+            SizeKey,
             OrderID,
             OrderLineID
         )
