@@ -11,8 +11,8 @@
   DTS:LocaleID="2070"
   DTS:ObjectName="Load Business Dimensions"
   DTS:PackageType="5"
-  DTS:VersionBuild="198"
-  DTS:VersionGUID="{FDB61BDD-77C2-48C8-BF5E-1C5410067721}">
+  DTS:VersionBuild="205"
+  DTS:VersionGUID="{9893F860-6CFD-471E-9C22-8C6EC6FAA5D3}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -5463,11 +5463,26 @@ where [refTable].[ProductID] = ?</property>
                   dataType="System.String"
                   description="The SQL command to be executed."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=17.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT        dbo.stg_Products.ProductID, dbo.stg_Products.Description, dbo.stg_Products.AvailablePortal, dbo.stg_Products.Active, dbo.stg_Boxes.BoxName, dbo.stg_Boxes.BoxHeight, dbo.stg_Boxes.BoxLength, 
-                         dbo.stg_Boxes.BoxWidth, dbo.stg_Boxes.BoxVolWeight, dbo.stg_Boxes.BoxLocation, dbo.stg_Categories.CategoryName, dbo.stg_Categories.CategoryGender, dbo.stg_Products.CreateDate, 
-                         dbo.stg_Products.LastUpdateDate
-FROM            dbo.stg_Products, dbo.stg_Categories, dbo.stg_Boxes
-WHERE        dbo.stg_Products.CategoryID = dbo.stg_Categories.CategoryID AND dbo.stg_Products.BoxID = dbo.stg_Boxes.BoxID</property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=17.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT
+    p.ProductID,
+    p.Description,
+    p.AvailablePortal,
+    p.Active,
+    b.BoxName,
+    b.BoxHeight,
+    b.BoxLength,
+    b.BoxWidth,
+    b.BoxVolWeight,
+    b.BoxLocation,
+    c.CategoryName,
+    c.CategoryGender,
+    p.CreateDate,
+    p.LastUpdateDate
+FROM dbo.stg_Products AS p
+LEFT JOIN dbo.stg_Categories AS c
+    ON p.CategoryID = c.CategoryID
+LEFT JOIN dbo.stg_Boxes AS b
+    ON p.BoxID = b.BoxID;</property>
                 <property
                   dataType="System.String"
                   description="The variable that contains the SQL command to be executed."
@@ -8039,13 +8054,12 @@ WHERE        dbo.stg_Products.CategoryID = dbo.stg_Categories.CategoryID AND dbo
                   description="The SQL command to be executed."
                   name="SqlCommand"
                   UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=17.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT DISTINCT
-    o.CustomerID,
     o.Address,
     o.City,
     o.State,
     o.Zip,
-    c.Name     AS CountryName,
-    c.Code     AS CountryCode,
+    c.Name AS CountryName,
+    c.Code AS CountryCode,
     c.EuroZone
 FROM dbo.stg_Orders o
 LEFT JOIN dbo.stg_Countries c
@@ -8157,10 +8171,6 @@ LEFT JOIN dbo.stg_Countries c
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
-                    <externalMetadataColumn
-                      refId="Package\Load Dim Shippment\Sippment.Outputs[OLE DB Source Output].ExternalColumns[CustomerID]"
-                      dataType="i4"
-                      name="CustomerID" />
                     <externalMetadataColumn
                       refId="Package\Load Dim Shippment\Sippment.Outputs[OLE DB Source Output].ExternalColumns[Address]"
                       dataType="wstr"
@@ -14335,7 +14345,9 @@ LEFT JOIN dbo.stg_Countries AS c
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -14393,7 +14405,9 @@ LEFT JOIN dbo.stg_Countries AS c
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -15805,68 +15819,50 @@ LEFT JOIN dbo.stg_Countries AS c
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="209,42"
-          Id="Package\Load Dim Shippment\Slowly Changing Dimension"
-          TopLeft="207.5,209.5" />
-        <NodeLayout
           Size="123,42"
           Id="Package\Load Dim Shippment\Sippment"
-          TopLeft="250.5,5.49999999999989" />
+          TopLeft="417.5,32.4999999999999" />
         <NodeLayout
           Size="118,42"
           Id="Package\Load Dim Shippment\Fix Nulls"
-          TopLeft="253,107.5" />
-        <EdgeLayout
-          Id="Package\Load Dim Shippment.Paths[Derived Column Output]"
-          TopLeft="312,149.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,60"
-              Start="0,0"
-              End="0,52.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,52.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Load Dim Shippment.Paths[OLE DB Source Output]"
-          TopLeft="312,47.4999999999999">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,60"
-              Start="0,0"
-              End="0,52.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,52.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+          TopLeft="422,129.5" />
+        <NodeLayout
+          Size="166,42"
+          Id="Package\Load Dim Shippment\OLE DB Command"
+          TopLeft="581,328.5" />
         <NodeLayout
           Size="163,42"
           Id="Package\Load Dim Shippment\Insert Destination"
-          TopLeft="68.5000000000001,313.5" />
+          TopLeft="233.5,318.5" />
+        <NodeLayout
+          Size="209,42"
+          Id="Package\Load Dim Shippment\Slowly Changing Dimension"
+          TopLeft="372.5,214.5" />
+        <EdgeLayout
+          Id="Package\Load Dim Shippment.Paths[OLE DB Source Output]"
+          TopLeft="480,74.4999999999999">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,55.0000000000001"
+              Start="0,0"
+              End="0,47.5000000000001">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,47.5000000000001" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\Load Dim Shippment.Paths[New Output]"
-          TopLeft="278.5,251.5">
+          TopLeft="443.5,256.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -15900,13 +15896,31 @@ LEFT JOIN dbo.stg_Countries AS c
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="166,42"
-          Id="Package\Load Dim Shippment\OLE DB Command"
-          TopLeft="416,323.5" />
+        <EdgeLayout
+          Id="Package\Load Dim Shippment.Paths[Derived Column Output]"
+          TopLeft="479,171.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,43"
+              Start="0,0"
+              End="0,35.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,35.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\Load Dim Shippment.Paths[Changing Attribute Updates Output]"
-          TopLeft="345.5,251.5">
+          TopLeft="510.5,256.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -15936,7 +15950,7 @@ LEFT JOIN dbo.stg_Countries AS c
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-1.78390625,34.1282051282051,157.0678125,11.6630859375"
+              BoundingBox="-1.78390625000003,34.1282051282051,157.0678125,11.6630859375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -16024,6 +16038,19 @@ LEFT JOIN dbo.stg_Countries AS c
       </Property>
     </Properties>
   </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load Dim Shippment\Insert Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <TaskHost
     design-time-name="Package\Load Dim Site">
     <LayoutInfo>
@@ -16034,63 +16061,37 @@ LEFT JOIN dbo.stg_Countries AS c
           Id="Package\Load Dim Site\OLE DB Source"
           TopLeft="157.5,5.5" />
         <NodeLayout
+          Size="154,42"
+          Id="Package\Load Dim Site\Derived Column"
+          TopLeft="17.5000000000001,311.5" />
+        <NodeLayout
           Size="209,42"
           Id="Package\Load Dim Site\Slowly Changing Dimension"
           TopLeft="128,209.5" />
         <NodeLayout
+          Size="166,42"
+          Id="Package\Load Dim Site\OLE DB Command"
+          TopLeft="5.50000000000006,413.5" />
+        <NodeLayout
+          Size="175,42"
+          Id="Package\Load Dim Site\OLE DB Command 1"
+          TopLeft="294,311.5" />
+        <NodeLayout
+          Size="121,42"
+          Id="Package\Load Dim Site\Union All"
+          TopLeft="172,515.5" />
+        <NodeLayout
+          Size="163,42"
+          Id="Package\Load Dim Site\Derived Column 1"
+          TopLeft="154,620.5" />
+        <NodeLayout
+          Size="163,42"
+          Id="Package\Load Dim Site\Insert Destination"
+          TopLeft="151,719.5" />
+        <NodeLayout
           Size="105,42"
           Id="Package\Load Dim Site\Clean"
           TopLeft="180,107.5" />
-        <EdgeLayout
-          Id="Package\Load Dim Site.Paths[OLE DB Source Output]"
-          TopLeft="232.5,47.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,60"
-              Start="0,0"
-              End="0,52.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,52.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-8,18.25,16,16"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Load Dim Site.Paths[Derived Column Output]"
-          TopLeft="232.5,149.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,60"
-              Start="0,0"
-              End="0,52.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,52.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="154,42"
-          Id="Package\Load Dim Site\Derived Column"
-          TopLeft="17.5000000000001,311.5" />
         <EdgeLayout
           Id="Package\Load Dim Site.Paths[Historical Attribute Inserts Output]"
           TopLeft="182.25,251.5">
@@ -16127,10 +16128,30 @@ LEFT JOIN dbo.stg_Countries AS c
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="166,42"
-          Id="Package\Load Dim Site\OLE DB Command"
-          TopLeft="5.50000000000006,413.5" />
+        <EdgeLayout
+          Id="Package\Load Dim Site.Paths[Derived Column Output2]"
+          TopLeft="234,662.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,57"
+              Start="0,0"
+              End="0,49.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,49.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\Load Dim Site.Paths[Derived Column Output1]"
           TopLeft="91.5000000000001,353.5">
@@ -16150,46 +16171,116 @@ LEFT JOIN dbo.stg_Countries AS c
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="121,42"
-          Id="Package\Load Dim Site\Union All"
-          TopLeft="172,515.5" />
         <EdgeLayout
-          Id="Package\Load Dim Site.Paths[New Output]"
-          TopLeft="232.5,251.5">
+          Id="Package\Load Dim Site.Paths[Derived Column Output]"
+          TopLeft="232.5,149.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="18.8333333333334,264"
+              EndConnector="0,60"
               Start="0,0"
-              End="18.8333333333334,256.5">
+              End="0,52.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,152.332789559543" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,152.332789559543"
-                    Point2="0,156.332789559543"
-                    Point3="4,156.332789559543" />
-                  <mssgle:LineSegment
-                    End="14.8333333333334,156.332789559543" />
-                  <mssgle:CubicBezierSegment
-                    Point1="14.8333333333334,156.332789559543"
-                    Point2="18.8333333333334,156.332789559543"
-                    Point3="18.8333333333334,160.332789559543" />
-                  <mssgle:LineSegment
-                    End="18.8333333333334,256.5" />
+                    End="0,52.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-17.6747200520833,161.332789559543,54.1827734375,11.43359375"
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load Dim Site.Paths[Changing Attribute Updates Output]"
+          TopLeft="282.75,251.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="98.75,60"
+              Start="0,0"
+              End="98.75,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16.503937007874" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,16.503937007874"
+                    Point2="0,20.503937007874"
+                    Point3="4,20.503937007874" />
+                  <mssgle:LineSegment
+                    End="94.75,20.503937007874" />
+                  <mssgle:CubicBezierSegment
+                    Point1="94.75,20.503937007874"
+                    Point2="98.75,20.503937007874"
+                    Point3="98.75,24.503937007874" />
+                  <mssgle:LineSegment
+                    End="98.75,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-29.15890625,25.503937007874,157.0678125,11.6630859375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load Dim Site.Paths[Union All Output 1]"
+          TopLeft="234,557.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,63"
+              Start="0,0"
+              End="0,55.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,55.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load Dim Site.Paths[OLE DB Source Output]"
+          TopLeft="232.5,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-8,18.25,16,16"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -16224,98 +16315,44 @@ LEFT JOIN dbo.stg_Countries AS c
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="163,42"
-          Id="Package\Load Dim Site\Derived Column 1"
-          TopLeft="154,620.5" />
         <EdgeLayout
-          Id="Package\Load Dim Site.Paths[Union All Output 1]"
-          TopLeft="234,557.5">
+          Id="Package\Load Dim Site.Paths[New Output]"
+          TopLeft="232.5,251.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,63"
+              EndConnector="18.8333333333334,264"
               Start="0,0"
-              End="0,55.5">
+              End="18.8333333333334,256.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,55.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="163,42"
-          Id="Package\Load Dim Site\Insert Destination"
-          TopLeft="151,719.5" />
-        <EdgeLayout
-          Id="Package\Load Dim Site.Paths[Derived Column Output2]"
-          TopLeft="234,662.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,57"
-              Start="0,0"
-              End="0,49.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,49.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="175,42"
-          Id="Package\Load Dim Site\OLE DB Command 1"
-          TopLeft="294,311.5" />
-        <EdgeLayout
-          Id="Package\Load Dim Site.Paths[Changing Attribute Updates Output]"
-          TopLeft="282.75,251.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="98.75,60"
-              Start="0,0"
-              End="98.75,52.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,16.503937007874" />
+                    End="0,152.332789559543" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,16.503937007874"
-                    Point2="0,20.503937007874"
-                    Point3="4,20.503937007874" />
+                    Point1="0,152.332789559543"
+                    Point2="0,156.332789559543"
+                    Point3="4,156.332789559543" />
                   <mssgle:LineSegment
-                    End="94.75,20.503937007874" />
+                    End="14.8333333333334,156.332789559543" />
                   <mssgle:CubicBezierSegment
-                    Point1="94.75,20.503937007874"
-                    Point2="98.75,20.503937007874"
-                    Point3="98.75,24.503937007874" />
+                    Point1="14.8333333333334,156.332789559543"
+                    Point2="18.8333333333334,156.332789559543"
+                    Point3="18.8333333333334,160.332789559543" />
                   <mssgle:LineSegment
-                    End="98.75,52.5" />
+                    End="18.8333333333334,256.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-29.15890625,25.503937007874,157.0678125,11.6630859375"
+              BoundingBox="-17.6747200520833,161.332789559543,54.1827734375,11.43359375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -16463,6 +16500,19 @@ LEFT JOIN dbo.stg_Countries AS c
   &lt;DateVariable&gt;User::CurrentDate&lt;/DateVariable&gt;
   &lt;EnableInferredSupport&gt;false&lt;/EnableInferredSupport&gt;
 &lt;/SCDWizardMetadata&gt;</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load Dim Site\Insert Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
@@ -16846,31 +16896,5 @@ LEFT JOIN dbo.stg_Countries AS c
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\Load Dim Shippment\Insert Destination">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Load Dim Site\Insert Destination">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
 </Objects>]]></DTS:DesignTimeProperties>
 </DTS:Executable>
