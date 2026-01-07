@@ -2,7 +2,7 @@
 <BuildLog xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <ProjectInfo>
     <Name>ARMDD_Project</Name>
-    <LastWriteTime>2026-01-07T22:44:01.0707618Z</LastWriteTime>
+    <LastWriteTime>2026-01-07T22:53:27.4223831Z</LastWriteTime>
     <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
   </ProjectInfo>
   <LastBuildInfos>
@@ -33,7 +33,7 @@
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>Load Fact Tables.dtsx</Name>
-      <LastWriteTime>2026-01-07T22:11:18.736928Z</LastWriteTime>
+      <LastWriteTime>2026-01-07T22:53:27.294462Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
   </LastBuildInfos>

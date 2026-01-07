@@ -12,8 +12,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Load Fact Tables"
   DTS:PackageType="5"
-  DTS:VersionBuild="113"
-  DTS:VersionGUID="{547731DB-B10E-455B-9E03-C29DB21E09D2}">
+  DTS:VersionBuild="114"
+  DTS:VersionGUID="{E608A8FC-94BA-42B3-854C-319164B51788}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -22,6 +22,8 @@
       DTS:CreationName="FLATFILE"
       DTS:DTSID="{1711D346-69D3-4926-8B60-CCACC3237139}"
       DTS:ObjectName="CSV Currency Exchange">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">@[$Project::PackagePath] + "\\Files\\CurrencyRates.csv"</DTS:PropertyExpression>
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:Format="Delimited"
@@ -31,7 +33,7 @@
           DTS:RowDelimiter=""
           DTS:TextQualifier="_x003C_none_x003E_"
           DTS:CodePage="1252"
-          DTS:ConnectionString="C:\ARMDD_1_2025\ARMDD_Project\Files\CurrencyRates.csv">
+          DTS:ConnectionString="C:\ARMDD_1_2025_test\ARMDD_Project\Files\CurrencyRates.csv">
           <DTS:FlatFileColumns>
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -7982,64 +7984,64 @@ LEFT JOIN dbo.stg_OrdersLinesDetails old
               startId="Package\Load FactOrderLine\Add Lookup ProductKey Failure DQP.Outputs[Derived Column Output]" />
             <path
               refId="Package\Load FactOrderLine.Paths[Lookup Error Output7]"
-              endId="Package\Load FactOrderLine\Add Lookup ShipmentKey Failure DQP.Inputs[Derived Column Input]"
-              name="Lookup Error Output"
-              startId="Package\Load FactOrderLine\Lookup ShipmentKey.Outputs[Lookup Error Output]" />
-            <path
-              refId="Package\Load FactOrderLine.Paths[Lookup Error Output6]"
-              endId="Package\Load FactOrderLine\Add Lookup ExchangeRate Failure DQP.Inputs[Derived Column Input]"
-              name="Lookup Error Output"
-              startId="Package\Load FactOrderLine\Lookup ExchangeRate.Outputs[Lookup Error Output]" />
-            <path
-              refId="Package\Load FactOrderLine.Paths[Lookup Error Output4]"
-              endId="Package\Load FactOrderLine\Add Lookup ProductKey Failure DQP.Inputs[Derived Column Input]"
-              name="Lookup Error Output"
-              startId="Package\Load FactOrderLine\Lookup ProductKey.Outputs[Lookup Error Output]" />
-            <path
-              refId="Package\Load FactOrderLine.Paths[Lookup Error Output5]"
-              endId="Package\Load FactOrderLine\Add Lookup CurrencyKey Failure DQP.Inputs[Derived Column Input]"
-              name="Lookup Error Output"
-              startId="Package\Load FactOrderLine\Lookup CurrencyKey.Outputs[Lookup Error Output]" />
-            <path
-              refId="Package\Load FactOrderLine.Paths[Lookup Error Output2]"
-              endId="Package\Load FactOrderLine\Add Lookup CostumerKey Failure DQP.Inputs[Derived Column Input]"
-              name="Lookup Error Output"
-              startId="Package\Load FactOrderLine\Lookup CostumerKey.Outputs[Lookup Error Output]" />
-            <path
-              refId="Package\Load FactOrderLine.Paths[Lookup Error Output1]"
-              endId="Package\Load FactOrderLine\Add Lookup SizeKey Failure DQP.Inputs[Derived Column Input]"
-              name="Lookup Error Output"
-              startId="Package\Load FactOrderLine\Lookup SizeKey.Outputs[Lookup Error Output]" />
-            <path
-              refId="Package\Load FactOrderLine.Paths[Lookup Error Output]"
-              endId="Package\Load FactOrderLine\Add Lookup SiteKey Failure DQP.Inputs[Derived Column Input]"
-              name="Lookup Error Output"
-              startId="Package\Load FactOrderLine\Lookup SiteKey.Outputs[Lookup Error Output]" />
-            <path
-              refId="Package\Load FactOrderLine.Paths[Lookup Error Output3]"
               endId="Package\Load FactOrderLine\Add Lookup DateKey Failure DQP.Inputs[Derived Column Input]"
               name="Lookup Error Output"
               startId="Package\Load FactOrderLine\Lookup DateKey.Outputs[Lookup Error Output]" />
             <path
+              refId="Package\Load FactOrderLine.Paths[Lookup Error Output6]"
+              endId="Package\Load FactOrderLine\Add Lookup SiteKey Failure DQP.Inputs[Derived Column Input]"
+              name="Lookup Error Output"
+              startId="Package\Load FactOrderLine\Lookup SiteKey.Outputs[Lookup Error Output]" />
+            <path
+              refId="Package\Load FactOrderLine.Paths[Lookup Error Output4]"
+              endId="Package\Load FactOrderLine\Add Lookup CostumerKey Failure DQP.Inputs[Derived Column Input]"
+              name="Lookup Error Output"
+              startId="Package\Load FactOrderLine\Lookup CostumerKey.Outputs[Lookup Error Output]" />
+            <path
+              refId="Package\Load FactOrderLine.Paths[Lookup Error Output5]"
+              endId="Package\Load FactOrderLine\Add Lookup SizeKey Failure DQP.Inputs[Derived Column Input]"
+              name="Lookup Error Output"
+              startId="Package\Load FactOrderLine\Lookup SizeKey.Outputs[Lookup Error Output]" />
+            <path
+              refId="Package\Load FactOrderLine.Paths[Lookup Error Output2]"
+              endId="Package\Load FactOrderLine\Add Lookup ProductKey Failure DQP.Inputs[Derived Column Input]"
+              name="Lookup Error Output"
+              startId="Package\Load FactOrderLine\Lookup ProductKey.Outputs[Lookup Error Output]" />
+            <path
+              refId="Package\Load FactOrderLine.Paths[Lookup Error Output1]"
+              endId="Package\Load FactOrderLine\Add Lookup ExchangeRate Failure DQP.Inputs[Derived Column Input]"
+              name="Lookup Error Output"
+              startId="Package\Load FactOrderLine\Lookup ExchangeRate.Outputs[Lookup Error Output]" />
+            <path
+              refId="Package\Load FactOrderLine.Paths[Lookup Error Output]"
+              endId="Package\Load FactOrderLine\Add Lookup ShipmentKey Failure DQP.Inputs[Derived Column Input]"
+              name="Lookup Error Output"
+              startId="Package\Load FactOrderLine\Lookup ShipmentKey.Outputs[Lookup Error Output]" />
+            <path
+              refId="Package\Load FactOrderLine.Paths[Lookup Error Output3]"
+              endId="Package\Load FactOrderLine\Add Lookup CurrencyKey Failure DQP.Inputs[Derived Column Input]"
+              name="Lookup Error Output"
+              startId="Package\Load FactOrderLine\Lookup CurrencyKey.Outputs[Lookup Error Output]" />
+            <path
               refId="Package\Load FactOrderLine.Paths[Lookup Match Output8]"
-              endId="Package\Load FactOrderLine\Lookup ProductKey.Inputs[Lookup Input]"
+              endId="Package\Load FactOrderLine\Lookup ExchangeRate.Inputs[Lookup Input]"
               name="Lookup Match Output"
-              startId="Package\Load FactOrderLine\Lookup SiteKey.Outputs[Lookup Match Output]" />
+              startId="Package\Load FactOrderLine\Lookup CurrencyKey.Outputs[Lookup Match Output]" />
             <path
               refId="Package\Load FactOrderLine.Paths[Lookup Match Output7]"
-              endId="Package\Load FactOrderLine\Lookup.Inputs[Lookup Input]"
+              endId="Package\Load FactOrderLine\TotalLineValue_EUR.Inputs[Derived Column Input]"
               name="Lookup Match Output"
-              startId="Package\Load FactOrderLine\Fact Already Exists?.Outputs[Lookup Match Output]" />
+              startId="Package\Load FactOrderLine\Lookup ExchangeRate.Outputs[Lookup Match Output]" />
             <path
               refId="Package\Load FactOrderLine.Paths[Lookup Match Output6]"
-              endId="Package\Load FactOrderLine\Lookup SiteKey.Inputs[Lookup Input]"
+              endId="Package\Load FactOrderLine\Lookup ShipmentKey.Inputs[Lookup Input]"
               name="Lookup Match Output"
-              startId="Package\Load FactOrderLine\Lookup CostumerKey.Outputs[Lookup Match Output]" />
+              startId="Package\Load FactOrderLine\Lookup SizeKey.Outputs[Lookup Match Output]" />
             <path
               refId="Package\Load FactOrderLine.Paths[Lookup Match Output5]"
-              endId="Package\Load FactOrderLine\Lookup SizeKey.Inputs[Lookup Input]"
+              endId="Package\Load FactOrderLine\Lookup CostumerKey.Inputs[Lookup Input]"
               name="Lookup Match Output"
-              startId="Package\Load FactOrderLine\Lookup ProductKey.Outputs[Lookup Match Output]" />
+              startId="Package\Load FactOrderLine\Lookup DateKey.Outputs[Lookup Match Output]" />
             <path
               refId="Package\Load FactOrderLine.Paths[Lookup Match Output4]"
               endId="Package\Load FactOrderLine\Lookup CurrencyKey.Inputs[Lookup Input]"
@@ -8047,24 +8049,24 @@ LEFT JOIN dbo.stg_OrdersLinesDetails old
               startId="Package\Load FactOrderLine\Lookup ShipmentKey.Outputs[Lookup Match Output]" />
             <path
               refId="Package\Load FactOrderLine.Paths[Lookup Match Output2]"
-              endId="Package\Load FactOrderLine\Lookup CostumerKey.Inputs[Lookup Input]"
+              endId="Package\Load FactOrderLine\Lookup SiteKey.Inputs[Lookup Input]"
               name="Lookup Match Output"
-              startId="Package\Load FactOrderLine\Lookup DateKey.Outputs[Lookup Match Output]" />
+              startId="Package\Load FactOrderLine\Lookup CostumerKey.Outputs[Lookup Match Output]" />
             <path
               refId="Package\Load FactOrderLine.Paths[Lookup Match Output1]"
-              endId="Package\Load FactOrderLine\Lookup ShipmentKey.Inputs[Lookup Input]"
+              endId="Package\Load FactOrderLine\Lookup.Inputs[Lookup Input]"
               name="Lookup Match Output"
-              startId="Package\Load FactOrderLine\Lookup SizeKey.Outputs[Lookup Match Output]" />
+              startId="Package\Load FactOrderLine\Fact Already Exists?.Outputs[Lookup Match Output]" />
             <path
               refId="Package\Load FactOrderLine.Paths[Lookup Match Output]"
-              endId="Package\Load FactOrderLine\TotalLineValue_EUR.Inputs[Derived Column Input]"
+              endId="Package\Load FactOrderLine\Lookup ProductKey.Inputs[Lookup Input]"
               name="Lookup Match Output"
-              startId="Package\Load FactOrderLine\Lookup ExchangeRate.Outputs[Lookup Match Output]" />
+              startId="Package\Load FactOrderLine\Lookup SiteKey.Outputs[Lookup Match Output]" />
             <path
               refId="Package\Load FactOrderLine.Paths[Lookup Match Output3]"
-              endId="Package\Load FactOrderLine\Lookup ExchangeRate.Inputs[Lookup Input]"
+              endId="Package\Load FactOrderLine\Lookup SizeKey.Inputs[Lookup Input]"
               name="Lookup Match Output"
-              startId="Package\Load FactOrderLine\Lookup CurrencyKey.Outputs[Lookup Match Output]" />
+              startId="Package\Load FactOrderLine\Lookup ProductKey.Outputs[Lookup Match Output]" />
             <path
               refId="Package\Load FactOrderLine.Paths[Lookup No Match Output]"
               endId="Package\Load FactOrderLine\FactOrderLines.Inputs[OLE DB Destination Input]"
@@ -8481,7 +8483,9 @@ LEFT JOIN dbo.stg_OrdersLinesDetails old
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -8515,7 +8519,9 @@ LEFT JOIN dbo.stg_OrdersLinesDetails old
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -8549,7 +8555,9 @@ LEFT JOIN dbo.stg_OrdersLinesDetails old
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -8583,7 +8591,9 @@ LEFT JOIN dbo.stg_OrdersLinesDetails old
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -8617,7 +8627,9 @@ LEFT JOIN dbo.stg_OrdersLinesDetails old
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -8651,7 +8663,9 @@ LEFT JOIN dbo.stg_OrdersLinesDetails old
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -8685,7 +8699,9 @@ LEFT JOIN dbo.stg_OrdersLinesDetails old
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -8707,7 +8723,9 @@ LEFT JOIN dbo.stg_OrdersLinesDetails old
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -8729,7 +8747,9 @@ LEFT JOIN dbo.stg_OrdersLinesDetails old
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -8751,7 +8771,9 @@ LEFT JOIN dbo.stg_OrdersLinesDetails old
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -8804,7 +8826,7 @@ LEFT JOIN dbo.stg_OrdersLinesDetails old
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Load FactOrderLine.Paths[Lookup Match Output8]"
-          TopLeft="529,383">
+          TopLeft="531.5,700">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -8828,73 +8850,73 @@ LEFT JOIN dbo.stg_OrdersLinesDetails old
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Load FactOrderLine.Paths[Lookup Match Output7]"
-          TopLeft="619,923.5">
+          TopLeft="531,786">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="125,0"
+              EndConnector="0,44"
               Start="0,0"
-              End="117.5,0">
+              End="0,36.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="117.5,0" />
+                    End="0,36.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="10.55861328125,5,96.3827734375,11.609375"
+              BoundingBox="-48.19138671875,12.4453125,96.3827734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Load FactOrderLine.Paths[Lookup Match Output6]"
-          TopLeft="527.25,301">
+          TopLeft="530.5,554">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,40"
+              EndConnector="0,33"
               Start="0,0"
-              End="0,32.5">
+              End="0,25.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,32.5" />
+                    End="0,25.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-48.19138671875,10.4453125,96.3827734375,11.609375"
+              BoundingBox="-48.19138671875,6.9453125,96.3827734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Load FactOrderLine.Paths[Lookup Match Output5]"
-          TopLeft="529.75,469">
+          TopLeft="527.5,223">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,43"
+              EndConnector="0,36"
               Start="0,0"
-              End="0,35.5">
+              End="0,28.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,35.5" />
+                    End="0,28.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-48.19138671875,11.9453125,96.3827734375,11.609375"
+              BoundingBox="-48.19138671875,8.4453125,96.3827734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -8924,79 +8946,79 @@ LEFT JOIN dbo.stg_OrdersLinesDetails old
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Load FactOrderLine.Paths[Lookup Match Output3]"
-          TopLeft="531.5,700">
+          TopLeft="529.75,469">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,44"
+              EndConnector="0,43"
               Start="0,0"
-              End="0,36.5">
+              End="0,35.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,36.5" />
+                    End="0,35.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-48.19138671875,12.4453125,96.3827734375,11.609375"
+              BoundingBox="-48.19138671875,11.9453125,96.3827734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Load FactOrderLine.Paths[Lookup Match Output2]"
-          TopLeft="527.5,223">
+          TopLeft="527.25,301">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,36"
+              EndConnector="0,40"
               Start="0,0"
-              End="0,28.5">
+              End="0,32.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,28.5" />
+                    End="0,32.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-48.19138671875,8.4453125,96.3827734375,11.609375"
+              BoundingBox="-48.19138671875,10.4453125,96.3827734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Load FactOrderLine.Paths[Lookup Match Output1]"
-          TopLeft="530.5,554">
+          TopLeft="619,923.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,33"
+              EndConnector="125,0"
               Start="0,0"
-              End="0,25.5">
+              End="117.5,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,25.5" />
+                    End="117.5,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-48.19138671875,6.9453125,96.3827734375,11.609375"
+              BoundingBox="10.55861328125,5,96.3827734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Load FactOrderLine.Paths[Lookup Match Output]"
-          TopLeft="531,786">
+          TopLeft="529,383">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -9020,30 +9042,150 @@ LEFT JOIN dbo.stg_OrdersLinesDetails old
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Load FactOrderLine.Paths[Lookup Error Output7]"
-          TopLeft="621,607">
+          TopLeft="606,200">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="127,0"
+              EndConnector="155,0"
               Start="0,0"
-              End="119.5,0">
+              End="147.5,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="119.5,0" />
+                    End="147.5,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="13.88361328125,5,91.7327734375,11.609375"
+              BoundingBox="27.88361328125,5,91.7327734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Load FactOrderLine.Paths[Lookup Error Output6]"
+          TopLeft="603,364">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="157,0"
+              Start="0,0"
+              End="149.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="149.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="28.88361328125,5,91.7327734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load FactOrderLine.Paths[Lookup Error Output5]"
+          TopLeft="605,533">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="152,0"
+              Start="0,0"
+              End="144.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="144.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="26.38361328125,5,91.7327734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load FactOrderLine.Paths[Lookup Error Output4]"
+          TopLeft="616,278">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="146,0"
+              Start="0,0"
+              End="138.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="138.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="23.38361328125,5,91.7327734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load FactOrderLine.Paths[Lookup Error Output3]"
+          TopLeft="619,678">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="134,0"
+              Start="0,0"
+              End="126.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="126.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="17.38361328125,5,91.7327734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load FactOrderLine.Paths[Lookup Error Output2]"
+          TopLeft="615,447.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="139,0"
+              Start="0,0"
+              End="131.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="131.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="19.88361328125,5,91.7327734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load FactOrderLine.Paths[Lookup Error Output1]"
           TopLeft="623,765">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -9079,146 +9221,26 @@ LEFT JOIN dbo.stg_OrdersLinesDetails old
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Load FactOrderLine.Paths[Lookup Error Output5]"
-          TopLeft="619,678">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="134,0"
-              Start="0,0"
-              End="126.5,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="126.5,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="17.38361328125,5,91.7327734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Load FactOrderLine.Paths[Lookup Error Output4]"
-          TopLeft="615,447.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="139,0"
-              Start="0,0"
-              End="131.5,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="131.5,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="19.88361328125,5,91.7327734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Load FactOrderLine.Paths[Lookup Error Output3]"
-          TopLeft="606,200">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="155,0"
-              Start="0,0"
-              End="147.5,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="147.5,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="27.88361328125,5,91.7327734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Load FactOrderLine.Paths[Lookup Error Output2]"
-          TopLeft="616,278">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="146,0"
-              Start="0,0"
-              End="138.5,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="138.5,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="23.38361328125,5,91.7327734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Load FactOrderLine.Paths[Lookup Error Output1]"
-          TopLeft="605,533">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="152,0"
-              Start="0,0"
-              End="144.5,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="144.5,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="26.38361328125,5,91.7327734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
           Id="Package\Load FactOrderLine.Paths[Lookup Error Output]"
-          TopLeft="603,364">
+          TopLeft="621,607">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="157,0"
+              EndConnector="127,0"
               Start="0,0"
-              End="149.5,0">
+              End="119.5,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="149.5,0" />
+                    End="119.5,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="28.88361328125,5,91.7327734375,11.609375"
+              BoundingBox="13.88361328125,5,91.7327734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -9241,7 +9263,9 @@ LEFT JOIN dbo.stg_OrdersLinesDetails old
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
