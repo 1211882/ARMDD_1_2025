@@ -2,7 +2,7 @@
 <BuildLog xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <ProjectInfo>
     <Name>ARMDD_Project</Name>
-    <LastWriteTime>2026-01-07T00:26:21.3050149Z</LastWriteTime>
+    <LastWriteTime>2026-01-07T00:52:42.7755201Z</LastWriteTime>
     <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
   </ProjectInfo>
   <LastBuildInfos>
@@ -13,27 +13,27 @@
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>Create DM Database and Tables.dtsx</Name>
-      <LastWriteTime>2026-01-06T23:22:14.3774483Z</LastWriteTime>
+      <LastWriteTime>2026-01-07T00:52:42.7755201Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>Main.dtsx</Name>
-      <LastWriteTime>2026-01-06T23:25:15.1293453Z</LastWriteTime>
+      <LastWriteTime>2026-01-07T00:52:42.7816608Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>Load Temporal Dimension.dtsx</Name>
-      <LastWriteTime>2026-01-06T23:24:28.3537672Z</LastWriteTime>
+      <LastWriteTime>2026-01-07T00:52:42.7816608Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>Load Business Dimensions.dtsx</Name>
-      <LastWriteTime>2026-01-06T23:22:41.8784062Z</LastWriteTime>
+      <LastWriteTime>2026-01-07T16:34:33.7475546Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>Load Fact Tables.dtsx</Name>
-      <LastWriteTime>2026-01-07T00:29:07.076244Z</LastWriteTime>
+      <LastWriteTime>2026-01-07T00:52:42.7816608Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
   </LastBuildInfos>

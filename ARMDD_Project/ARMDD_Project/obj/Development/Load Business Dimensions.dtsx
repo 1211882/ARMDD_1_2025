@@ -8,12 +8,12 @@
   DTS:DelayValidation="True"
   DTS:DTSID="{4C13C6F6-E1F0-4123-B3B0-691CF8BDA24C}"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="16.0.5685.0"
+  DTS:LastModifiedProductVersion="17.0.1010.2"
   DTS:LocaleID="2070"
   DTS:ObjectName="Load Business Dimensions"
   DTS:PackageType="5"
-  DTS:VersionBuild="206"
-  DTS:VersionGUID="{815C8B27-B5DC-4C61-9586-A9B9A590C93D}">
+  DTS:VersionBuild="218"
+  DTS:VersionGUID="{21547D1F-1BA8-4DF3-80D3-9E29902DEFD7}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -99,7 +99,7 @@
                   dataType="System.String"
                   description="The SQL command to be executed."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=17.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
                 <property
                   dataType="System.String"
                   description="The variable that contains the SQL command to be executed."
@@ -258,7 +258,7 @@
                   dataType="System.String"
                   description="The SQL command to be executed."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=17.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -394,7 +394,7 @@
                   description="The SQL command to be executed."
                   expressionType="Notify"
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">UPDATE [dbo].[DimCurrency] SET [CurrencyName] = ?,[CurrencySymbol] = ? WHERE [CurrencyID] = ?</property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=17.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">UPDATE [dbo].[DimCurrency] SET [CurrencyName] = ?,[CurrencySymbol] = ? WHERE [CurrencyID] = ?</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -523,7 +523,7 @@
                   dataType="System.String"
                   description="Specifies the SELECT statement used to create a schema rowset."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT [CurrencyID], [CurrencyName], [CurrencySymbol] FROM [dbo].[DimCurrency]</property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=17.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT [CurrencyID], [CurrencyName], [CurrencySymbol] FROM [dbo].[DimCurrency]</property>
                 <property
                   dataType="System.String"
                   description="Specifies the WHERE clause in the SELECT statement that selects the current row among rows with identical business keys."
@@ -1038,7 +1038,7 @@
                   dataType="System.String"
                   description="The SQL command to be executed."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=17.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -1738,7 +1738,7 @@
                   dataType="System.String"
                   description="The SQL command to be executed."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=17.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -1962,13 +1962,13 @@
                   description="Specifies the SQL statement that generates the lookup table."
                   expressionType="Notify"
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[stg_Countries]</property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=17.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from [dbo].[stg_Countries]</property>
                 <property
                   dataType="System.String"
                   description="Specifies a SQL statement that uses parameters to generate the lookup table."
                   expressionType="Notify"
                   name="SqlCommandParam"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[stg_Countries]) [refTable]
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=17.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from (select * from [dbo].[stg_Countries]) [refTable]
 where [refTable].[CountryID] = ?</property>
                 <property
                   dataType="System.Int32"
@@ -2150,13 +2150,13 @@ where [refTable].[CountryID] = ?</property>
                   description="Specifies the SQL statement that generates the lookup table."
                   expressionType="Notify"
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[Language_Lookup]</property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=17.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from [dbo].[Language_Lookup]</property>
                 <property
                   dataType="System.String"
                   description="Specifies a SQL statement that uses parameters to generate the lookup table."
                   expressionType="Notify"
                   name="SqlCommandParam"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[Language_Lookup]) [refTable]
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=17.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from (select * from [dbo].[Language_Lookup]) [refTable]
 where [refTable].[Language] = ?</property>
                 <property
                   dataType="System.Int32"
@@ -2297,7 +2297,7 @@ where [refTable].[Language] = ?</property>
                   description="The SQL command to be executed."
                   expressionType="Notify"
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">UPDATE dbo.DimCustomer
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=17.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">UPDATE dbo.DimCustomer
 SET IsCurrent = ?,
     EndDate   = ?
 WHERE CustomerID = ?
@@ -2430,7 +2430,7 @@ WHERE CustomerID = ?
                   description="The SQL command to be executed."
                   expressionType="Notify"
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">UPDATE [dbo].[DimCustomer] SET [Gender] = ?,[GeographicRegion] = ?,[Language] = ? WHERE [CustomerID] = ? AND [IsCurrent] = '1'</property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=17.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">UPDATE [dbo].[DimCustomer] SET [Gender] = ?,[GeographicRegion] = ?,[Language] = ? WHERE [CustomerID] = ? AND [IsCurrent] = '1'</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -2587,7 +2587,7 @@ WHERE CustomerID = ?
                   dataType="System.String"
                   description="The SQL command to be executed."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=17.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
                 <property
                   dataType="System.String"
                   description="The variable that contains the SQL command to be executed."
@@ -2830,7 +2830,7 @@ WHERE CustomerID = ?
                   dataType="System.String"
                   description="Specifies the SELECT statement used to create a schema rowset."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT [CountryCode], [CountryName], [CustomerID], [DateOfBirth], [EuroZone], [Gender], [GeographicRegion], [Language], [VipCustomer],[IsCurrent] FROM [dbo].[DimCustomer]</property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=17.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT [CountryCode], [CountryName], [CustomerID], [DateOfBirth], [EuroZone], [Gender], [GeographicRegion], [Language], [VipCustomer],[IsCurrent] FROM [dbo].[DimCustomer]</property>
                 <property
                   dataType="System.String"
                   description="Specifies the WHERE clause in the SELECT statement that selects the current row among rows with identical business keys."
@@ -4205,25 +4205,7 @@ WHERE CustomerID = ?
                       cachedDataType="wstr"
                       cachedLength="1"
                       cachedName="CategoryGender"
-                      errorOrTruncationOperation="Computation"
-                      errorRowDisposition="FailComponent"
-                      lineageId="Package\Load Dim Product\Union All.Outputs[Union All Output 1].Columns[CategoryGender]"
-                      truncationRowDisposition="FailComponent"
-                      usageType="readWrite">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Derived Column Expression"
-                          name="Expression">[TRIM]((DT_WSTR,1)#{Package\Load Dim Product\Union All.Outputs[Union All Output 1].Columns[CategoryGender]}) == "F" ? "F" : ([TRIM]((DT_WSTR,1)#{Package\Load Dim Product\Union All.Outputs[Union All Output 1].Columns[CategoryGender]}) == "M" ? "M" : "U")</property>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Derived Column Friendly Expression"
-                          expressionType="Notify"
-                          name="FriendlyExpression">TRIM((DT_WSTR,1)CategoryGender) == "F" ? "F" : (TRIM((DT_WSTR,1)CategoryGender) == "M" ? "M" : "U")</property>
-                      </properties>
-                    </inputColumn>
+                      lineageId="Package\Load Dim Product\Union All.Outputs[Union All Output 1].Columns[CategoryGender]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -4235,6 +4217,31 @@ WHERE CustomerID = ?
                   exclusionGroup="1"
                   name="Derived Column Output"
                   synchronousInputId="Package\Load Dim Product\CategoryGender.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load Dim Product\CategoryGender.Outputs[Derived Column Output].Columns[CategoryGender_Transformed]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="7"
+                      lineageId="Package\Load Dim Product\CategoryGender.Outputs[Derived Column Output].Columns[CategoryGender_Transformed]"
+                      name="CategoryGender_Transformed"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[ISNULL](#{Package\Load Dim Product\Union All.Outputs[Union All Output 1].Columns[CategoryGender]}) || [LEN]([TRIM](#{Package\Load Dim Product\Union All.Outputs[Union All Output 1].Columns[CategoryGender]})) == 0 ? "Unknown" : (#{Package\Load Dim Product\Union All.Outputs[Union All Output 1].Columns[CategoryGender]} == "F" ? "Female" : "Male")</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">ISNULL(CategoryGender) || LEN(TRIM(CategoryGender)) == 0 ? "Unknown" : (CategoryGender == "F" ? "Female" : "Male")</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
                   <externalMetadataColumns />
                 </output>
                 <output
@@ -4511,13 +4518,13 @@ WHERE CustomerID = ?
                           containsID="true"
                           dataType="System.String"
                           description="Derived Column Expression"
-                          name="Expression">(DT_BOOL)("1")</property>
+                          name="Expression">(DT_BOOL)"1"</property>
                         <property
                           containsID="true"
                           dataType="System.String"
                           description="Derived Column Friendly Expression"
                           expressionType="Notify"
-                          name="FriendlyExpression">(DT_BOOL)("1")</property>
+                          name="FriendlyExpression">(DT_BOOL)"1"</property>
                       </properties>
                     </outputColumn>
                   </outputColumns>
@@ -4637,7 +4644,210 @@ WHERE CustomerID = ?
                       refId="Package\Load Dim Product\Derived Column 3.Inputs[Derived Column Input].Columns[VideoStatus_LKP]"
                       cachedDataType="bool"
                       cachedName="VideoStatus_LKP"
-                      lineageId="Package\Load Dim Product\Union All.Outputs[Union All Output 1].Columns[VideoStatus_LKP]" />
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Load Dim Product\Union All.Outputs[Union All Output 1].Columns[VideoStatus_LKP]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[ISNULL](#{Package\Load Dim Product\Union All.Outputs[Union All Output 1].Columns[VideoStatus_LKP]}) ? (DT_BOOL) FALSE  : #{Package\Load Dim Product\Union All.Outputs[Union All Output 1].Columns[VideoStatus_LKP]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">ISNULL(VideoStatus_LKP) ? (DT_BOOL) FALSE  : VideoStatus_LKP</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load Dim Product\Derived Column 3.Inputs[Derived Column Input].Columns[CategoryName]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="CategoryName"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Load Dim Product\Union All.Outputs[Union All Output 1].Columns[CategoryName]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[TRIM]([ISNULL](#{Package\Load Dim Product\Union All.Outputs[Union All Output 1].Columns[CategoryName]}) || [LEN]([TRIM](#{Package\Load Dim Product\Union All.Outputs[Union All Output 1].Columns[CategoryName]})) == 0 ? "Not Attributed" : #{Package\Load Dim Product\Union All.Outputs[Union All Output 1].Columns[CategoryName]})</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">TRIM(ISNULL(CategoryName) || LEN(TRIM(CategoryName)) == 0 ? "Not Attributed" : CategoryName)</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load Dim Product\Derived Column 3.Inputs[Derived Column Input].Columns[BoxHeight]"
+                      cachedDataType="r8"
+                      cachedName="BoxHeight"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Load Dim Product\Union All.Outputs[Union All Output 1].Columns[BoxHeight]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[ISNULL](#{Package\Load Dim Product\Union All.Outputs[Union All Output 1].Columns[BoxHeight]}) ? (DT_R8)0.0 : #{Package\Load Dim Product\Union All.Outputs[Union All Output 1].Columns[BoxHeight]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">ISNULL(BoxHeight) ? (DT_R8)0.0 : BoxHeight</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load Dim Product\Derived Column 3.Inputs[Derived Column Input].Columns[BoxLength]"
+                      cachedDataType="r8"
+                      cachedName="BoxLength"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Load Dim Product\Union All.Outputs[Union All Output 1].Columns[BoxLength]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[ISNULL](#{Package\Load Dim Product\Union All.Outputs[Union All Output 1].Columns[BoxLength]}) ? (DT_R8)0.0 : #{Package\Load Dim Product\Union All.Outputs[Union All Output 1].Columns[BoxLength]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">ISNULL(BoxLength) ? (DT_R8)0.0 : BoxLength</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load Dim Product\Derived Column 3.Inputs[Derived Column Input].Columns[BoxWidth]"
+                      cachedDataType="r8"
+                      cachedName="BoxWidth"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Load Dim Product\Union All.Outputs[Union All Output 1].Columns[BoxWidth]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[ISNULL](#{Package\Load Dim Product\Union All.Outputs[Union All Output 1].Columns[BoxWidth]}) ? (DT_R8)0.0 : #{Package\Load Dim Product\Union All.Outputs[Union All Output 1].Columns[BoxWidth]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">ISNULL(BoxWidth) ? (DT_R8)0.0 : BoxWidth</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load Dim Product\Derived Column 3.Inputs[Derived Column Input].Columns[BoxVolWeight]"
+                      cachedDataType="r8"
+                      cachedName="BoxVolWeight"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Load Dim Product\Union All.Outputs[Union All Output 1].Columns[BoxVolWeight]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[ISNULL](#{Package\Load Dim Product\Union All.Outputs[Union All Output 1].Columns[BoxVolWeight]}) ? (DT_R8)0.0 : #{Package\Load Dim Product\Union All.Outputs[Union All Output 1].Columns[BoxVolWeight]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">ISNULL(BoxVolWeight) ? (DT_R8)0.0 : BoxVolWeight</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load Dim Product\Derived Column 3.Inputs[Derived Column Input].Columns[AvailablePortal]"
+                      cachedDataType="bool"
+                      cachedName="AvailablePortal"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Load Dim Product\Union All.Outputs[Union All Output 1].Columns[AvailablePortal]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[ISNULL](#{Package\Load Dim Product\Union All.Outputs[Union All Output 1].Columns[AvailablePortal]}) ? (DT_BOOL) FALSE  : #{Package\Load Dim Product\Union All.Outputs[Union All Output 1].Columns[AvailablePortal]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">ISNULL(AvailablePortal) ? (DT_BOOL) FALSE  : AvailablePortal</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load Dim Product\Derived Column 3.Inputs[Derived Column Input].Columns[Active]"
+                      cachedDataType="bool"
+                      cachedName="Active"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Load Dim Product\Union All.Outputs[Union All Output 1].Columns[Active]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[ISNULL](#{Package\Load Dim Product\Union All.Outputs[Union All Output 1].Columns[Active]}) ? (DT_BOOL) FALSE  : #{Package\Load Dim Product\Union All.Outputs[Union All Output 1].Columns[Active]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">ISNULL(Active) ? (DT_BOOL) FALSE  : Active</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load Dim Product\Derived Column 3.Inputs[Derived Column Input].Columns[ProductVideoID_Final_LKP]"
+                      cachedDataType="i4"
+                      cachedName="ProductVideoID_Final_LKP"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Load Dim Product\Union All.Outputs[Union All Output 1].Columns[ProductVideoID_Final_LKP]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[ISNULL](#{Package\Load Dim Product\Union All.Outputs[Union All Output 1].Columns[ProductVideoID_Final_LKP]}) ? (DT_I4)-1 : #{Package\Load Dim Product\Union All.Outputs[Union All Output 1].Columns[ProductVideoID_Final_LKP]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">ISNULL(ProductVideoID_Final_LKP) ? (DT_I4)-1 : ProductVideoID_Final_LKP</property>
+                      </properties>
+                    </inputColumn>
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -4725,7 +4935,7 @@ WHERE CustomerID = ?
                   dataType="System.String"
                   description="The SQL command to be executed."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=17.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -4793,12 +5003,12 @@ WHERE CustomerID = ?
                       externalMetadataColumnId="Package\Load Dim Product\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[CategoryName]"
                       lineageId="Package\Load Dim Product\Union All 1.Outputs[Union All Output 1].Columns[CategoryName]" />
                     <inputColumn
-                      refId="Package\Load Dim Product\Insert Destination.Inputs[OLE DB Destination Input].Columns[CategoryGender]"
+                      refId="Package\Load Dim Product\Insert Destination.Inputs[OLE DB Destination Input].Columns[CategoryGender_Transformed]"
                       cachedDataType="wstr"
-                      cachedLength="1"
-                      cachedName="CategoryGender"
+                      cachedLength="7"
+                      cachedName="CategoryGender_Transformed"
                       externalMetadataColumnId="Package\Load Dim Product\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[CategoryGender]"
-                      lineageId="Package\Load Dim Product\Union All 1.Outputs[Union All Output 1].Columns[CategoryGender]" />
+                      lineageId="Package\Load Dim Product\Union All 1.Outputs[Union All Output 1].Columns[CategoryGender_Transformed]" />
                     <inputColumn
                       refId="Package\Load Dim Product\Insert Destination.Inputs[OLE DB Destination Input].Columns[AvailablePortal]"
                       cachedDataType="bool"
@@ -4850,12 +5060,6 @@ WHERE CustomerID = ?
                       externalMetadataColumnId="Package\Load Dim Product\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Active]"
                       lineageId="Package\Load Dim Product\Union All 1.Outputs[Union All Output 1].Columns[Active]" />
                     <inputColumn
-                      refId="Package\Load Dim Product\Insert Destination.Inputs[OLE DB Destination Input].Columns[StartDate]"
-                      cachedDataType="dbDate"
-                      cachedName="StartDate"
-                      externalMetadataColumnId="Package\Load Dim Product\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[StartDate]"
-                      lineageId="Package\Load Dim Product\Derived Column 2.Outputs[Derived Column Output].Columns[StartDate]" />
-                    <inputColumn
                       refId="Package\Load Dim Product\Insert Destination.Inputs[OLE DB Destination Input].Columns[ProductVideoID_Final_LKP]"
                       cachedDataType="i4"
                       cachedName="ProductVideoID_Final_LKP"
@@ -4867,6 +5071,12 @@ WHERE CustomerID = ?
                       cachedName="VideoStatus_LKP"
                       externalMetadataColumnId="Package\Load Dim Product\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[VideoStatus]"
                       lineageId="Package\Load Dim Product\Union All 1.Outputs[Union All Output 1].Columns[VideoStatus_LKP]" />
+                    <inputColumn
+                      refId="Package\Load Dim Product\Insert Destination.Inputs[OLE DB Destination Input].Columns[StartDate]"
+                      cachedDataType="dbDate"
+                      cachedName="StartDate"
+                      externalMetadataColumnId="Package\Load Dim Product\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[StartDate]"
+                      lineageId="Package\Load Dim Product\Derived Column 2.Outputs[Derived Column Output].Columns[StartDate]" />
                     <inputColumn
                       refId="Package\Load Dim Product\Insert Destination.Inputs[OLE DB Destination Input].Columns[EndDate]"
                       cachedDataType="dbDate"
@@ -4903,7 +5113,7 @@ WHERE CustomerID = ?
                     <externalMetadataColumn
                       refId="Package\Load Dim Product\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[CategoryGender]"
                       dataType="wstr"
-                      length="6"
+                      length="7"
                       name="CategoryGender" />
                     <externalMetadataColumn
                       refId="Package\Load Dim Product\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[AvailablePortal]"
@@ -5001,13 +5211,13 @@ WHERE CustomerID = ?
                   description="Specifies the SQL statement that generates the lookup table."
                   expressionType="Notify"
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=17.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
                 <property
                   dataType="System.String"
                   description="Specifies a SQL statement that uses parameters to generate the lookup table."
                   expressionType="Notify"
                   name="SqlCommandParam"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from () [refTable]
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=17.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from () [refTable]
 where [refTable].[ProductID] = ?</property>
                 <property
                   dataType="System.Int32"
@@ -5176,7 +5386,7 @@ where [refTable].[ProductID] = ?</property>
                   description="The SQL command to be executed."
                   expressionType="Notify"
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">UPDATE [dbo].[DimProduct] SET [EndDate] = ? WHERE [ProductID] = ? AND [EndDate] IS NULL</property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=17.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">UPDATE [dbo].[DimProduct] SET [EndDate] = ? WHERE [ProductID] = ? AND [EndDate] IS NULL</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -5288,7 +5498,7 @@ where [refTable].[ProductID] = ?</property>
                   description="The SQL command to be executed."
                   expressionType="Notify"
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">UPDATE [dbo].[DimProduct] SET [AvailablePortal] = ?,[CategoryGender] = ?,[CategoryName] = ?,[Description] = ? WHERE [ProductID] = ?</property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=17.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">UPDATE [dbo].[DimProduct] SET [AvailablePortal] = ?,[CategoryGender] = ?,[CategoryName] = ?,[Description] = ?,[ProductVideoID] = ?,[VideoStatus] = ? WHERE [ProductID] = ?</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -5317,12 +5527,12 @@ where [refTable].[ProductID] = ?</property>
                       externalMetadataColumnId="Package\Load Dim Product\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
                       lineageId="Package\Load Dim Product\Union All.Outputs[Union All Output 1].Columns[AvailablePortal]" />
                     <inputColumn
-                      refId="Package\Load Dim Product\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[CategoryGender]"
+                      refId="Package\Load Dim Product\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[CategoryGender_Transformed]"
                       cachedDataType="wstr"
-                      cachedLength="1"
-                      cachedName="CategoryGender"
+                      cachedLength="7"
+                      cachedName="CategoryGender_Transformed"
                       externalMetadataColumnId="Package\Load Dim Product\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
-                      lineageId="Package\Load Dim Product\Union All.Outputs[Union All Output 1].Columns[CategoryGender]" />
+                      lineageId="Package\Load Dim Product\CategoryGender.Outputs[Derived Column Output].Columns[CategoryGender_Transformed]" />
                     <inputColumn
                       refId="Package\Load Dim Product\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[CategoryName]"
                       cachedDataType="wstr"
@@ -5341,8 +5551,20 @@ where [refTable].[ProductID] = ?</property>
                       refId="Package\Load Dim Product\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[ProductID]"
                       cachedDataType="i4"
                       cachedName="ProductID"
-                      externalMetadataColumnId="Package\Load Dim Product\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
+                      externalMetadataColumnId="Package\Load Dim Product\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_6]"
                       lineageId="Package\Load Dim Product\Union All.Outputs[Union All Output 1].Columns[ProductID]" />
+                    <inputColumn
+                      refId="Package\Load Dim Product\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[ProductVideoID_Final_LKP]"
+                      cachedDataType="i4"
+                      cachedName="ProductVideoID_Final_LKP"
+                      externalMetadataColumnId="Package\Load Dim Product\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
+                      lineageId="Package\Load Dim Product\Union All.Outputs[Union All Output 1].Columns[ProductVideoID_Final_LKP]" />
+                    <inputColumn
+                      refId="Package\Load Dim Product\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[VideoStatus_LKP]"
+                      cachedDataType="bool"
+                      cachedName="VideoStatus_LKP"
+                      externalMetadataColumnId="Package\Load Dim Product\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_5]"
+                      lineageId="Package\Load Dim Product\Union All.Outputs[Union All Output 1].Columns[VideoStatus_LKP]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -5360,7 +5582,7 @@ where [refTable].[ProductID] = ?</property>
                     <externalMetadataColumn
                       refId="Package\Load Dim Product\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
                       dataType="wstr"
-                      length="6"
+                      length="7"
                       name="Param_1">
                       <properties>
                         <property
@@ -5397,6 +5619,28 @@ where [refTable].[ProductID] = ?</property>
                       refId="Package\Load Dim Product\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
                       dataType="i4"
                       name="Param_4">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Load Dim Product\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_5]"
+                      dataType="bool"
+                      name="Param_5">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Load Dim Product\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_6]"
+                      dataType="i4"
+                      name="Param_6">
                       <properties>
                         <property
                           dataType="System.Int32"
@@ -5464,7 +5708,7 @@ where [refTable].[ProductID] = ?</property>
                   dataType="System.String"
                   description="The SQL command to be executed."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=17.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT
     p.ProductID,
     p.Description,
     p.AvailablePortal,
@@ -5825,7 +6069,7 @@ LEFT JOIN dbo.stg_Boxes AS b
                   dataType="System.String"
                   description="Specifies the SELECT statement used to create a schema rowset."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT [Active], [AvailablePortal], [BoxHeight], [BoxLength], [BoxLocation], [BoxName], [BoxVolWeight], [BoxWidth], [CategoryGender], [CategoryName], [Description], [ProductID],[StartDate],[EndDate] FROM [dbo].[DimProduct]</property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=17.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT [Active], [AvailablePortal], [BoxHeight], [BoxLength], [BoxLocation], [BoxName], [BoxVolWeight], [BoxWidth], [CategoryGender], [CategoryName], [Description], [ProductID], [ProductVideoID], [VideoStatus],[StartDate],[EndDate] FROM [dbo].[DimProduct]</property>
                 <property
                   dataType="System.String"
                   description="Specifies the WHERE clause in the SELECT statement that selects the current row among rows with identical business keys."
@@ -5980,20 +6224,6 @@ LEFT JOIN dbo.stg_Boxes AS b
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\Load Dim Product\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[CategoryGender]"
-                      cachedDataType="wstr"
-                      cachedLength="1"
-                      cachedName="CategoryGender"
-                      externalMetadataColumnId="Package\Load Dim Product\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[CategoryGender]"
-                      lineageId="Package\Load Dim Product\Union All.Outputs[Union All Output 1].Columns[CategoryGender]">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          name="ColumnType"
-                          typeConverter="ColumnType">2</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
                       refId="Package\Load Dim Product\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[CategoryName]"
                       cachedDataType="wstr"
                       cachedLength="255"
@@ -6032,6 +6262,60 @@ LEFT JOIN dbo.stg_Boxes AS b
                           dataType="System.Int32"
                           name="ColumnType"
                           typeConverter="ColumnType">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load Dim Product\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[CategoryGender]"
+                      cachedDataType="wstr"
+                      cachedLength="1"
+                      cachedName="CategoryGender"
+                      externalMetadataColumnId="Package\Load Dim Product\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[CategoryGender]"
+                      lineageId="Package\Load Dim Product\Union All.Outputs[Union All Output 1].Columns[CategoryGender]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load Dim Product\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[ProductVideoID_Final_LKP]"
+                      cachedDataType="i4"
+                      cachedName="ProductVideoID_Final_LKP"
+                      externalMetadataColumnId="Package\Load Dim Product\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[ProductVideoID]"
+                      lineageId="Package\Load Dim Product\Union All.Outputs[Union All Output 1].Columns[ProductVideoID_Final_LKP]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load Dim Product\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[VideoStatus_LKP]"
+                      cachedDataType="bool"
+                      cachedName="VideoStatus_LKP"
+                      externalMetadataColumnId="Package\Load Dim Product\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[VideoStatus]"
+                      lineageId="Package\Load Dim Product\Union All.Outputs[Union All Output 1].Columns[VideoStatus_LKP]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load Dim Product\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[CategoryGender_Transformed]"
+                      cachedDataType="wstr"
+                      cachedLength="7"
+                      cachedName="CategoryGender_Transformed"
+                      externalMetadataColumnId="Package\Load Dim Product\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[CategoryGender]"
+                      lineageId="Package\Load Dim Product\CategoryGender.Outputs[Derived Column Output].Columns[CategoryGender_Transformed]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
                       </properties>
                     </inputColumn>
                   </inputColumns>
@@ -6074,7 +6358,7 @@ LEFT JOIN dbo.stg_Boxes AS b
                     <externalMetadataColumn
                       refId="Package\Load Dim Product\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[CategoryGender]"
                       dataType="wstr"
-                      length="6"
+                      length="7"
                       name="CategoryGender" />
                     <externalMetadataColumn
                       refId="Package\Load Dim Product\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[CategoryName]"
@@ -6090,6 +6374,14 @@ LEFT JOIN dbo.stg_Boxes AS b
                       refId="Package\Load Dim Product\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[ProductID]"
                       dataType="i4"
                       name="ProductID" />
+                    <externalMetadataColumn
+                      refId="Package\Load Dim Product\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[ProductVideoID]"
+                      dataType="i4"
+                      name="ProductVideoID" />
+                    <externalMetadataColumn
+                      refId="Package\Load Dim Product\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[VideoStatus]"
+                      dataType="bool"
+                      name="VideoStatus" />
                     <externalMetadataColumn
                       refId="Package\Load Dim Product\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[StartDate]"
                       dataType="dbDate"
@@ -6942,6 +7234,20 @@ LEFT JOIN dbo.stg_Boxes AS b
                           name="OutputColumnLineageID">#{Package\Load Dim Product\Union All 1.Outputs[Union All Output 1].Columns[VideoStatus]}</property>
                       </properties>
                     </inputColumn>
+                    <inputColumn
+                      refId="Package\Load Dim Product\Union All 1.Inputs[Union All Input 1].Columns[CategoryGender_Transformed]"
+                      cachedDataType="wstr"
+                      cachedLength="7"
+                      cachedName="CategoryGender_Transformed"
+                      lineageId="Package\Load Dim Product\CategoryGender.Outputs[Derived Column Output].Columns[CategoryGender_Transformed]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Load Dim Product\Union All 1.Outputs[Union All Output 1].Columns[CategoryGender_Transformed]}</property>
+                      </properties>
+                    </inputColumn>
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -7176,6 +7482,20 @@ LEFT JOIN dbo.stg_Boxes AS b
                           name="OutputColumnLineageID">#{Package\Load Dim Product\Union All 1.Outputs[Union All Output 1].Columns[VideoStatus]}</property>
                       </properties>
                     </inputColumn>
+                    <inputColumn
+                      refId="Package\Load Dim Product\Union All 1.Inputs[Union All Input 2].Columns[CategoryGender_Transformed]"
+                      cachedDataType="wstr"
+                      cachedLength="7"
+                      cachedName="CategoryGender_Transformed"
+                      lineageId="Package\Load Dim Product\CategoryGender.Outputs[Derived Column Output].Columns[CategoryGender_Transformed]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Load Dim Product\Union All 1.Outputs[Union All Output 1].Columns[CategoryGender_Transformed]}</property>
+                      </properties>
+                    </inputColumn>
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -7282,6 +7602,12 @@ LEFT JOIN dbo.stg_Boxes AS b
                       dataType="i4"
                       lineageId="Package\Load Dim Product\Union All 1.Outputs[Union All Output 1].Columns[VideoStatus]"
                       name="VideoStatus" />
+                    <outputColumn
+                      refId="Package\Load Dim Product\Union All 1.Outputs[Union All Output 1].Columns[CategoryGender_Transformed]"
+                      dataType="wstr"
+                      length="7"
+                      lineageId="Package\Load Dim Product\Union All 1.Outputs[Union All Output 1].Columns[CategoryGender_Transformed]"
+                      name="CategoryGender_Transformed" />
                   </outputColumns>
                   <externalMetadataColumns />
                 </output>
@@ -7656,7 +7982,7 @@ LEFT JOIN dbo.stg_Boxes AS b
                   dataType="System.String"
                   description="The SQL command to be executed."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=17.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -7838,7 +8164,7 @@ LEFT JOIN dbo.stg_Boxes AS b
                   description="The SQL command to be executed."
                   expressionType="Notify"
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">UPDATE [dbo].[DimShipment] SET [CountryName] = ?,[EuroZone] = ? WHERE [Address] = ? AND [City] = ? AND [CountryCode] = ? AND [State] = ? AND [Zip] = ?</property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=17.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">UPDATE [dbo].[DimShipment] SET [CountryName] = ?,[EuroZone] = ? WHERE [Address] = ? AND [City] = ? AND [CountryCode] = ? AND [State] = ? AND [Zip] = ?</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -8054,7 +8380,7 @@ LEFT JOIN dbo.stg_Boxes AS b
                   dataType="System.String"
                   description="The SQL command to be executed."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT DISTINCT
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=17.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT DISTINCT
     o.Address,
     o.City,
     o.State,
@@ -8283,7 +8609,7 @@ LEFT JOIN dbo.stg_Countries c
                   dataType="System.String"
                   description="Specifies the SELECT statement used to create a schema rowset."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT [Address], [City], [CountryCode], [CountryName], [EuroZone], [State], [Zip] FROM [dbo].[DimShipment]</property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=17.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT [Address], [City], [CountryCode], [CountryName], [EuroZone], [State], [Zip] FROM [dbo].[DimShipment]</property>
                 <property
                   dataType="System.String"
                   description="Specifies the WHERE clause in the SELECT statement that selects the current row among rows with identical business keys."
@@ -9226,7 +9552,7 @@ LEFT JOIN dbo.stg_Countries c
                   dataType="System.String"
                   description="The SQL command to be executed."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=17.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -9538,7 +9864,7 @@ LEFT JOIN dbo.stg_Countries c
                   description="The SQL command to be executed."
                   expressionType="Notify"
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">UPDATE [dbo].[DimSite] SET [EndDate] = ? WHERE [SiteID] = ? AND [EndDate] IS NULL</property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=17.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">UPDATE [dbo].[DimSite] SET [EndDate] = ? WHERE [SiteID] = ? AND [EndDate] IS NULL</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -9650,7 +9976,7 @@ LEFT JOIN dbo.stg_Countries c
                   description="The SQL command to be executed."
                   expressionType="Notify"
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">UPDATE [dbo].[DimSite] SET [Currency] = ?,[Initials] = ?,[SiteName] = ?,[SiteURL] = ? WHERE [SiteID] = ?</property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=17.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">UPDATE [dbo].[DimSite] SET [Currency] = ?,[Initials] = ?,[SiteName] = ?,[SiteURL] = ? WHERE [SiteID] = ?</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -9828,7 +10154,7 @@ LEFT JOIN dbo.stg_Countries c
                   dataType="System.String"
                   description="The SQL command to be executed."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=17.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT
     s.SiteID,
     s.Currency,
     s.Initials,
@@ -10247,7 +10573,7 @@ LEFT JOIN dbo.stg_Countries AS c
                   dataType="System.String"
                   description="Specifies the SELECT statement used to create a schema rowset."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT [AddressLine1], [AddressLine2], [CountryCode], [CountryName], [Currency], [DailyPickup], [EuroZone], [Initials], [Phone], [PickupHour], [SiteID], [SiteName], [SiteURL], [StoreContact], [TimeZone], [Zip_City],[StartDate],[EndDate] FROM [dbo].[DimSite]</property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=17.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT [AddressLine1], [AddressLine2], [CountryCode], [CountryName], [Currency], [DailyPickup], [EuroZone], [Initials], [Phone], [PickupHour], [SiteID], [SiteName], [SiteURL], [StoreContact], [TimeZone], [Zip_City],[StartDate],[EndDate] FROM [dbo].[DimSite]</property>
                 <property
                   dataType="System.String"
                   description="Specifies the WHERE clause in the SELECT statement that selects the current row among rows with identical business keys."
@@ -11916,7 +12242,7 @@ LEFT JOIN dbo.stg_Countries AS c
                   dataType="System.String"
                   description="The SQL command to be executed."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=17.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -12185,7 +12511,7 @@ LEFT JOIN dbo.stg_Countries AS c
                   description="The SQL command to be executed."
                   expressionType="Notify"
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">UPDATE [dbo].[DimSize] SET [FriendlyName] = ?,[MaximumSizeAvailable] = ?,[MinimumSizeAvailable] = ?,[Name] = ?,[RetailInvisible] = ? WHERE [SizeID] = ?</property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=17.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">UPDATE [dbo].[DimSize] SET [FriendlyName] = ?,[MaximumSizeAvailable] = ?,[MinimumSizeAvailable] = ?,[Name] = ?,[RetailInvisible] = ? WHERE [SizeID] = ?</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -12376,7 +12702,7 @@ LEFT JOIN dbo.stg_Countries AS c
                   dataType="System.String"
                   description="The SQL command to be executed."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=17.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
                 <property
                   dataType="System.String"
                   description="The variable that contains the SQL command to be executed."
@@ -13314,7 +13640,7 @@ LEFT JOIN dbo.stg_Countries AS c
                   dataType="System.String"
                   description="Specifies the SELECT statement used to create a schema rowset."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT [FriendlyName], [MaximumSizeAvailable], [MinimumSizeAvailable], [Name], [RetailInvisible], [SizeID] FROM [dbo].[DimSize]</property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=17.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT [FriendlyName], [MaximumSizeAvailable], [MinimumSizeAvailable], [Name], [RetailInvisible], [SizeID] FROM [dbo].[DimSize]</property>
                 <property
                   dataType="System.String"
                   description="Specifies the WHERE clause in the SELECT statement that selects the current row among rows with identical business keys."
@@ -14039,7 +14365,7 @@ LEFT JOIN dbo.stg_Countries AS c
                   dataType="System.String"
                   description="The SQL command to be executed."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=17.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
                 <property
                   dataType="System.String"
                   description="The variable that contains the SQL command to be executed."
@@ -14222,7 +14548,7 @@ LEFT JOIN dbo.stg_Countries AS c
           Id="Package\Load Dim Customer"
           TopLeft="117,45" />
         <NodeLayout
-          Size="163,42"
+          Size="163,44"
           Id="Package\Load Dim Product"
           TopLeft="430.5,265.5" />
         <NodeLayout
@@ -14568,9 +14894,7 @@ LEFT JOIN dbo.stg_Countries AS c
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -14592,9 +14916,7 @@ LEFT JOIN dbo.stg_Countries AS c
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -14616,9 +14938,7 @@ LEFT JOIN dbo.stg_Countries AS c
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -14652,9 +14972,7 @@ LEFT JOIN dbo.stg_Countries AS c
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -14844,9 +15162,7 @@ LEFT JOIN dbo.stg_Countries AS c
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -14868,9 +15184,7 @@ LEFT JOIN dbo.stg_Countries AS c
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -14892,9 +15206,7 @@ LEFT JOIN dbo.stg_Countries AS c
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -14916,9 +15228,7 @@ LEFT JOIN dbo.stg_Countries AS c
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -14952,9 +15262,7 @@ LEFT JOIN dbo.stg_Countries AS c
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -14976,9 +15284,7 @@ LEFT JOIN dbo.stg_Countries AS c
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -15000,9 +15306,7 @@ LEFT JOIN dbo.stg_Countries AS c
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -15224,33 +15528,9 @@ LEFT JOIN dbo.stg_Countries AS c
       <GraphLayout
         Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="166,42"
-          Id="Package\Load Dim Product\OLE DB Command"
-          TopLeft="5.50000000000011,821.5" />
-        <NodeLayout
-          Size="163,42"
-          Id="Package\Load Dim Product\Derived Column 2"
-          TopLeft="151,1025.5" />
-        <NodeLayout
-          Size="163,42"
-          Id="Package\Load Dim Product\Insert Destination"
-          TopLeft="151,1127.5" />
-        <NodeLayout
-          Size="163,42"
-          Id="Package\Load Dim Product\Derived Column 1"
-          TopLeft="8.00000000000011,719.5" />
-        <NodeLayout
           Size="209,42"
           Id="Package\Load Dim Product\Slowly Changing Dimension"
           TopLeft="128,617.5" />
-        <NodeLayout
-          Size="130,42"
-          Id="Package\Load Dim Product\Union All 1"
-          TopLeft="167.5,923.5" />
-        <NodeLayout
-          Size="175,42"
-          Id="Package\Load Dim Product\OLE DB Command 1"
-          TopLeft="294,719.5" />
         <NodeLayout
           Size="154,42"
           Id="Package\Load Dim Product\Derived Column"
@@ -15275,86 +15555,6 @@ LEFT JOIN dbo.stg_Countries AS c
           Size="115,42"
           Id="Package\Load Dim Product\Product"
           TopLeft="175,5.5" />
-        <EdgeLayout
-          Id="Package\Load Dim Product.Paths[Historical Attribute Inserts Output]"
-          TopLeft="182.25,659.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-92.75,60"
-              Start="0,0"
-              End="-92.75,52.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,16.503937007874" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,16.503937007874"
-                    Point2="0,20.503937007874"
-                    Point3="-4,20.503937007874" />
-                  <mssgle:LineSegment
-                    End="-88.75,20.503937007874" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-88.75,20.503937007874"
-                    Point2="-92.75,20.503937007874"
-                    Point3="-92.75,24.503937007874" />
-                  <mssgle:LineSegment
-                    End="-92.75,52.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-121.43138671875,25.503937007874,150.1127734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Load Dim Product.Paths[Derived Column Output4]"
-          TopLeft="232.5,1067.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,60"
-              Start="0,0"
-              End="0,52.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,52.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Load Dim Product.Paths[Derived Column Output3]"
-          TopLeft="89.0000000000001,761.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,60"
-              Start="0,0"
-              End="0,52.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,52.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
         <EdgeLayout
           Id="Package\Load Dim Product.Paths[Derived Column Output2]"
           TopLeft="232.5,557.5">
@@ -15434,64 +15634,6 @@ LEFT JOIN dbo.stg_Countries AS c
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Load Dim Product.Paths[Changing Attribute Updates Output]"
-          TopLeft="282.75,659.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="98.75,60"
-              Start="0,0"
-              End="98.75,52.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,16.503937007874" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,16.503937007874"
-                    Point2="0,20.503937007874"
-                    Point3="4,20.503937007874" />
-                  <mssgle:LineSegment
-                    End="94.75,20.503937007874" />
-                  <mssgle:CubicBezierSegment
-                    Point1="94.75,20.503937007874"
-                    Point2="98.75,20.503937007874"
-                    Point3="98.75,24.503937007874" />
-                  <mssgle:LineSegment
-                    End="98.75,52.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-29.15890625,25.503937007874,157.0678125,11.6630859375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Load Dim Product.Paths[Union All Output 11]"
-          TopLeft="232.5,965.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,60"
-              Start="0,0"
-              End="0,52.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,52.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
           Id="Package\Load Dim Product.Paths[Union All Output 1]"
           TopLeft="232.5,353.5">
           <EdgeLayout.Curve>
@@ -15533,76 +15675,6 @@ LEFT JOIN dbo.stg_Countries AS c
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Load Dim Product.Paths[OLE DB Command Output]"
-          TopLeft="88.5000000000001,863.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="123.666666666667,60"
-              Start="0,0"
-              End="123.666666666667,52.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,31.5623100303951" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,31.5623100303951"
-                    Point2="0,35.5623100303951"
-                    Point3="4,35.5623100303951" />
-                  <mssgle:LineSegment
-                    End="119.666666666667,35.5623100303951" />
-                  <mssgle:CubicBezierSegment
-                    Point1="119.666666666667,35.5623100303951"
-                    Point2="123.666666666667,35.5623100303951"
-                    Point3="123.666666666667,39.5623100303951" />
-                  <mssgle:LineSegment
-                    End="123.666666666667,52.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Load Dim Product.Paths[New Output]"
-          TopLeft="232.5,659.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="20.3333333333334,264"
-              Start="0,0"
-              End="20.3333333333334,256.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,152.474164133739" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,152.474164133739"
-                    Point2="0,156.474164133739"
-                    Point3="4,156.474164133739" />
-                  <mssgle:LineSegment
-                    End="16.3333333333334,156.474164133739" />
-                  <mssgle:CubicBezierSegment
-                    Point1="16.3333333333334,156.474164133739"
-                    Point2="20.3333333333334,156.474164133739"
-                    Point3="20.3333333333334,160.474164133739" />
-                  <mssgle:LineSegment
-                    End="20.3333333333334,256.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-16.9247200520833,161.474164133739,54.1827734375,11.43359375"
-              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -15677,22 +15749,241 @@ LEFT JOIN dbo.stg_Countries AS c
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <NodeLayout
+          Size="163,42"
+          Id="Package\Load Dim Product\Derived Column 1"
+          TopLeft="8.00000000000011,719.5" />
+        <EdgeLayout
+          Id="Package\Load Dim Product.Paths[Historical Attribute Inserts Output]"
+          TopLeft="182.25,659.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-92.75,60"
+              Start="0,0"
+              End="-92.75,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16.503937007874" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,16.503937007874"
+                    Point2="0,20.503937007874"
+                    Point3="-4,20.503937007874" />
+                  <mssgle:LineSegment
+                    End="-88.75,20.503937007874" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-88.75,20.503937007874"
+                    Point2="-92.75,20.503937007874"
+                    Point3="-92.75,24.503937007874" />
+                  <mssgle:LineSegment
+                    End="-92.75,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-121.43138671875,25.503937007874,150.1127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="166,42"
+          Id="Package\Load Dim Product\OLE DB Command"
+          TopLeft="5.50000000000011,821.5" />
+        <EdgeLayout
+          Id="Package\Load Dim Product.Paths[Derived Column Output3]"
+          TopLeft="89.0000000000001,761.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="130,42"
+          Id="Package\Load Dim Product\Union All 1"
+          TopLeft="167.5,923.5" />
+        <EdgeLayout
+          Id="Package\Load Dim Product.Paths[New Output]"
+          TopLeft="232.5,659.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="20.3333333333334,264"
+              Start="0,0"
+              End="20.3333333333334,256.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,152.474164133739" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,152.474164133739"
+                    Point2="0,156.474164133739"
+                    Point3="4,156.474164133739" />
+                  <mssgle:LineSegment
+                    End="16.3333333333334,156.474164133739" />
+                  <mssgle:CubicBezierSegment
+                    Point1="16.3333333333334,156.474164133739"
+                    Point2="20.3333333333334,156.474164133739"
+                    Point3="20.3333333333334,160.474164133739" />
+                  <mssgle:LineSegment
+                    End="20.3333333333334,256.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-16.9247200520833,161.474164133739,54.1827734375,11.43359375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load Dim Product.Paths[OLE DB Command Output]"
+          TopLeft="88.5000000000001,863.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="123.666666666667,60"
+              Start="0,0"
+              End="123.666666666667,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.5623100303951" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,31.5623100303951"
+                    Point2="0,35.5623100303951"
+                    Point3="4,35.5623100303951" />
+                  <mssgle:LineSegment
+                    End="119.666666666667,35.5623100303951" />
+                  <mssgle:CubicBezierSegment
+                    Point1="119.666666666667,35.5623100303951"
+                    Point2="123.666666666667,35.5623100303951"
+                    Point3="123.666666666667,39.5623100303951" />
+                  <mssgle:LineSegment
+                    End="123.666666666667,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="163,42"
+          Id="Package\Load Dim Product\Derived Column 2"
+          TopLeft="150,1026.5" />
+        <EdgeLayout
+          Id="Package\Load Dim Product.Paths[Union All Output 11]"
+          TopLeft="232,965.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,61"
+              Start="0,0"
+              End="0,53.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,53.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="163,42"
+          Id="Package\Load Dim Product\Insert Destination"
+          TopLeft="151,1127.5" />
+        <EdgeLayout
+          Id="Package\Load Dim Product.Paths[Derived Column Output4]"
+          TopLeft="232,1068.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,59"
+              Start="0,0"
+              End="0,51.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,51.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="175,42"
+          Id="Package\Load Dim Product\OLE DB Command 1"
+          TopLeft="294,719.5" />
+        <EdgeLayout
+          Id="Package\Load Dim Product.Paths[Changing Attribute Updates Output]"
+          TopLeft="282.75,659.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="98.75,60"
+              Start="0,0"
+              End="98.75,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16.503937007874" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,16.503937007874"
+                    Point2="0,20.503937007874"
+                    Point3="4,20.503937007874" />
+                  <mssgle:LineSegment
+                    End="94.75,20.503937007874" />
+                  <mssgle:CubicBezierSegment
+                    Point1="94.75,20.503937007874"
+                    Point2="98.75,20.503937007874"
+                    Point3="98.75,24.503937007874" />
+                  <mssgle:LineSegment
+                    End="98.75,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-29.15890625,25.503937007874,157.0678125,11.6630859375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\Load Dim Product\Insert Destination">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\Load Dim Product\Slowly Changing Dimension">
     <Properties>
@@ -15753,7 +16044,7 @@ LEFT JOIN dbo.stg_Countries AS c
       &lt;ChangeType&gt;HistoricalAttribute&lt;/ChangeType&gt;
     &lt;/InputColumnToDBColumn&gt;
     &lt;InputColumnToDBColumn&gt;
-      &lt;IdentificationString&gt;Union All.Outputs[Union All Output 1].Columns[CategoryGender]&lt;/IdentificationString&gt;
+      &lt;IdentificationString&gt;CategoryGender.Outputs[Derived Column Output].Columns[CategoryGender_Transformed]&lt;/IdentificationString&gt;
       &lt;ColumnName&gt;CategoryGender&lt;/ColumnName&gt;
       &lt;KeyType&gt;None&lt;/KeyType&gt;
       &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
@@ -15775,6 +16066,18 @@ LEFT JOIN dbo.stg_Countries AS c
       &lt;ColumnName&gt;ProductID&lt;/ColumnName&gt;
       &lt;KeyType&gt;BusinessKey&lt;/KeyType&gt;
       &lt;ChangeType&gt;None&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Union All.Outputs[Union All Output 1].Columns[ProductVideoID_Final_LKP]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;ProductVideoID&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Union All.Outputs[Union All Output 1].Columns[VideoStatus_LKP]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;VideoStatus&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
     &lt;/InputColumnToDBColumn&gt;
   &lt;/InputToColumnsCollection&gt;
   &lt;GeneratedComponentsIdentificationStrings&gt;
@@ -16174,9 +16477,7 @@ LEFT JOIN dbo.stg_Countries AS c
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -16198,9 +16499,7 @@ LEFT JOIN dbo.stg_Countries AS c
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -16222,9 +16521,7 @@ LEFT JOIN dbo.stg_Countries AS c
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -16282,9 +16579,7 @@ LEFT JOIN dbo.stg_Countries AS c
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -16306,9 +16601,7 @@ LEFT JOIN dbo.stg_Countries AS c
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-8,18.25,16,16"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -16342,9 +16635,7 @@ LEFT JOIN dbo.stg_Countries AS c
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -16591,9 +16882,7 @@ LEFT JOIN dbo.stg_Countries AS c
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -16651,9 +16940,7 @@ LEFT JOIN dbo.stg_Countries AS c
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -16675,9 +16962,7 @@ LEFT JOIN dbo.stg_Countries AS c
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -16803,7 +17088,7 @@ LEFT JOIN dbo.stg_Countries AS c
     design-time-name="Package\Load ProductVideos">
     <LayoutInfo>
       <GraphLayout
-        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="159,42"
           Id="Package\Load ProductVideos\Cache Transform"
@@ -16843,7 +17128,9 @@ LEFT JOIN dbo.stg_Countries AS c
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -16865,7 +17152,9 @@ LEFT JOIN dbo.stg_Countries AS c
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -16887,7 +17176,9 @@ LEFT JOIN dbo.stg_Countries AS c
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -16909,11 +17200,26 @@ LEFT JOIN dbo.stg_Countries AS c
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load Dim Product\Insert Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
 </Objects>]]></DTS:DesignTimeProperties>
 </DTS:Executable>

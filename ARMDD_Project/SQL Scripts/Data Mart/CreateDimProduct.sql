@@ -5,7 +5,7 @@ BEGIN
         ProductID INT NOT NULL,
         Description NVARCHAR(255),
         CategoryName NVARCHAR(255),
-        CategoryGender NCHAR(6),
+        CategoryGender NCHAR(7),
         AvailablePortal BIT,
         BoxName NVARCHAR(255),
         BoxHeight FLOAT,
