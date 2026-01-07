@@ -8,12 +8,12 @@
   DTS:DelayValidation="True"
   DTS:DTSID="{E8183DEC-AE5F-4378-BA98-459C27402F9D}"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="16.0.5685.0"
+  DTS:LastModifiedProductVersion="17.0.1010.2"
   DTS:LocaleID="1033"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="10"
-  DTS:VersionGUID="{7808FBA5-88E8-414C-B233-3C02135BEA93}">
+  DTS:VersionBuild="11"
+  DTS:VersionGUID="{A9645347-DBF7-47BD-8E6A-0CDA78EF8F42}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -21,6 +21,7 @@
     <DTS:Executable
       DTS:refId="Package\Create DM Database and Tables"
       DTS:CreationName="Microsoft.ExecutePackageTask"
+      DTS:DelayValidation="True"
       DTS:Description="Execute Package Task"
       DTS:DTSID="{C4E63BA1-D7D7-4C54-AC3D-098168AD9509}"
       DTS:ExecutableType="Microsoft.ExecutePackageTask"
@@ -38,6 +39,7 @@
     <DTS:Executable
       DTS:refId="Package\Create SA Database, Tables and Load Data"
       DTS:CreationName="Microsoft.ExecutePackageTask"
+      DTS:DelayValidation="True"
       DTS:Description="Execute Package Task"
       DTS:DTSID="{62E1CEF6-B49D-4FDB-A27B-03AD8B4DFBDF}"
       DTS:ExecutableType="Microsoft.ExecutePackageTask"
@@ -55,6 +57,7 @@
     <DTS:Executable
       DTS:refId="Package\Load Business Dimensions"
       DTS:CreationName="Microsoft.ExecutePackageTask"
+      DTS:DelayValidation="True"
       DTS:Description="Execute Package Task"
       DTS:DTSID="{3FF5728B-F583-4F4F-9878-FEC90156EB26}"
       DTS:ExecutableType="Microsoft.ExecutePackageTask"
@@ -72,6 +75,7 @@
     <DTS:Executable
       DTS:refId="Package\Load Fact Tables"
       DTS:CreationName="Microsoft.ExecutePackageTask"
+      DTS:DelayValidation="True"
       DTS:Description="Execute Package Task"
       DTS:DTSID="{F98F5D6D-2ABE-4FA9-BEE3-50B00FE41520}"
       DTS:ExecutableType="Microsoft.ExecutePackageTask"
@@ -89,6 +93,7 @@
     <DTS:Executable
       DTS:refId="Package\Load Temporal Dimension"
       DTS:CreationName="Microsoft.ExecutePackageTask"
+      DTS:DelayValidation="True"
       DTS:Description="Execute Package Task"
       DTS:DTSID="{01C0D499-F0EC-42D0-B57E-7CB6470CFC33}"
       DTS:ExecutableType="Microsoft.ExecutePackageTask"
@@ -162,6 +167,10 @@
           Size="203,42"
           Id="Package\Load Business Dimensions"
           TopLeft="305,268" />
+        <NodeLayout
+          Size="158,42"
+          Id="Package\Load Fact Tables"
+          TopLeft="327,358" />
         <NodeLayout
           Size="201,42"
           Id="Package\Load Temporal Dimension"
@@ -256,10 +265,6 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="158,42"
-          Id="Package\Load Fact Tables"
-          TopLeft="327,358" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 3]"
           TopLeft="406.25,310">
