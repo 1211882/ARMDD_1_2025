@@ -5,14 +5,15 @@
   DTS:CreationName="Microsoft.Package"
   DTS:CreatorComputerName="HUGO"
   DTS:CreatorName="HUGO\hugo7"
+  DTS:DelayValidation="True"
   DTS:DTSID="{A75735C4-FCAB-40B7-AA01-969C355109CF}"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="17.0.1010.2"
+  DTS:LastModifiedProductVersion="16.0.5685.0"
   DTS:LocaleID="2070"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="22"
-  DTS:VersionGUID="{15C63AE7-89FC-42DC-902B-25F05E7A43C7}">
+  DTS:VersionBuild="23"
+  DTS:VersionGUID="{1688FB9C-6E5E-4690-B8A0-774814517E2B}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
