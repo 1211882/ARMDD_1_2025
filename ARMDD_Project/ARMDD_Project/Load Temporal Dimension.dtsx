@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="26"
-  DTS:VersionGUID="{0488DB28-EE64-4F12-A6F3-18F493732613}">
+  DTS:VersionBuild="28"
+  DTS:VersionGUID="{E78E9C44-88B9-46E6-90E5-D4C7FE50D2B3}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -33,6 +33,8 @@
       DTS:CreationName="FLATFILE"
       DTS:DTSID="{692A1E6C-4BED-4504-AA68-FA6A8D76AF16}"
       DTS:ObjectName="CSV Dim Date">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">@[$Project::PackagePath] + "\\Files\\DimDate.csv"</DTS:PropertyExpression>
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:Format="Delimited"
@@ -918,6 +920,15 @@
                       lineageId="Package\Is DimDate Empty?\DimDate.Outputs[OLE DB Source Output].Columns[Weekend]"
                       name="Weekend"
                       truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Is DimDate Empty?\DimDate.Outputs[OLE DB Source Output].Columns[Semester]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Is DimDate Empty?\DimDate.Outputs[OLE DB Source Output].ExternalColumns[Semester]"
+                      lineageId="Package\Is DimDate Empty?\DimDate.Outputs[OLE DB Source Output].Columns[Semester]"
+                      name="Semester"
+                      truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -973,6 +984,10 @@
                       dataType="str"
                       length="20"
                       name="Weekend" />
+                    <externalMetadataColumn
+                      refId="Package\Is DimDate Empty?\DimDate.Outputs[OLE DB Source Output].ExternalColumns[Semester]"
+                      dataType="i4"
+                      name="Semester" />
                   </externalMetadataColumns>
                 </output>
                 <output
@@ -1012,6 +1027,11 @@
                       dataType="i4"
                       lineageId="Package\Is DimDate Empty?\DimDate.Outputs[OLE DB Source Error Output].Columns[Quarter]"
                       name="Quarter" />
+                    <outputColumn
+                      refId="Package\Is DimDate Empty?\DimDate.Outputs[OLE DB Source Error Output].Columns[Semester]"
+                      dataType="i4"
+                      lineageId="Package\Is DimDate Empty?\DimDate.Outputs[OLE DB Source Error Output].Columns[Semester]"
+                      name="Semester" />
                     <outputColumn
                       refId="Package\Is DimDate Empty?\DimDate.Outputs[OLE DB Source Error Output].Columns[Day]"
                       dataType="i4"
@@ -2240,13 +2260,13 @@
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="119,42"
-          Id="Package\Is DimDate Empty?\DimDate"
-          TopLeft="403.999993979931,85.9999987185002" />
-        <NodeLayout
           Size="130,42"
           Id="Package\Is DimDate Empty?\Row Count"
           TopLeft="399.999994039536,185.999997228384" />
+        <NodeLayout
+          Size="119,42"
+          Id="Package\Is DimDate Empty?\DimDate"
+          TopLeft="403.999993979931,85.9999987185002" />
         <EdgeLayout
           Id="Package\Is DimDate Empty?.Paths[OLE DB Source Output]"
           TopLeft="464.199994009733,127.5999987185">

@@ -8,12 +8,12 @@
   DTS:DelayValidation="True"
   DTS:DTSID="{DF869A8F-A9FA-424B-9274-68F7E40A6E1B}"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="16.0.5685.0"
+  DTS:LastModifiedProductVersion="17.0.1010.2"
   DTS:LocaleID="1033"
   DTS:ObjectName="Load Fact Tables"
   DTS:PackageType="5"
-  DTS:VersionBuild="112"
-  DTS:VersionGUID="{5C86C461-DF82-418A-B353-902CDFB91CF3}">
+  DTS:VersionBuild="113"
+  DTS:VersionGUID="{547731DB-B10E-455B-9E03-C29DB21E09D2}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -292,7 +292,7 @@
                   dataType="System.String"
                   description="The SQL command to be executed."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=17.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -430,7 +430,7 @@
                   description="Specifies the SQL statement that generates the lookup table."
                   expressionType="Notify"
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=17.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT
     DateKey,
     CAST(DAY(FullDate) AS varchar(2)) + '/' +
     CAST(MONTH(FullDate) AS varchar(2)) + '/' +
@@ -441,7 +441,7 @@ FROM dbo.DimDate;</property>
                   description="Specifies a SQL statement that uses parameters to generate the lookup table."
                   expressionType="Notify"
                   name="SqlCommandParam"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (SELECT
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=17.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from (SELECT
     DateKey,
     CAST(DAY(FullDate) AS varchar(2)) + '/' +
     CAST(MONTH(FullDate) AS varchar(2)) + '/' +
@@ -600,7 +600,7 @@ where [refTable].[FullDate_DMY] = ?</property>
                   description="Specifies the SQL statement that generates the lookup table."
                   expressionType="Notify"
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=17.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT
     CurrencyKey,
     CAST(CurrencyID AS VARCHAR(10)) AS CurrencyID_Str
 FROM dbo.DimCurrency;</property>
@@ -609,7 +609,7 @@ FROM dbo.DimCurrency;</property>
                   description="Specifies a SQL statement that uses parameters to generate the lookup table."
                   expressionType="Notify"
                   name="SqlCommandParam"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (SELECT
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=17.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from (SELECT
     CurrencyKey,
     CAST(CurrencyID AS VARCHAR(10)) AS CurrencyID_Str
 FROM dbo.DimCurrency;) [refTable]
@@ -766,7 +766,7 @@ where [refTable].[CurrencyID_Str] = ?</property>
                   description="Specifies the SQL statement that generates the lookup table."
                   expressionType="Notify"
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=17.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT
     CurrencyKey,
     CAST(CurrencyID AS VARCHAR(10)) AS CurrencyID_Str
 FROM dbo.DimCurrency;</property>
@@ -775,7 +775,7 @@ FROM dbo.DimCurrency;</property>
                   description="Specifies a SQL statement that uses parameters to generate the lookup table."
                   expressionType="Notify"
                   name="SqlCommandParam"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (SELECT
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=17.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from (SELECT
     CurrencyKey,
     CAST(CurrencyID AS VARCHAR(10)) AS CurrencyID_Str
 FROM dbo.DimCurrency;) [refTable]
@@ -1820,13 +1820,13 @@ where [refTable].[CurrencyID_Str] = ?</property>
                   description="Specifies the SQL statement that generates the lookup table."
                   expressionType="Notify"
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[FactOrderLine]</property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=17.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from [dbo].[FactOrderLine]</property>
                 <property
                   dataType="System.String"
                   description="Specifies a SQL statement that uses parameters to generate the lookup table."
                   expressionType="Notify"
                   name="SqlCommandParam"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[FactOrderLine]) [refTable]
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=17.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from (select * from [dbo].[FactOrderLine]) [refTable]
 where [refTable].[OrderLineID] = ? and [refTable].[OrderID] = ? and [refTable].[DateKey] = ? and [refTable].[CustomerKey] = ? and [refTable].[SiteKey] = ? and [refTable].[ProductKey] = ? and [refTable].[SizeKey] = ? and [refTable].[ShipmentKey] = ? and [refTable].[CurrencyKey] = ?</property>
                 <property
                   dataType="System.Int32"
@@ -2100,7 +2100,7 @@ where [refTable].[OrderLineID] = ? and [refTable].[OrderID] = ? and [refTable].[
                   dataType="System.String"
                   description="The SQL command to be executed."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=17.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -2363,7 +2363,7 @@ where [refTable].[OrderLineID] = ? and [refTable].[OrderID] = ? and [refTable].[
                   dataType="System.String"
                   description="The SQL command to be executed."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=17.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -2583,13 +2583,13 @@ where [refTable].[OrderLineID] = ? and [refTable].[OrderID] = ? and [refTable].[
                   description="Specifies the SQL statement that generates the lookup table."
                   expressionType="Notify"
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[FactOrderLine]</property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=17.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from [dbo].[FactOrderLine]</property>
                 <property
                   dataType="System.String"
                   description="Specifies a SQL statement that uses parameters to generate the lookup table."
                   expressionType="Notify"
                   name="SqlCommandParam"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[FactOrderLine]) [refTable]
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=17.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from (select * from [dbo].[FactOrderLine]) [refTable]
 where [refTable].[OrderLineID] = ? and [refTable].[OrderID] = ? and [refTable].[Quantity] = ? and [refTable].[LineTotal] = ? and [refTable].[ShippingCostAllocated] = ? and [refTable].[Discount] = ? and [refTable].[PromotionDiscount] = ? and [refTable].[TotalLineValue_Local] = ? and [refTable].[DateKey] = ? and [refTable].[CustomerKey] = ? and [refTable].[SiteKey] = ? and [refTable].[ProductKey] = ? and [refTable].[SizeKey] = ? and [refTable].[ShipmentKey] = ? and [refTable].[CurrencyKey] = ?</property>
                 <property
                   dataType="System.Int32"
@@ -2948,7 +2948,7 @@ where [refTable].[OrderLineID] = ? and [refTable].[OrderID] = ? and [refTable].[
                   description="Specifies the SQL statement that generates the lookup table."
                   expressionType="Notify"
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=17.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT
     CustomerKey,
     CustomerID
 FROM dbo.DimCustomer;</property>
@@ -2957,7 +2957,7 @@ FROM dbo.DimCustomer;</property>
                   description="Specifies a SQL statement that uses parameters to generate the lookup table."
                   expressionType="Notify"
                   name="SqlCommandParam"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (SELECT
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=17.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from (SELECT
     CustomerKey,
     CustomerID
 FROM dbo.DimCustomer;) [refTable]
@@ -3112,7 +3112,7 @@ where [refTable].[CustomerID] = ?</property>
                   description="Specifies the SQL statement that generates the lookup table."
                   expressionType="Notify"
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=17.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT
     CurrencyKey,
     CurrencyID
 FROM dbo.DimCurrency;</property>
@@ -3121,7 +3121,7 @@ FROM dbo.DimCurrency;</property>
                   description="Specifies a SQL statement that uses parameters to generate the lookup table."
                   expressionType="Notify"
                   name="SqlCommandParam"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (SELECT
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=17.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from (SELECT
     CurrencyKey,
     CurrencyID
 FROM dbo.DimCurrency;) [refTable]
@@ -3277,7 +3277,7 @@ where [refTable].[CurrencyID] = ?</property>
                   description="Specifies the SQL statement that generates the lookup table."
                   expressionType="Notify"
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=17.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT
     DateKey,
     CONVERT(VARCHAR(10), FullDate, 23) AS FullDate_Str,
     Year,
@@ -3288,7 +3288,7 @@ FROM dbo.DimDate;</property>
                   description="Specifies a SQL statement that uses parameters to generate the lookup table."
                   expressionType="Notify"
                   name="SqlCommandParam"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (SELECT
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=17.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from (SELECT
     DateKey,
     CONVERT(VARCHAR(10), FullDate, 23) AS FullDate_Str,
     Year,
@@ -3475,7 +3475,7 @@ where [refTable].[FullDate_Str] = ?</property>
                   description="Specifies the SQL statement that generates the lookup table."
                   expressionType="Notify"
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=17.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT
     d.Year,
     d.Month,
     fcr.SourceCurrency,
@@ -3488,7 +3488,7 @@ JOIN dbo.DimDate d
                   description="Specifies a SQL statement that uses parameters to generate the lookup table."
                   expressionType="Notify"
                   name="SqlCommandParam"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (SELECT
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=17.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from (SELECT
     d.Year,
     d.Month,
     fcr.SourceCurrency,
@@ -3679,14 +3679,14 @@ where [refTable].[Year] = ? and [refTable].[Month] = ? and [refTable].[SourceCur
                   description="Specifies the SQL statement that generates the lookup table."
                   expressionType="Notify"
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT        ProductKey, ProductID
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=17.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT        ProductKey, ProductID
 FROM            dbo.DimProduct</property>
                 <property
                   dataType="System.String"
                   description="Specifies a SQL statement that uses parameters to generate the lookup table."
                   expressionType="Notify"
                   name="SqlCommandParam"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (SELECT        ProductKey, ProductID
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=17.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from (SELECT        ProductKey, ProductID
 FROM            dbo.DimProduct) [refTable]
 where [refTable].[ProductID] = ?</property>
                 <property
@@ -3839,7 +3839,7 @@ where [refTable].[ProductID] = ?</property>
                   description="Specifies the SQL statement that generates the lookup table."
                   expressionType="Notify"
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=17.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT
     ShipmentKey,
     CountryCode,
     Address,
@@ -3852,7 +3852,7 @@ FROM dbo.DimShipment;</property>
                   description="Specifies a SQL statement that uses parameters to generate the lookup table."
                   expressionType="Notify"
                   name="SqlCommandParam"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (SELECT
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=17.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from (SELECT
     ShipmentKey,
     CountryCode,
     Address,
@@ -4063,7 +4063,7 @@ where [refTable].[CountryCode] = ? and [refTable].[Address] = ? and [refTable].[
                   description="Specifies the SQL statement that generates the lookup table."
                   expressionType="Notify"
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=17.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT
     SiteKey,
     SiteID
 FROM dbo.DimSite;</property>
@@ -4072,7 +4072,7 @@ FROM dbo.DimSite;</property>
                   description="Specifies a SQL statement that uses parameters to generate the lookup table."
                   expressionType="Notify"
                   name="SqlCommandParam"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (SELECT
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=17.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from (SELECT
     SiteKey,
     SiteID
 FROM dbo.DimSite;) [refTable]
@@ -4227,7 +4227,7 @@ where [refTable].[SiteID] = ?</property>
                   description="Specifies the SQL statement that generates the lookup table."
                   expressionType="Notify"
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=17.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT
     SizeKey,
     SizeID
 FROM dbo.DimSize;</property>
@@ -4236,7 +4236,7 @@ FROM dbo.DimSize;</property>
                   description="Specifies a SQL statement that uses parameters to generate the lookup table."
                   expressionType="Notify"
                   name="SqlCommandParam"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (SELECT
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=17.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from (SELECT
     SizeKey,
     SizeID
 FROM dbo.DimSize;) [refTable]
@@ -4402,7 +4402,7 @@ where [refTable].[SizeID] = ?</property>
                   dataType="System.String"
                   description="The SQL command to be executed."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=17.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT
     ol.OrderLineID,
     ol.OrderID,
 
@@ -7585,7 +7585,7 @@ LEFT JOIN dbo.stg_OrdersLinesDetails old
                   description="The SQL command to be executed."
                   expressionType="Notify"
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">UPDATE [dbo].[FactOrderLine]
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=17.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">UPDATE [dbo].[FactOrderLine]
    SET [Quantity] = ?,
        [LineTotal] = ?,
        [Discount] = ?,
@@ -7982,64 +7982,64 @@ LEFT JOIN dbo.stg_OrdersLinesDetails old
               startId="Package\Load FactOrderLine\Add Lookup ProductKey Failure DQP.Outputs[Derived Column Output]" />
             <path
               refId="Package\Load FactOrderLine.Paths[Lookup Error Output7]"
-              endId="Package\Load FactOrderLine\Add Lookup SiteKey Failure DQP.Inputs[Derived Column Input]"
-              name="Lookup Error Output"
-              startId="Package\Load FactOrderLine\Lookup SiteKey.Outputs[Lookup Error Output]" />
-            <path
-              refId="Package\Load FactOrderLine.Paths[Lookup Error Output6]"
-              endId="Package\Load FactOrderLine\Add Lookup SizeKey Failure DQP.Inputs[Derived Column Input]"
-              name="Lookup Error Output"
-              startId="Package\Load FactOrderLine\Lookup SizeKey.Outputs[Lookup Error Output]" />
-            <path
-              refId="Package\Load FactOrderLine.Paths[Lookup Error Output4]"
-              endId="Package\Load FactOrderLine\Add Lookup CostumerKey Failure DQP.Inputs[Derived Column Input]"
-              name="Lookup Error Output"
-              startId="Package\Load FactOrderLine\Lookup CostumerKey.Outputs[Lookup Error Output]" />
-            <path
-              refId="Package\Load FactOrderLine.Paths[Lookup Error Output5]"
-              endId="Package\Load FactOrderLine\Add Lookup DateKey Failure DQP.Inputs[Derived Column Input]"
-              name="Lookup Error Output"
-              startId="Package\Load FactOrderLine\Lookup DateKey.Outputs[Lookup Error Output]" />
-            <path
-              refId="Package\Load FactOrderLine.Paths[Lookup Error Output2]"
-              endId="Package\Load FactOrderLine\Add Lookup ProductKey Failure DQP.Inputs[Derived Column Input]"
-              name="Lookup Error Output"
-              startId="Package\Load FactOrderLine\Lookup ProductKey.Outputs[Lookup Error Output]" />
-            <path
-              refId="Package\Load FactOrderLine.Paths[Lookup Error Output1]"
-              endId="Package\Load FactOrderLine\Add Lookup CurrencyKey Failure DQP.Inputs[Derived Column Input]"
-              name="Lookup Error Output"
-              startId="Package\Load FactOrderLine\Lookup CurrencyKey.Outputs[Lookup Error Output]" />
-            <path
-              refId="Package\Load FactOrderLine.Paths[Lookup Error Output]"
-              endId="Package\Load FactOrderLine\Add Lookup ExchangeRate Failure DQP.Inputs[Derived Column Input]"
-              name="Lookup Error Output"
-              startId="Package\Load FactOrderLine\Lookup ExchangeRate.Outputs[Lookup Error Output]" />
-            <path
-              refId="Package\Load FactOrderLine.Paths[Lookup Error Output3]"
               endId="Package\Load FactOrderLine\Add Lookup ShipmentKey Failure DQP.Inputs[Derived Column Input]"
               name="Lookup Error Output"
               startId="Package\Load FactOrderLine\Lookup ShipmentKey.Outputs[Lookup Error Output]" />
             <path
+              refId="Package\Load FactOrderLine.Paths[Lookup Error Output6]"
+              endId="Package\Load FactOrderLine\Add Lookup ExchangeRate Failure DQP.Inputs[Derived Column Input]"
+              name="Lookup Error Output"
+              startId="Package\Load FactOrderLine\Lookup ExchangeRate.Outputs[Lookup Error Output]" />
+            <path
+              refId="Package\Load FactOrderLine.Paths[Lookup Error Output4]"
+              endId="Package\Load FactOrderLine\Add Lookup ProductKey Failure DQP.Inputs[Derived Column Input]"
+              name="Lookup Error Output"
+              startId="Package\Load FactOrderLine\Lookup ProductKey.Outputs[Lookup Error Output]" />
+            <path
+              refId="Package\Load FactOrderLine.Paths[Lookup Error Output5]"
+              endId="Package\Load FactOrderLine\Add Lookup CurrencyKey Failure DQP.Inputs[Derived Column Input]"
+              name="Lookup Error Output"
+              startId="Package\Load FactOrderLine\Lookup CurrencyKey.Outputs[Lookup Error Output]" />
+            <path
+              refId="Package\Load FactOrderLine.Paths[Lookup Error Output2]"
+              endId="Package\Load FactOrderLine\Add Lookup CostumerKey Failure DQP.Inputs[Derived Column Input]"
+              name="Lookup Error Output"
+              startId="Package\Load FactOrderLine\Lookup CostumerKey.Outputs[Lookup Error Output]" />
+            <path
+              refId="Package\Load FactOrderLine.Paths[Lookup Error Output1]"
+              endId="Package\Load FactOrderLine\Add Lookup SizeKey Failure DQP.Inputs[Derived Column Input]"
+              name="Lookup Error Output"
+              startId="Package\Load FactOrderLine\Lookup SizeKey.Outputs[Lookup Error Output]" />
+            <path
+              refId="Package\Load FactOrderLine.Paths[Lookup Error Output]"
+              endId="Package\Load FactOrderLine\Add Lookup SiteKey Failure DQP.Inputs[Derived Column Input]"
+              name="Lookup Error Output"
+              startId="Package\Load FactOrderLine\Lookup SiteKey.Outputs[Lookup Error Output]" />
+            <path
+              refId="Package\Load FactOrderLine.Paths[Lookup Error Output3]"
+              endId="Package\Load FactOrderLine\Add Lookup DateKey Failure DQP.Inputs[Derived Column Input]"
+              name="Lookup Error Output"
+              startId="Package\Load FactOrderLine\Lookup DateKey.Outputs[Lookup Error Output]" />
+            <path
               refId="Package\Load FactOrderLine.Paths[Lookup Match Output8]"
-              endId="Package\Load FactOrderLine\TotalLineValue_EUR.Inputs[Derived Column Input]"
+              endId="Package\Load FactOrderLine\Lookup ProductKey.Inputs[Lookup Input]"
               name="Lookup Match Output"
-              startId="Package\Load FactOrderLine\Lookup ExchangeRate.Outputs[Lookup Match Output]" />
+              startId="Package\Load FactOrderLine\Lookup SiteKey.Outputs[Lookup Match Output]" />
             <path
               refId="Package\Load FactOrderLine.Paths[Lookup Match Output7]"
-              endId="Package\Load FactOrderLine\Lookup ShipmentKey.Inputs[Lookup Input]"
+              endId="Package\Load FactOrderLine\Lookup.Inputs[Lookup Input]"
               name="Lookup Match Output"
-              startId="Package\Load FactOrderLine\Lookup SizeKey.Outputs[Lookup Match Output]" />
+              startId="Package\Load FactOrderLine\Fact Already Exists?.Outputs[Lookup Match Output]" />
             <path
               refId="Package\Load FactOrderLine.Paths[Lookup Match Output6]"
-              endId="Package\Load FactOrderLine\Lookup CostumerKey.Inputs[Lookup Input]"
+              endId="Package\Load FactOrderLine\Lookup SiteKey.Inputs[Lookup Input]"
               name="Lookup Match Output"
-              startId="Package\Load FactOrderLine\Lookup DateKey.Outputs[Lookup Match Output]" />
+              startId="Package\Load FactOrderLine\Lookup CostumerKey.Outputs[Lookup Match Output]" />
             <path
               refId="Package\Load FactOrderLine.Paths[Lookup Match Output5]"
-              endId="Package\Load FactOrderLine\Lookup ExchangeRate.Inputs[Lookup Input]"
+              endId="Package\Load FactOrderLine\Lookup SizeKey.Inputs[Lookup Input]"
               name="Lookup Match Output"
-              startId="Package\Load FactOrderLine\Lookup CurrencyKey.Outputs[Lookup Match Output]" />
+              startId="Package\Load FactOrderLine\Lookup ProductKey.Outputs[Lookup Match Output]" />
             <path
               refId="Package\Load FactOrderLine.Paths[Lookup Match Output4]"
               endId="Package\Load FactOrderLine\Lookup CurrencyKey.Inputs[Lookup Input]"
@@ -8047,24 +8047,24 @@ LEFT JOIN dbo.stg_OrdersLinesDetails old
               startId="Package\Load FactOrderLine\Lookup ShipmentKey.Outputs[Lookup Match Output]" />
             <path
               refId="Package\Load FactOrderLine.Paths[Lookup Match Output2]"
-              endId="Package\Load FactOrderLine\Lookup SizeKey.Inputs[Lookup Input]"
+              endId="Package\Load FactOrderLine\Lookup CostumerKey.Inputs[Lookup Input]"
               name="Lookup Match Output"
-              startId="Package\Load FactOrderLine\Lookup ProductKey.Outputs[Lookup Match Output]" />
+              startId="Package\Load FactOrderLine\Lookup DateKey.Outputs[Lookup Match Output]" />
             <path
               refId="Package\Load FactOrderLine.Paths[Lookup Match Output1]"
-              endId="Package\Load FactOrderLine\Lookup SiteKey.Inputs[Lookup Input]"
+              endId="Package\Load FactOrderLine\Lookup ShipmentKey.Inputs[Lookup Input]"
               name="Lookup Match Output"
-              startId="Package\Load FactOrderLine\Lookup CostumerKey.Outputs[Lookup Match Output]" />
+              startId="Package\Load FactOrderLine\Lookup SizeKey.Outputs[Lookup Match Output]" />
             <path
               refId="Package\Load FactOrderLine.Paths[Lookup Match Output]"
-              endId="Package\Load FactOrderLine\Lookup.Inputs[Lookup Input]"
+              endId="Package\Load FactOrderLine\TotalLineValue_EUR.Inputs[Derived Column Input]"
               name="Lookup Match Output"
-              startId="Package\Load FactOrderLine\Fact Already Exists?.Outputs[Lookup Match Output]" />
+              startId="Package\Load FactOrderLine\Lookup ExchangeRate.Outputs[Lookup Match Output]" />
             <path
               refId="Package\Load FactOrderLine.Paths[Lookup Match Output3]"
-              endId="Package\Load FactOrderLine\Lookup ProductKey.Inputs[Lookup Input]"
+              endId="Package\Load FactOrderLine\Lookup ExchangeRate.Inputs[Lookup Input]"
               name="Lookup Match Output"
-              startId="Package\Load FactOrderLine\Lookup SiteKey.Outputs[Lookup Match Output]" />
+              startId="Package\Load FactOrderLine\Lookup CurrencyKey.Outputs[Lookup Match Output]" />
             <path
               refId="Package\Load FactOrderLine.Paths[Lookup No Match Output]"
               endId="Package\Load FactOrderLine\FactOrderLines.Inputs[OLE DB Destination Input]"
@@ -8309,7 +8309,7 @@ LEFT JOIN dbo.stg_OrdersLinesDetails old
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:boolean">false</Value>
+          type="q2:string">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -8319,7 +8319,7 @@ LEFT JOIN dbo.stg_OrdersLinesDetails old
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:int">0</Value>
+          type="q4:string">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -8481,9 +8481,7 @@ LEFT JOIN dbo.stg_OrdersLinesDetails old
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -8517,9 +8515,7 @@ LEFT JOIN dbo.stg_OrdersLinesDetails old
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -8553,9 +8549,7 @@ LEFT JOIN dbo.stg_OrdersLinesDetails old
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -8589,9 +8583,7 @@ LEFT JOIN dbo.stg_OrdersLinesDetails old
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -8625,9 +8617,7 @@ LEFT JOIN dbo.stg_OrdersLinesDetails old
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -8661,9 +8651,7 @@ LEFT JOIN dbo.stg_OrdersLinesDetails old
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -8697,9 +8685,7 @@ LEFT JOIN dbo.stg_OrdersLinesDetails old
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -8721,9 +8707,7 @@ LEFT JOIN dbo.stg_OrdersLinesDetails old
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -8745,9 +8729,7 @@ LEFT JOIN dbo.stg_OrdersLinesDetails old
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -8769,9 +8751,7 @@ LEFT JOIN dbo.stg_OrdersLinesDetails old
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -8824,7 +8804,7 @@ LEFT JOIN dbo.stg_OrdersLinesDetails old
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Load FactOrderLine.Paths[Lookup Match Output8]"
-          TopLeft="531,786">
+          TopLeft="529,383">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -8848,73 +8828,73 @@ LEFT JOIN dbo.stg_OrdersLinesDetails old
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Load FactOrderLine.Paths[Lookup Match Output7]"
-          TopLeft="530.5,554">
+          TopLeft="619,923.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,33"
+              EndConnector="125,0"
               Start="0,0"
-              End="0,25.5">
+              End="117.5,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,25.5" />
+                    End="117.5,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-48.19138671875,6.9453125,96.3827734375,11.609375"
+              BoundingBox="10.55861328125,5,96.3827734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Load FactOrderLine.Paths[Lookup Match Output6]"
-          TopLeft="527.5,223">
+          TopLeft="527.25,301">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,36"
+              EndConnector="0,40"
               Start="0,0"
-              End="0,28.5">
+              End="0,32.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,28.5" />
+                    End="0,32.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-48.19138671875,8.4453125,96.3827734375,11.609375"
+              BoundingBox="-48.19138671875,10.4453125,96.3827734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Load FactOrderLine.Paths[Lookup Match Output5]"
-          TopLeft="531.5,700">
+          TopLeft="529.75,469">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,44"
+              EndConnector="0,43"
               Start="0,0"
-              End="0,36.5">
+              End="0,35.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,36.5" />
+                    End="0,35.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-48.19138671875,12.4453125,96.3827734375,11.609375"
+              BoundingBox="-48.19138671875,11.9453125,96.3827734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -8944,7 +8924,7 @@ LEFT JOIN dbo.stg_OrdersLinesDetails old
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Load FactOrderLine.Paths[Lookup Match Output3]"
-          TopLeft="529,383">
+          TopLeft="531.5,700">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -8968,174 +8948,78 @@ LEFT JOIN dbo.stg_OrdersLinesDetails old
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Load FactOrderLine.Paths[Lookup Match Output2]"
-          TopLeft="529.75,469">
+          TopLeft="527.5,223">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,43"
+              EndConnector="0,36"
               Start="0,0"
-              End="0,35.5">
+              End="0,28.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,35.5" />
+                    End="0,28.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-48.19138671875,11.9453125,96.3827734375,11.609375"
+              BoundingBox="-48.19138671875,8.4453125,96.3827734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Load FactOrderLine.Paths[Lookup Match Output1]"
-          TopLeft="527.25,301">
+          TopLeft="530.5,554">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,40"
+              EndConnector="0,33"
               Start="0,0"
-              End="0,32.5">
+              End="0,25.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,32.5" />
+                    End="0,25.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-48.19138671875,10.4453125,96.3827734375,11.609375"
+              BoundingBox="-48.19138671875,6.9453125,96.3827734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Load FactOrderLine.Paths[Lookup Match Output]"
-          TopLeft="619,923.5">
+          TopLeft="531,786">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="125,0"
+              EndConnector="0,44"
               Start="0,0"
-              End="117.5,0">
+              End="0,36.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="117.5,0" />
+                    End="0,36.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="10.55861328125,5,96.3827734375,11.609375"
+              BoundingBox="-48.19138671875,12.4453125,96.3827734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Load FactOrderLine.Paths[Lookup Error Output7]"
-          TopLeft="603,364">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="157,0"
-              Start="0,0"
-              End="149.5,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="149.5,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="28.88361328125,5,91.7327734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Load FactOrderLine.Paths[Lookup Error Output6]"
-          TopLeft="605,533">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="152,0"
-              Start="0,0"
-              End="144.5,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="144.5,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="26.38361328125,5,91.7327734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Load FactOrderLine.Paths[Lookup Error Output5]"
-          TopLeft="606,200">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="155,0"
-              Start="0,0"
-              End="147.5,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="147.5,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="27.88361328125,5,91.7327734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Load FactOrderLine.Paths[Lookup Error Output4]"
-          TopLeft="616,278">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="146,0"
-              Start="0,0"
-              End="138.5,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="138.5,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="23.38361328125,5,91.7327734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Load FactOrderLine.Paths[Lookup Error Output3]"
           TopLeft="621,607">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -9159,55 +9043,7 @@ LEFT JOIN dbo.stg_OrdersLinesDetails old
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Load FactOrderLine.Paths[Lookup Error Output2]"
-          TopLeft="615,447.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="139,0"
-              Start="0,0"
-              End="131.5,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="131.5,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="19.88361328125,5,91.7327734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Load FactOrderLine.Paths[Lookup Error Output1]"
-          TopLeft="619,678">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="134,0"
-              Start="0,0"
-              End="126.5,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="126.5,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="17.38361328125,5,91.7327734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Load FactOrderLine.Paths[Lookup Error Output]"
+          Id="Package\Load FactOrderLine.Paths[Lookup Error Output6]"
           TopLeft="623,765">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -9243,6 +9079,150 @@ LEFT JOIN dbo.stg_OrdersLinesDetails old
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
+          Id="Package\Load FactOrderLine.Paths[Lookup Error Output5]"
+          TopLeft="619,678">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="134,0"
+              Start="0,0"
+              End="126.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="126.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="17.38361328125,5,91.7327734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load FactOrderLine.Paths[Lookup Error Output4]"
+          TopLeft="615,447.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="139,0"
+              Start="0,0"
+              End="131.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="131.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="19.88361328125,5,91.7327734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load FactOrderLine.Paths[Lookup Error Output3]"
+          TopLeft="606,200">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="155,0"
+              Start="0,0"
+              End="147.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="147.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="27.88361328125,5,91.7327734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load FactOrderLine.Paths[Lookup Error Output2]"
+          TopLeft="616,278">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="146,0"
+              Start="0,0"
+              End="138.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="138.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="23.38361328125,5,91.7327734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load FactOrderLine.Paths[Lookup Error Output1]"
+          TopLeft="605,533">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="152,0"
+              Start="0,0"
+              End="144.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="144.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="26.38361328125,5,91.7327734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load FactOrderLine.Paths[Lookup Error Output]"
+          TopLeft="603,364">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="157,0"
+              Start="0,0"
+              End="149.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="149.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="28.88361328125,5,91.7327734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
           Id="Package\Load FactOrderLine.Paths[Derived Column Output8]"
           TopLeft="1004,446.5">
           <EdgeLayout.Curve>
@@ -9261,9 +9241,7 @@ LEFT JOIN dbo.stg_OrdersLinesDetails old
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>

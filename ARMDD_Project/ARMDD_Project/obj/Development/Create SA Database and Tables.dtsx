@@ -12,8 +12,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Create SA Database and Tables"
   DTS:PackageType="5"
-  DTS:VersionBuild="97"
-  DTS:VersionGUID="{C07B22A3-5BBE-4B66-AA08-7C5ADEFB02A3}">
+  DTS:VersionBuild="100"
+  DTS:VersionGUID="{474D3CC8-D411-49E5-A1EA-FE828DF36E5C}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -104,12 +104,14 @@
         DTS:CreationName="Microsoft.ForEachFileEnumerator"
         DTS:DTSID="{CD034BBA-EB57-4FD8-84B5-16529745A10B}"
         DTS:ObjectName="{CD034BBA-EB57-4FD8-84B5-16529745A10B}">
+        <DTS:PropertyExpression
+          DTS:Name="Directory">@[$Project::PackagePath] + "\\SQL Scripts\\Staging Area"</DTS:PropertyExpression>
         <DTS:ObjectData>
           <ForEachFileEnumeratorProperties>
             <FEFEProperty
               Folder="C:\ARMDD_1_2025\ARMDD_Project\SQL Scripts\Staging Area" />
             <FEFEProperty
-              FileSpec="*.sql*" />
+              FileSpec="*.sql" />
             <FEFEProperty
               FileNameRetrievalType="0" />
             <FEFEProperty
@@ -141,8 +143,8 @@
       <DTS:ForEachVariableMappings>
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{148BCB7A-49B6-409E-9047-95F3A54C7038}"
-          DTS:ObjectName="{148BCB7A-49B6-409E-9047-95F3A54C7038}"
+          DTS:DTSID="{22433FA7-FFE4-4A72-8FAD-F514EF4A596B}"
+          DTS:ObjectName="{22433FA7-FFE4-4A72-8FAD-F514EF4A596B}"
           DTS:ValueIndex="0"
           DTS:VariableName="User::SAScriptFilename" />
       </DTS:ForEachVariableMappings>
@@ -8015,7 +8017,7 @@
     design-time-name="Package\Load stg_Customers">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="150,42"
           Id="Package\Load stg_Customers\OLE DB Source"
@@ -8043,9 +8045,7 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>

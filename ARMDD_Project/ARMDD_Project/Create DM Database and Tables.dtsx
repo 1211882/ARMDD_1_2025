@@ -8,12 +8,12 @@
   DTS:DelayValidation="True"
   DTS:DTSID="{A75735C4-FCAB-40B7-AA01-969C355109CF}"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="16.0.5685.0"
+  DTS:LastModifiedProductVersion="17.0.1010.2"
   DTS:LocaleID="2070"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="23"
-  DTS:VersionGUID="{1688FB9C-6E5E-4690-B8A0-774814517E2B}">
+  DTS:VersionBuild="24"
+  DTS:VersionGUID="{1426879F-06A8-4DF4-BF31-F71FA2E30BE8}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -72,6 +72,8 @@
         DTS:CreationName="Microsoft.ForEachFileEnumerator"
         DTS:DTSID="{00771935-d8e0-4de0-935a-3472d3d99cb3}"
         DTS:ObjectName="{CD034BBA-EB57-4FD8-84B5-16529745A10B}">
+        <DTS:PropertyExpression
+          DTS:Name="Directory">@[$Project::PackagePath] + "\\SQL Scripts\\Data Mart"</DTS:PropertyExpression>
         <DTS:ObjectData>
           <ForEachFileEnumeratorProperties>
             <FEFEProperty
@@ -109,8 +111,8 @@
       <DTS:ForEachVariableMappings>
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{8F8E527C-1565-414C-8D48-D4B1B3AD9F1E}"
-          DTS:ObjectName="{8F8E527C-1565-414C-8D48-D4B1B3AD9F1E}"
+          DTS:DTSID="{A82C66BE-4A25-46BD-8B6D-694C74F8EA67}"
+          DTS:ObjectName="{A82C66BE-4A25-46BD-8B6D-694C74F8EA67}"
           DTS:ValueIndex="0"
           DTS:VariableName="User::SaScriptFileName" />
       </DTS:ForEachVariableMappings>
