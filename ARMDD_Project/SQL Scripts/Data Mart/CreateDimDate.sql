@@ -7,6 +7,7 @@ BEGIN
         [Month] INT NOT NULL,
         MonthName VARCHAR(20) NOT NULL,
         [Quarter] INT NOT NULL,
+        Semester INT NOT NULL,
         [Day] INT NOT NULL,
         DayOfWeek VARCHAR(20) NOT NULL,
         Weekend VARCHAR(20) NOT NULL,

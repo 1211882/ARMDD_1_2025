@@ -7,12 +7,12 @@
   DTS:CreatorName="SECOND\diogo"
   DTS:DTSID="{B0D569C7-6440-4488-89C8-ABABBE6CF58A}"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="16.0.5685.0"
+  DTS:LastModifiedProductVersion="17.0.1010.2"
   DTS:LocaleID="1033"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="20"
-  DTS:VersionGUID="{792745B6-8887-47C3-BFAE-9674E92310A9}">
+  DTS:VersionBuild="26"
+  DTS:VersionGUID="{0488DB28-EE64-4F12-A6F3-18F493732613}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -775,7 +775,7 @@
                   dataType="System.String"
                   description="The SQL command to be executed."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=17.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
                 <property
                   dataType="System.String"
                   description="The variable that contains the SQL command to be executed."
@@ -1941,7 +1941,7 @@
                   dataType="System.String"
                   description="The SQL command to be executed."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=17.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -2068,6 +2068,14 @@
                       cachedName="Weekend"
                       externalMetadataColumnId="Package\Load Dim Date\Dim Date.Inputs[OLE DB Destination Input].ExternalColumns[Weekend]"
                       lineageId="Package\Load Dim Date\CSV DimDate.Outputs[Flat File Source Output].Columns[Weekend]" />
+                    <inputColumn
+                      refId="Package\Load Dim Date\Dim Date.Inputs[OLE DB Destination Input].Columns[Half_Year_Of_Year]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Half_Year_Of_Year"
+                      externalMetadataColumnId="Package\Load Dim Date\Dim Date.Inputs[OLE DB Destination Input].ExternalColumns[Semester]"
+                      lineageId="Package\Load Dim Date\CSV DimDate.Outputs[Flat File Source Output].Columns[Half_Year_Of_Year]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -2123,6 +2131,10 @@
                       dataType="str"
                       length="20"
                       name="Weekend" />
+                    <externalMetadataColumn
+                      refId="Package\Load Dim Date\Dim Date.Inputs[OLE DB Destination Input].ExternalColumns[Semester]"
+                      dataType="i4"
+                      name="Semester" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -2226,7 +2238,7 @@
     design-time-name="Package\Is DimDate Empty?">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="119,42"
           Id="Package\Is DimDate Empty?\DimDate"
@@ -2254,9 +2266,7 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
